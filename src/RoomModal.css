@@ -1,0 +1,34 @@
+#modal{
+    overflow: hidden;
+    padding : 5px;
+}
+#modaltitle{
+    float: left;
+    width: 150px;
+    height: 30px;
+}
+#input{
+    float: right;
+    width: 50%;
+    height: 30px;
+}
+#hour, #min{
+    width: 30%;
+    float: left;
+    height: 30px;
+}
+h4{
+    width: 20%;
+    float: left;
+    height: 30px;
+    text-align: left;
+    padding-left: 10px;
+    padding-top : 2px;
+}
+
+p{
+    font-size: 15px;
+    padding-left: 30px;
+    margin-bottom: 0;
+    opacity: 0.7;
+}
