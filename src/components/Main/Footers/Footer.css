@@ -1,0 +1,24 @@
+#container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    color: #ACACAC;
+    height: 100%;
+}
+
+#left #top{
+    font-size: 1.5vh;
+    font-size: 1.5vw;
+    font-weight: bold;
+    color: #8081BA;
+}
+#left #bottom{
+    font-size: 0.8vh;
+    font-size: 0.8vw;
+}
+
+#right{
+    font-size: 1vh;
+    font-size: 1vw;
+}
