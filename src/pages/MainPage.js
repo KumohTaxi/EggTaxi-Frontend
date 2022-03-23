@@ -1,7 +1,7 @@
-import Navbars from "../components/Main/Bars/Navbars";
-import Map from "../components/Main/Maps/Map";
-import Footer from "../components/Main/Footers/Footer";
-import minFooter from "../components/Main/Footers/minFooter";
+import Navbars from "../components/Bars/Navbars";
+import Map from "../components/Maps/Map";
+import Footer from "../components/Footers/Footer";
+import minFooter from "../components/Footers/minFooter";
 import './MainPage.css';
 import { useMediaQuery } from "react-responsive"
 
