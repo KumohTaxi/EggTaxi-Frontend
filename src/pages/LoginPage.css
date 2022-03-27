@@ -1,0 +1,29 @@
+#loginmain{
+    background-color: #212428;
+    height: 100vh;
+    padding-top: 3vh;
+}
+
+.logintop{
+    padding-top: 5vmin;
+    display: flex;
+    justify-content: center;
+}
+
+.loginLogo{
+    width: 30vmin;
+    max-width: 400px;
+}
+
+.loginmiddle{
+    display: flex;
+    justify-content: center;
+}
+
+.LoginForm{
+    background-color: #f2efe9;
+    padding: 15px;
+    width: 85vmin;
+    max-width: 500px;
+    border-radius: 10px/ 10px;
+}

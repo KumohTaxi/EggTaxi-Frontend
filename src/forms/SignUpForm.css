@@ -1,0 +1,37 @@
+.SignUpHead{
+    display: flex;
+    justify-content: center;
+}
+
+h3{
+    font-weight: bold;
+    color: #4A4A4A;
+    font-size: 5vmin;
+}
+
+.IDInputLine{
+    display: flex;
+}
+
+.Answer{
+    font-size: 4vmin;
+} 
+
+.IDButton{
+    width: 30vw;
+    font-size: 3vmin;
+}
+
+.SubmitButton{
+    font-size: 4vmin;
+}
+
+.Input{
+    font-size: 3vmin;
+}
+
+.SignUpBottom{
+    display: flex;
+    justify-content: center;
+}
+

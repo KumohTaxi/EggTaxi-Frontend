@@ -8,10 +8,10 @@ import { useMediaQuery } from "react-responsive"
 const MainPage=()=>{
     const isPc = useMediaQuery({
         query : "(min-width:351px)"
-      });
-      const isMobile = useMediaQuery({
-        query : "(max-width:350px)"
-      });
+    });
+    const isMobile = useMediaQuery({
+    query : "(max-width:350px)"
+    });
 
     return(
         <div id='Main'>
@@ -26,8 +26,7 @@ const MainPage=()=>{
                 {isMobile && minFooter()}
             </div>
         </div>
-        
-    )
+    );
 }
 
-export default MainPage
+export default MainPage;

@@ -1,21 +1,33 @@
 import {Navbar, Nav, Container} from 'react-bootstrap';
 import './Navbars.css';
+import React from 'react'
+import CheckModal from '../../modals/CheckModal';
+import MyModal from '../../modals/MyModal';
 
 const Navbars=()=>{
+    const [checkShow, setcheckShow] = React.useState(false);
+
     return(
-        <Navbar bg="dark" variant="dark" style={{fontWeight: "bold"}}>
-            <Container id='container'>
-                <Navbar.Brand>
-                    <img className='Logo' src="imgs/Taxi-Logo.png"
-                    style={{width: "60px", height: "60px"}}/>
-                </Navbar.Brand>
-                <Nav className="me-auto">
-                    <Nav.Link>Make</Nav.Link>
-                    <Nav.Link>My</Nav.Link>
-                    <Nav.Link>Setting</Nav.Link>
-                </Nav>
-            </Container>
-        </Navbar>
+        <div>
+            <Navbar bg="dark" variant="dark" style={{fontWeight: "bold"}}>
+                <Container id='container'>
+                    <Navbar.Brand>
+                        <img className='Logo' src="imgs/Taxi-Logo.png"
+                        style={{width: "60px", height: "60px"}}/>
+                    </Navbar.Brand>
+                    <Nav className="me-auto">
+                        <Nav.Link onClick={() => setcheckShow(true)}>Make</Nav.Link>
+                        <Nav.Link>My</Nav.Link>
+                        <Nav.Link href="/Setting">Setting</Nav.Link>
+                    </Nav>
+                </Container>
+            </Navbar>
+
+            <CheckModal
+                show={checkShow}
+                onHide={() => setcheckShow(false)}
+            />
+        </div>
     )
 }
 

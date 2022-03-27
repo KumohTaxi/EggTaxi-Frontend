@@ -1,0 +1,17 @@
+.MakeDate, .MakeTime, .MakeDestination, .MakeOther,
+.subcontent, .genderchoice, .choiceHour, .choiceMinute{
+    display: flex;
+    flex-direction: row;
+}
+
+.subtitle{
+    width: 13%;
+}
+
+.MakeDate, .MakeTime, .MakeDestination, .MakeOther{
+    margin-bottom: 10px;
+}
+
+.subcontent, .otherContent{
+    margin-left: 10px;
+}

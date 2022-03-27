@@ -1,0 +1,30 @@
+.signupmain{
+    background-color: #212428;
+    height: 100vh;
+    padding-top: 3vh;
+}
+
+.signuptop{
+    padding-top: 1vh;
+    display: flex;
+    justify-content: center;
+}
+
+.signupLogo{
+    width: 10vw;
+    min-width: 100px;
+    max-width: 300px;
+}
+
+.signupmiddle{
+    display: flex;
+    justify-content: center;
+}
+
+.SignUpForm{
+    background-color: #f2efe9;
+    padding: 15px;
+    width: 85vw;
+    max-width: 500px;
+    border-radius: 10px/ 10px;
+}
