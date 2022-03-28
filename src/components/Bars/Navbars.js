@@ -6,6 +6,7 @@ import MyModal from '../../modals/MyModal';
 
 const Navbars=()=>{
     const [checkShow, setcheckShow] = React.useState(false);
+    const [MyShow, setMyShow] = React.useState(false);
 
     return(
         <div>
@@ -17,7 +18,7 @@ const Navbars=()=>{
                     </Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link onClick={() => setcheckShow(true)}>Make</Nav.Link>
-                        <Nav.Link>My</Nav.Link>
+                        <Nav.Link onClick={() => setMyShow(true)}>My</Nav.Link>
                         <Nav.Link href="/Setting">Setting</Nav.Link>
                     </Nav>
                 </Container>
@@ -26,6 +27,11 @@ const Navbars=()=>{
             <CheckModal
                 show={checkShow}
                 onHide={() => setcheckShow(false)}
+            />
+
+            <MyModal
+                show={MyShow}
+                onHide={() => setMyShow(false)}
             />
         </div>
     )

@@ -1,20 +1,46 @@
 import {Modal, Button, Form, Badge} from 'react-bootstrap';
 import './MakeModal.css';
 import React, { useState } from 'react';
+import { getValue } from '@testing-library/user-event/dist/utils';
+import { toHaveFormValues, toHaveValue } from '@testing-library/jest-dom/dist/matchers';
 
 const MakeModal=(props)=>{
-
     var todayDate = new Date();
     const [today, settoday] = useState(todayDate);
     const [checkHidden, setcheckHidden] = useState(false);
 
+    const [Year, setYear] = useState(today.getFullYear());
+    const [Month, setMonth] = useState(today.getMonth()+1);
+    const [Day, setDay] = useState(today.getDate());
+    const [Hour, setHour] = useState(today.getHours());
+    const [Minute, setMinute] = useState((parseInt(today.getMinutes()/10+1)*10).toString());
+    const [Destination, setDestination] = useState("");
+    const [Auth, setAuth] = useState("NO");
+    const [Gender, setGender] = useState("");
+
     const goToday=()=>{
         settoday(todayDate);
+        setYear(today.getFullYear());
+        setMonth(today.getMonth()+1);
+        setDay(today.getDate());
     }
 
     const goTomorrow=()=>{
         var tomorrow = new Date(todayDate.setDate(todayDate.getDate() + 1));
         settoday(tomorrow);
+        setYear(today.getFullYear());
+        setMonth(today.getMonth()+1);
+        setDay(today.getDate());
+    };
+
+    const CheckANY=()=>{
+        setGender("ANY")
+    };
+    const CheckMALE=()=>{
+        setGender("MALE")
+    };
+    const CheckFEMALE=()=>{
+        setGender("FEMALE")
     };
 
     const FormCheck=()=>{
@@ -28,6 +54,7 @@ const MakeModal=(props)=>{
                         <div key={`inline-${type}`} className="mb-3">
                         <Form.Check
                             inline
+                            onClick={CheckANY}
                             label="상관없음"
                             name="group1"
                             type={type}
@@ -35,6 +62,7 @@ const MakeModal=(props)=>{
                         />
                         <Form.Check
                             inline
+                            onClick={CheckMALE}
                             label="남자만"
                             name="group1"
                             type={type}
@@ -42,6 +70,7 @@ const MakeModal=(props)=>{
                         />
                         <Form.Check
                             inline
+                            onClick={CheckFEMALE}
                             label="여자만"
                             name='group1'
                             type={type}
@@ -74,7 +103,7 @@ const MakeModal=(props)=>{
                     </div>
                     <div className="vr" />
                     <div className='subcontent'>
-                        <Badge id='todaydate' bg="light" text="dark">{today.getFullYear()}년 {today.getMonth()+1}월 {today.getDate()}일</Badge>
+                        <Badge id='todaydate' bg="light" text="dark">{Year}년 {Month}월 {Day}일</Badge>
                         <div className='buttonDate'>
                             <Button variant="outline-dark" className='buttonDateLeft' onClick={goToday}>오늘</Button>
                             <Button variant="outline-dark" className='buttonDateRight' onClick={goTomorrow}>내일</Button>
@@ -88,18 +117,11 @@ const MakeModal=(props)=>{
                     <div className="vr" />
                     <div className='subcontent'>
                         <div className='choiceHour'>
-                            <Form.Control className='inputHour' placeholder={today.getHours()}/>
+                            <Form.Control className='inputHour' placeholder={Hour} onChange={(event)=> setHour(event.target.value)}/>
                             <Badge className='timeP' bg='light' text='dark'>시</Badge>
                         </div>
                         <div className='choiceMinute'>
-                            <Form.Select className='inputMinute' defaultValue={(parseInt(today.getMinutes()/10+1)*10).toString()}>
-                                <option>0</option>
-                                <option>10</option>
-                                <option>20</option>
-                                <option>30</option>
-                                <option>40</option>
-                                <option>50</option>
-                            </Form.Select>
+                            <Form.Control className='inputMinute' placeholder={Minute} onChange={(event)=> setMinute(event.target.value)}/>
                             <Badge className='timeP' bg='light' text='dark'>분</Badge>
                         </div>
                     </div>
@@ -110,7 +132,7 @@ const MakeModal=(props)=>{
                     </div>
                     <div className="vr" />
                     <div className='subcontent'> 
-                        <Form.Control className='inputDestination' placeholder="EX) 구미역 후문"/>
+                        <Form.Control className='inputDestination' placeholder="EX) 구미역 후문" onChange={(event)=> setDestination(event.target.value)}/>
                     </div>
                 </div>
                 <div className='MakeOther'>
@@ -124,7 +146,10 @@ const MakeModal=(props)=>{
                                 type="switch"
                                 id="custom-switch"
                                 label="학교인증 여부"
-                                onChange={()=>{setcheckHidden(!checkHidden)}}
+                                onChange={()=>{
+                                    setcheckHidden(!checkHidden);
+                                    Auth === "YES" ? setAuth("NO") : setAuth("YES");
+                                }}
                             />
                         </div>
                         {checkHidden && <FormCheck />}
