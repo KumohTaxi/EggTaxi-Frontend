@@ -19,7 +19,6 @@ const Navbars=()=>{
                     <Nav className="me-auto">
                         <Nav.Link onClick={() => setcheckShow(true)}>Make</Nav.Link>
                         <Nav.Link onClick={() => setMyShow(true)}>My</Nav.Link>
-                        <Nav.Link href="/Setting">Setting</Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>

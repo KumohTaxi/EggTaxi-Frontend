@@ -6,31 +6,28 @@ import { toHaveFormValues, toHaveValue } from '@testing-library/jest-dom/dist/ma
 
 const MakeModal=(props)=>{
     var todayDate = new Date();
-    const [today, settoday] = useState(todayDate);
+    var tomorrowDate = new Date(todayDate.setDate(todayDate.getDate() + 1));
     const [checkHidden, setcheckHidden] = useState(false);
 
-    const [Year, setYear] = useState(today.getFullYear());
-    const [Month, setMonth] = useState(today.getMonth()+1);
-    const [Day, setDay] = useState(today.getDate());
-    const [Hour, setHour] = useState(today.getHours());
-    const [Minute, setMinute] = useState((parseInt(today.getMinutes()/10+1)*10).toString());
+    const [Year, setYear] = useState(todayDate.getFullYear());
+    const [Month, setMonth] = useState(todayDate.getMonth()+1);
+    const [Day, setDay] = useState(todayDate.getDate());
+    const [Hour, setHour] = useState(todayDate.getHours());
+    const [Minute, setMinute] = useState((parseInt(todayDate.getMinutes()/10+1)*10).toString());
     const [Destination, setDestination] = useState("");
     const [Auth, setAuth] = useState("NO");
     const [Gender, setGender] = useState("");
 
     const goToday=()=>{
-        settoday(todayDate);
-        setYear(today.getFullYear());
-        setMonth(today.getMonth()+1);
-        setDay(today.getDate());
+        setYear(todayDate.getFullYear());
+        setMonth(todayDate.getMonth()+1);
+        setDay(todayDate.getDate());
     }
 
     const goTomorrow=()=>{
-        var tomorrow = new Date(todayDate.setDate(todayDate.getDate() + 1));
-        settoday(tomorrow);
-        setYear(today.getFullYear());
-        setMonth(today.getMonth()+1);
-        setDay(today.getDate());
+        setYear(tomorrowDate.getFullYear());
+        setMonth(tomorrowDate.getMonth()+1);
+        setDay(tomorrowDate.getDate());
     };
 
     const CheckANY=()=>{
@@ -159,7 +156,11 @@ const MakeModal=(props)=>{
 
             <Modal.Footer style={{backgroundColor: "#FFFCEE"}}>
                 <Button className='MakeButtonLeft' onClick={props.onHide}>Cancel</Button>
-                <Button className='MakeButtonRight' onClick={props.onHide}>Make</Button>
+                <Button className='MakeButtonRight' onClick={()=>{
+                    props.onHide();
+                    console.log(Year+"\n"+Month+"\n"+Day+"\n"+Hour+"\n"+Minute
+                    +"\n"+Destination+"\n"+Auth+"\n"+Gender);
+                    }}>Make</Button>
             </Modal.Footer>
         </Modal>
     );
