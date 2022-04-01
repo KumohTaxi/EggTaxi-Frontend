@@ -18,7 +18,7 @@ const SignUpForm=()=>{
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label className='Answer'>Password를 입력해주세요.</Form.Label>
+                <Form.Label className='Answer'>Password를 입력해주세요.</Form.Label >
                 <Form.Control className='Input' type="password" placeholder="Password" />
                 <Form.Label className='Answer'>Password를 다시 한 번 입력해주세요.</Form.Label>
                 <Form.Control className='Input' type="password" placeholder="Password" />

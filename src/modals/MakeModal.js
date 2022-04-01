@@ -6,7 +6,7 @@ import { toHaveFormValues, toHaveValue } from '@testing-library/jest-dom/dist/ma
 
 const MakeModal=(props)=>{
     var todayDate = new Date();
-    var tomorrowDate = new Date(todayDate.setDate(todayDate.getDate() + 1));
+    
     const [checkHidden, setcheckHidden] = useState(false);
 
     const [Year, setYear] = useState(todayDate.getFullYear());
@@ -15,70 +15,75 @@ const MakeModal=(props)=>{
     const [Hour, setHour] = useState(todayDate.getHours());
     const [Minute, setMinute] = useState((parseInt(todayDate.getMinutes()/10+1)*10).toString());
     const [Destination, setDestination] = useState("");
-    const [Auth, setAuth] = useState("NO");
-    const [Gender, setGender] = useState("");
+    // const [Auth, setAuth] = useState("NO");
+    // const [Gender, setGender] = useState("");
 
     const goToday=()=>{
-        setYear(todayDate.getFullYear());
-        setMonth(todayDate.getMonth()+1);
-        setDay(todayDate.getDate());
+        if(Day !== todayDate.getDate()){
+            setYear(todayDate.getFullYear());
+            setMonth(todayDate.getMonth()+1);
+            setDay(todayDate.getDate());
+        }
     }
 
     const goTomorrow=()=>{
-        setYear(tomorrowDate.getFullYear());
-        setMonth(tomorrowDate.getMonth()+1);
-        setDay(tomorrowDate.getDate());
+        if(Day === todayDate.getDate()){
+            var tomorrowDate = new Date(todayDate.setDate(todayDate.getDate() + 1));
+            setYear(tomorrowDate.getFullYear());
+            setMonth(tomorrowDate.getMonth()+1);
+            setDay(tomorrowDate.getDate());
+        }
     };
 
-    const CheckANY=()=>{
-        setGender("ANY")
-    };
-    const CheckMALE=()=>{
-        setGender("MALE")
-    };
-    const CheckFEMALE=()=>{
-        setGender("FEMALE")
-    };
+    // const CheckANY=()=>{
+    //     setGender("ANY")
+    // };
+    // const CheckMALE=()=>{
+    //     setGender("MALE")
+    // };
+    // const CheckFEMALE=()=>{
+    //     setGender("FEMALE")
+    // };
 
-    const FormCheck=()=>{
-        return(
-            <div className='genderchoice'>
-                <p className='genderP'>
-                    성별 여부
-                </p>
-                <Form className='formchecks'>
-                    {['radio'].map((type) => (
-                        <div key={`inline-${type}`} className="mb-3">
-                        <Form.Check
-                            inline
-                            onClick={CheckANY}
-                            label="상관없음"
-                            name="group1"
-                            type={type}
-                            id={`inline-${type}-1`}
-                        />
-                        <Form.Check
-                            inline
-                            onClick={CheckMALE}
-                            label="남자만"
-                            name="group1"
-                            type={type}
-                            id={`inline-${type}-2`}
-                        />
-                        <Form.Check
-                            inline
-                            onClick={CheckFEMALE}
-                            label="여자만"
-                            name='group1'
-                            type={type}
-                            id={`inline-${type}-3`}
-                        />
-                        </div>
-                    ))}
-                </Form>
-            </div>
-        );
-    };
+    // const FormCheck=()=>{
+    //     return(
+    //         <div className='genderchoice'>
+    //             <p className='genderP'>
+    //                 성별 여부
+    //             </p>
+    //             <Form className='formchecks'>
+    //                 {['radio'].map((type) => (
+    //                     <div key={`inline-${type}`} className="mb-3">
+    //                     <Form.Check
+    //                         inline
+    //                         onClick={CheckANY}
+    //                         label="상관없음"
+    //                         name="group1"
+    //                         type={type}
+    //                         id={`inline-${type}-1`}
+    //                     />
+    //                     <Form.Check
+    //                         inline
+    //                         onClick={CheckMALE}
+    //                         label="남자만"
+    //                         name="group1"
+    //                         type={type}
+    //                         id={`inline-${type}-2`}
+    //                     />
+    //                     <Form.Check
+    //                         inline
+    //                         onClick={CheckFEMALE}
+    //                         label="여자만"
+    //                         name='group1'
+    //                         type={type}
+    //                         id={`inline-${type}-3`}
+    //                     />
+    //                     </div>
+    //                 ))}
+    //             </Form>
+    //         </div>
+    //     );
+    // };
 
     return(
         <Modal
@@ -132,7 +137,7 @@ const MakeModal=(props)=>{
                         <Form.Control className='inputDestination' placeholder="EX) 구미역 후문" onChange={(event)=> setDestination(event.target.value)}/>
                     </div>
                 </div>
-                <div className='MakeOther'>
+                {/* <div className='MakeOther'>
                     <div className='subtitle' style={{whiteSpace: "pre-wrap"}}>
                         참가자{"\n"}설정
                     </div>
@@ -151,7 +156,7 @@ const MakeModal=(props)=>{
                         </div>
                         {checkHidden && <FormCheck />}
                     </div>               
-                </div>
+                </div> */}
             </Modal.Body>
 
             <Modal.Footer style={{backgroundColor: "#FFFCEE"}}>
@@ -159,7 +164,7 @@ const MakeModal=(props)=>{
                 <Button className='MakeButtonRight' onClick={()=>{
                     props.onHide();
                     console.log(Year+"\n"+Month+"\n"+Day+"\n"+Hour+"\n"+Minute
-                    +"\n"+Destination+"\n"+Auth+"\n"+Gender);
+                    +"\n"+Destination);
                     }}>Make</Button>
             </Modal.Footer>
         </Modal>
