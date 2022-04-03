@@ -6,6 +6,7 @@ import './MainPage.css';
 import { useMediaQuery } from "react-responsive"
 
 const MainPage=()=>{
+
     const isPc = useMediaQuery({
         query : "(min-width:351px)"
     });

@@ -8,13 +8,13 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 function App() {
 
   return (
-    <div className="App">
-      <Router>
-        <Route className= "LoginPage" path="/" component={LoginPage} exact={true}/>
-        <Route className= "MainPage" path="/Main" component={MainPage}/>
-        <Route className= "SignUpPage" path="/SignUp" component={SignUpPage}/>
-      </Router>
-    </div>
+      <div className="App">
+        <Router>
+          <Route className= "LoginPage" path="/" component={LoginPage} exact={true}/>
+          <Route className= "MainPage" path="/Main" component={MainPage}/>
+          <Route className= "SignUpPage" path="/SignUp" component={SignUpPage}/>
+        </Router>
+      </div>
   );
 }
 
