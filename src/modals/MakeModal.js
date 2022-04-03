@@ -1,13 +1,9 @@
 import {Modal, Button, Form, Badge} from 'react-bootstrap';
 import './MakeModal.css';
 import React, { useState } from 'react';
-import { getValue } from '@testing-library/user-event/dist/utils';
-import { toHaveFormValues, toHaveValue } from '@testing-library/jest-dom/dist/matchers';
 
 const MakeModal=(props)=>{
     var todayDate = new Date();
-    
-    const [checkHidden, setcheckHidden] = useState(false);
 
     const [Year, setYear] = useState(todayDate.getFullYear());
     const [Month, setMonth] = useState(todayDate.getMonth()+1);
@@ -25,7 +21,6 @@ const MakeModal=(props)=>{
             setDay(todayDate.getDate());
         }
     }
-
     const goTomorrow=()=>{
         if(Day === todayDate.getDate()){
             var tomorrowDate = new Date(todayDate.setDate(todayDate.getDate() + 1));
@@ -34,6 +29,16 @@ const MakeModal=(props)=>{
             setDay(tomorrowDate.getDate());
         }
     };
+
+    const exceptionTime=()=>{
+        if(parseInt(Hour) >= 10 && parseInt(Hour) <= 22 && parseInt(Minute) >= 0 && parseInt(Minute) <= 59){
+            props.onHide();
+            console.log(Year+"\n"+Month+"\n"+Day+"\n"+Hour+"\n"+Minute+"\n"+Destination);
+        }
+        else{
+            alert("시간을 알맞은 범위 내로 설정해주세요.");
+        }
+    }
 
     // const CheckANY=()=>{
     //     setGender("ANY")
@@ -161,11 +166,7 @@ const MakeModal=(props)=>{
 
             <Modal.Footer style={{backgroundColor: "#FFFCEE"}}>
                 <Button className='MakeButtonLeft' onClick={props.onHide}>Cancel</Button>
-                <Button className='MakeButtonRight' onClick={()=>{
-                    props.onHide();
-                    console.log(Year+"\n"+Month+"\n"+Day+"\n"+Hour+"\n"+Minute
-                    +"\n"+Destination);
-                    }}>Make</Button>
+                <Button className='MakeButtonRight' onClick={exceptionTime}>Make</Button>
             </Modal.Footer>
         </Modal>
     );
