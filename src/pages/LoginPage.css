@@ -16,12 +16,13 @@
 }
 
 .loginmiddle{
+    margin-top: 10vh;
     display: flex;
     justify-content: center;
 }
 
 .LoginForm{
-    background-color: #f2efe9;
+    background-color: #212428;
     padding: 15px;
     width: 85vmin;
     max-width: 500px;

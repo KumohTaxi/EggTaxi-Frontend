@@ -1,16 +1,12 @@
-.ButtonGroup{
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-.loginlabel{
-    font-size: 4vmin;
-}
-
-.logininput{
-    font-size: 4vmin;
-}
-
 .loginbutton{
     font-size: 4vmin;
+    margin: 3px;
+    margin-right: 7px;
+    margin-left: 7px;
+    margin-top: 5px;
+}
+
+.buttonGroup{
+    display: flex;
+    flex-direction: column;
 }
