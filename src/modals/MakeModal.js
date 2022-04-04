@@ -1,8 +1,11 @@
 import {Modal, Button, Form, Badge} from 'react-bootstrap';
 import './MakeModal.css';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { MakeContext } from '../contexts/MakeContext';
 
 const MakeModal=(props)=>{
+    const {isMake, setIsMake} = useContext(MakeContext);
+
     var todayDate = new Date();
 
     const [Year, setYear] = useState(todayDate.getFullYear());
@@ -34,6 +37,7 @@ const MakeModal=(props)=>{
         if(parseInt(Hour) >= 10 && parseInt(Hour) <= 22 && parseInt(Minute) >= 0 && parseInt(Minute) <= 59){
             props.onHide();
             console.log(Year+"\n"+Month+"\n"+Day+"\n"+Hour+"\n"+Minute+"\n"+Destination);
+            setIsMake(!isMake);
         }
         else{
             alert("시간을 알맞은 범위 내로 설정해주세요.");

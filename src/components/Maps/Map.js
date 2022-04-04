@@ -1,14 +1,16 @@
 /*global kakao*/ 
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
+import { LatLngContext } from '../../contexts/LatLngContexts';
+import { MakeContext } from '../../contexts/MakeContext';
 
 const Map = () =>{
-    var Lat;
-    var Lng;
+    const { isLatLng, setIsLatLng } = useContext(LatLngContext);
+    const { isMake } = useContext(MakeContext);
 
     useEffect(()=>{
         var mapContainer = document.getElementById('map'); // 지도를 표시할 div  
         var mapOption = { 
-            center: new kakao.maps.LatLng(36.142410487698, 128.39430145218606), // 지도의 중심좌표
+            center: new kakao.maps.LatLng(isLatLng[0], isLatLng[1]), // 지도의 중심좌표
             level: 4 // 지도의 확대 레벨
         };
 
@@ -16,10 +18,7 @@ const Map = () =>{
         
         // 지도를 클릭했을때 클릭한 위치에 마커를 추가하도록 지도에 클릭이벤트를 등록합니다
         kakao.maps.event.addListener(map, 'click', function(mouseEvent) { 
-            Lat = mouseEvent.latLng.getLat();
-            Lng = mouseEvent.latLng.getLng();
-            console.log(Lat, Lng);
-            
+            setIsLatLng([mouseEvent.latLng.getLat(), mouseEvent.latLng.getLng()]);
             // 클릭한 위치에 마커를 표시합니다 
             addMarker(mouseEvent.latLng);     
         });
@@ -28,7 +27,7 @@ const Map = () =>{
         var markers = [];
 
         // 마커 하나를 지도위에 표시합니다 
-        addMarker(new kakao.maps.LatLng(33.450701, 126.570667));
+        addMarker(new kakao.maps.LatLng(isLatLng[0], isLatLng[1]));
 
         // 마커를 생성하고 지도위에 표시하는 함수입니다
         function addMarker(position) {
@@ -57,9 +56,7 @@ const Map = () =>{
         function hideMarkers() {
             setMarkers(null);    
         }
-    }, []);
-
-    
+    }, [isMake]);
 
     return (
         <div id="map" style={{height: "100%"}}></div> 
