@@ -2,9 +2,11 @@ import {Modal, Button, Form, Badge} from 'react-bootstrap';
 import './MakeModal.css';
 import React, { useContext, useState } from 'react';
 import { MakeContext } from '../contexts/MakeContext';
+import { LatLngContext } from '../contexts/LatLngContexts';
 
 const MakeModal=(props)=>{
     const {isMake, setIsMake} = useContext(MakeContext);
+    const {isLatLng} = useContext(LatLngContext);
 
     var todayDate = new Date();
 
@@ -13,9 +15,7 @@ const MakeModal=(props)=>{
     const [Day, setDay] = useState(todayDate.getDate());
     const [Hour, setHour] = useState(todayDate.getHours());
     const [Minute, setMinute] = useState((parseInt(todayDate.getMinutes()/10+1)*10).toString());
-    const [Destination, setDestination] = useState("");
-    // const [Auth, setAuth] = useState("NO");
-    // const [Gender, setGender] = useState("");
+    const [Destination, setDestination] = useState(null);
 
     const goToday=()=>{
         if(Day !== todayDate.getDate()){
@@ -34,65 +34,20 @@ const MakeModal=(props)=>{
     };
 
     const exceptionTime=()=>{
-        if(parseInt(Hour) >= 10 && parseInt(Hour) <= 22 && parseInt(Minute) >= 0 && parseInt(Minute) <= 59){
+        if(parseInt(Hour) >= 10 && parseInt(Hour) < 22 && parseInt(Minute) >= 0 && parseInt(Minute) < 60
+        && Destination !== null){
             props.onHide();
-            console.log(Year+"\n"+Month+"\n"+Day+"\n"+Hour+"\n"+Minute+"\n"+Destination);
             setIsMake(!isMake);
+
+            console.log(Year+"\n"+Month+"\n"+Day+"\n"+Hour+"\n"+Minute+"\n"+Destination+"\n"+isLatLng);
+        }
+        else if(Destination === null){
+            alert("목적지를 입력하여주세요.");
         }
         else{
-            alert("시간을 알맞은 범위 내로 설정해주세요.");
+            alert("시간을 알맞은 범위 내로 입력하여주세요.");
         }
     }
-
-    // const CheckANY=()=>{
-    //     setGender("ANY")
-    // };
-    // const CheckMALE=()=>{
-    //     setGender("MALE")
-    // };
-    // const CheckFEMALE=()=>{
-    //     setGender("FEMALE")
-    // };
-
-    // const FormCheck=()=>{
-    //     return(
-    //         <div className='genderchoice'>
-    //             <p className='genderP'>
-    //                 성별 여부
-    //             </p>
-    //             <Form className='formchecks'>
-    //                 {['radio'].map((type) => (
-    //                     <div key={`inline-${type}`} className="mb-3">
-    //                     <Form.Check
-    //                         inline
-    //                         onClick={CheckANY}
-    //                         label="상관없음"
-    //                         name="group1"
-    //                         type={type}
-    //                         id={`inline-${type}-1`}
-    //                     />
-    //                     <Form.Check
-    //                         inline
-    //                         onClick={CheckMALE}
-    //                         label="남자만"
-    //                         name="group1"
-    //                         type={type}
-    //                         id={`inline-${type}-2`}
-    //                     />
-    //                     <Form.Check
-    //                         inline
-    //                         onClick={CheckFEMALE}
-    //                         label="여자만"
-    //                         name='group1'
-    //                         type={type}
-    //                         id={`inline-${type}-3`}
-    //                     />
-    //                     </div>
-    //                 ))}
-    //             </Form>
-    //         </div>
-    //     );
-    // };
 
     return(
         <div>
@@ -114,12 +69,15 @@ const MakeModal=(props)=>{
                             날짜
                         </div>
                         <div className="vr" />
-                        <div className='subcontent'>
-                            <Badge id='todaydate' bg="light" text="dark">{Year}년 {Month}월 {Day}일</Badge>
-                            <div className='buttonDate'>
-                                <Button variant="outline-dark" className='buttonDateLeft' onClick={goToday}>오늘</Button>
-                                <Button variant="outline-dark" className='buttonDateRight' onClick={goTomorrow}>내일</Button>
+                        <div>
+                            <div className='subcontent'>
+                                <Badge id='todaydate' bg="light" text="dark">{Year}년 {Month}월 {Day}일</Badge>
+                                <div className='buttonDate'>
+                                    <Button variant="outline-dark" className='buttonDateLeft' onClick={goToday}>오늘</Button>
+                                    <Button variant="outline-dark" className='buttonDateRight' onClick={goTomorrow}>내일</Button>
+                                </div>
                             </div>
+                            <p className='plusText'>날짜는 오늘과 내일만 선택 가능합니다.</p>
                         </div>
                     </div>
                     <div className='MakeTime'>
@@ -127,15 +85,21 @@ const MakeModal=(props)=>{
                             시간
                         </div>
                         <div className="vr" />
-                        <div className='subcontent'>
-                            <div className='choiceHour'>
-                                <Form.Control className='inputHour' placeholder={Hour} onChange={(event)=> setHour(event.target.value)}/>
-                                <Badge className='timeP' bg='light' text='dark'>시</Badge>
+                        <div>
+                            <div className='subcontent'>
+                                <div className='choiceHour'>
+                                    <Form.Control className='inputHour' placeholder={Hour} maxLength={2}
+                                    onChange={(event)=> setHour(event.target.value)}/>
+                                    <Badge className='timeP' bg='light' text='dark'>시</Badge>
+                                </div>
+                                <div className='choiceMinute'>
+                                    <Form.Control className='inputMinute' placeholder={Minute===60?0:Minute} maxLength={2}
+                                    onChange={(event)=> setMinute(event.target.value)}/>
+                                    <Badge className='timeP' bg='light' text='dark'>분</Badge>
+                                </div>
                             </div>
-                            <div className='choiceMinute'>
-                                <Form.Control className='inputMinute' placeholder={Minute} onChange={(event)=> setMinute(event.target.value)}/>
-                                <Badge className='timeP' bg='light' text='dark'>분</Badge>
-                            </div>
+                            <p className='plusText' >EX) 오후 1시 ➤ 13시</p>
+                            <p className='plusText' >합승 제도 상 10시부터 22시까지 가능합니다.</p>
                         </div>
                     </div>
                     <div className='MakeDestination'>
@@ -143,30 +107,14 @@ const MakeModal=(props)=>{
                             목적지
                         </div>
                         <div className="vr" />
-                        <div className='subcontent'> 
-                            <Form.Control className='inputDestination' placeholder="EX) 구미역 후문" onChange={(event)=> setDestination(event.target.value)}/>
+                        <div>
+                            <div className='subcontent'> 
+                                <Form.Control className='inputDestination' placeholder="EX) 구미역 후문" maxLength={30} 
+                                onChange={(event)=> setDestination(event.target.value)}/>
+                            </div>
+                            <p className='plusText'>목적지를 상세하게 입력하여 주세요.</p>
                         </div>
                     </div>
-                    {/* <div className='MakeOther'>
-                        <div className='subtitle' style={{whiteSpace: "pre-wrap"}}>
-                            참가자{"\n"}설정
-                        </div>
-                        <div className="vr" />
-                        <div className='otherContent'>
-                            <div className='univSwitch'>
-                                <Form.Check 
-                                    type="switch"
-                                    id="custom-switch"
-                                    label="학교인증 여부"
-                                    onChange={()=>{
-                                        setcheckHidden(!checkHidden);
-                                        Auth === "YES" ? setAuth("NO") : setAuth("YES");
-                                    }}
-                                />
-                            </div>
-                            {checkHidden && <FormCheck />}
-                        </div>               
-                    </div> */}
                 </Modal.Body>
 
                 <Modal.Footer style={{backgroundColor: "#FFFCEE"}}>

@@ -5,7 +5,7 @@
 }
 
 .subtitle{
-    width: 13%;
+    width: 20vmin;
 }
 
 .MakeDate, .MakeTime, .MakeDestination, .MakeOther{
@@ -14,9 +14,9 @@
     line-height: 5vmin;
 }
 
-.subcontent, .otherContent{
+.subcontent{
     margin-left: 10px;
-    width: 87%;
+    width: 65vmin;
 }
 
 #todaydate{
@@ -111,4 +111,11 @@
 .MakeButtonRight{
     background-color: #353535;
     border-color: #353535;
+}
+
+.plusText{
+    font-size: 1vmin;
+    margin-left: 15px;
+    margin-bottom: 0;
+    color: #818181;
 }
