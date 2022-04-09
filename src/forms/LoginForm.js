@@ -26,14 +26,7 @@ const LoginForm =()=>{
   
     return(
         <div className='buttonGroup'>
-            <Button className='loginbutton' type="submit"
-                style={{margin: "5px", borderColor: "#515151" ,backgroundColor: "#515151"}}>
-                SignUp
-            </Button>
-            <Button className='loginbutton' type="submit" onClick={L_function}
-                style={{borderColor: "#353535", backgroundColor: "#353535"}}>
-                Login
-            </Button>
+            <img src='imgs/kakao_login_large_wide.png' onClick={L_function}></img>
         </div>
     )
 }
