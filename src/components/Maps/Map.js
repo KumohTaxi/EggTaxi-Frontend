@@ -1,12 +1,26 @@
 /*global kakao*/ 
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { LatLngContext } from '../../contexts/LatLngContexts';
 import { MakeContext } from '../../contexts/MakeContext';
-// 환불해주세요.. 치킨먹게!!
+import axios from 'axios';
+import { getDefaultNormalizer } from '@testing-library/react';
 
 const Map = () =>{
     const { isLatLng, setIsLatLng } = useContext(LatLngContext);
     const { isMake } = useContext(MakeContext);
+
+    const [Data, setData] = useState([]);
+
+    async function get() {
+        const result = await axios(`/room`);
+
+        if(true){
+            setData(result.data);
+            console.log(result);
+            console.log(result.data);
+        }
+    }
+
 
     useEffect(()=>{
         var mapContainer = document.getElementById('map'); // 지도를 표시할 div  
@@ -16,12 +30,15 @@ const Map = () =>{
         };
 
         var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-        
+
+        get();
+
         // 지도를 클릭했을때 클릭한 위치에 마커를 추가하도록 지도에 클릭이벤트를 등록합니다
         kakao.maps.event.addListener(map, 'click', function(mouseEvent) { 
             setIsLatLng([mouseEvent.latLng.getLat(), mouseEvent.latLng.getLng()]);
             // 클릭한 위치에 마커를 표시합니다 
-            addMarker(mouseEvent.latLng);     
+            addMarker(mouseEvent.latLng); 
+                
         });
 
         // 지도에 표시된 마커 객체를 가지고 있을 배열입니다
@@ -57,6 +74,7 @@ const Map = () =>{
         function hideMarkers() {
             setMarkers(null);    
         }
+
     }, [isMake]);
 
     return (
