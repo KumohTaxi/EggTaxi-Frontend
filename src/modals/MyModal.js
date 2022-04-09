@@ -1,4 +1,4 @@
-import {Modal, Button} from 'react-bootstrap';
+import {Modal, Button, Badge} from 'react-bootstrap';
 import './MyModal.css';
 
 const MyModal=(props)=>{
@@ -18,26 +18,32 @@ const MyModal=(props)=>{
             <Modal.Body className='MyMiddle'>
                 <div className= 'personBox'>
                     <div className='mySubTitle'>
-                        1
+                        <p>
+                            인원
+                        </p>
                     </div>
                     <div className='mySubContent'>
-                        2
+                        <Badge bg="light" text="dark">1명</Badge>
                     </div>
                 </div>
                 <div className='timeBox'>
                     <div className='mySubTitle'>
-                        3
+                        <p>
+                            출발 시각
+                        </p>
                     </div>
                     <div className='mySubContent'>
-                        4
+                        <Badge bg="light" text="dark">년 월 일 시 분</Badge>
                     </div>
                 </div>
                 <div className='destiBox'>
                     <div className='mySubTitle'>
-                        5
+                        <p>
+                            목적지
+                        </p>
                     </div>
                     <div className='mySubContent'>
-                        6
+                        <Badge bg="light" text="dark">목적지</Badge>
                     </div>
                 </div>
             </Modal.Body>
