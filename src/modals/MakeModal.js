@@ -3,6 +3,7 @@ import './MakeModal.css';
 import React, { useContext, useState } from 'react';
 import { MakeContext } from '../contexts/MakeContext';
 import { LatLngContext } from '../contexts/LatLngContexts';
+import axios from 'axios';
 
 const MakeModal=(props)=>{
     const {isMake, setIsMake} = useContext(MakeContext);
@@ -33,13 +34,46 @@ const MakeModal=(props)=>{
         }
     };
 
+    const transRoomInfoApi = () => {
+        
+        // 정보 전달 전 데이터 형식 변환
+        let trMonth = Month < 10 ? "0"+Month : Month;
+        let trDay = Day < 10 ? "0"+Day : Day;
+        let trHour = Hour < 10 ? "0"+Hour : Hour;
+        let trMinute = Minute < 10 ? "0"+Minute : Minute;
+
+        // 포스트 방식 정보 전달
+        axios({
+            method:'post',
+            url:'./room/new',
+            data:{
+                destination: Destination,
+                dateTime: Year+"-"+trMonth+"-"+trDay+"T"+trHour+":"+trMinute,
+                latitude: isLatLng[0],
+                longitude: isLatLng[1],
+            },
+            headers:{
+                'ContentType':'appliction/json'
+            },
+        })
+        .then(() => {
+            alert("Make 성공");
+        })
+        .catch(() => {
+            alert("Make 실패");
+        })
+
+        console.log(Year+"-"+trMonth+"-"+trDay+"T"+trHour+":"+trMinute);
+    }
+
     const exceptionTime=()=>{
         if(parseInt(Hour) >= 10 && parseInt(Hour) < 22 && parseInt(Minute) >= 0 && parseInt(Minute) < 60
         && Destination !== null){
             props.onHide();
             setIsMake(!isMake);
-
             console.log(Year+"\n"+Month+"\n"+Day+"\n"+Hour+"\n"+Minute+"\n"+Destination+"\n"+isLatLng);
+            // 방 정보 전송하는 API
+            transRoomInfoApi();   
         }
         else if(Destination === null){
             alert("목적지를 입력하여주세요.");
