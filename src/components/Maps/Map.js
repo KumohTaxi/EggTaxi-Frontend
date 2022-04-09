@@ -2,6 +2,7 @@
 import React, { useContext, useEffect } from 'react'
 import { LatLngContext } from '../../contexts/LatLngContexts';
 import { MakeContext } from '../../contexts/MakeContext';
+// 운동좀 해라
 
 const Map = () =>{
     const { isLatLng, setIsLatLng } = useContext(LatLngContext);
