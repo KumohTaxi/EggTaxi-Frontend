@@ -69,11 +69,11 @@ const MakeModal=(props)=>{
     const exceptionTime=()=>{
         if(parseInt(Hour) >= 10 && parseInt(Hour) < 22 && parseInt(Minute) >= 0 && parseInt(Minute) < 60
         && Destination !== null){
+            // 방 정보 전송하는 API
+            transRoomInfoApi();   
             props.onHide();
             setIsMake(!isMake);
             console.log(Year+"\n"+Month+"\n"+Day+"\n"+Hour+"\n"+Minute+"\n"+Destination+"\n"+isLatLng);
-            // 방 정보 전송하는 API
-            transRoomInfoApi();   
         }
         else if(Destination === null){
             alert("목적지를 입력하여주세요.");
