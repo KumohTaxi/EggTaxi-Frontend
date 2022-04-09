@@ -18,10 +18,9 @@ const Map = () =>{
             setData(result.data);
             console.log(result);
             console.log(result.data);
+            console.log(Data);
         }
     }
-
-
     useEffect(()=>{
         var mapContainer = document.getElementById('map'); // 지도를 표시할 div  
         var mapOption = { 
@@ -32,6 +31,7 @@ const Map = () =>{
         var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
         get();
+        console.log(Data);
 
         // 지도를 클릭했을때 클릭한 위치에 마커를 추가하도록 지도에 클릭이벤트를 등록합니다
         kakao.maps.event.addListener(map, 'click', function(mouseEvent) { 
