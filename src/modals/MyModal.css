@@ -1,0 +1,30 @@
+.MyTitle{
+    color:#EEEEEE;
+    font-weight: bold;
+}
+
+.personBox, .timeBox, .destiBox{
+    display: flex;
+}
+
+.mySubTitle{
+    width: 20%;
+}
+.mySubContent{
+    width: 80%;
+}
+
+.MyFooter{
+    display: flex;
+    justify-content: space-between;
+}
+
+.MyBottomButtonLeft{
+    background-color: #7a7a7a;
+    border-color: #7a7a7a;
+}
+
+.MyBottomButtonRight{
+    background-color: #353535;
+    border-color: #353535;
+}
