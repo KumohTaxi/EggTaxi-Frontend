@@ -67,19 +67,21 @@ const MakeModal=(props)=>{
     }
 
     const exceptionTime=()=>{
-        if(parseInt(Hour) >= 10 && parseInt(Hour) < 22 && parseInt(Minute) >= 0 && parseInt(Minute) < 60
-        && Destination !== null){
-            // 방 정보 전송하는 API
-            transRoomInfoApi();   
-            props.onHide();
-            setIsMake(!isMake);
-            console.log(Year+"\n"+Month+"\n"+Day+"\n"+Hour+"\n"+Minute+"\n"+Destination+"\n"+isLatLng);
-        }
-        else if(Destination === null){
+        if(Destination === null){
             alert("목적지를 입력하여주세요.");
         }
+        else if(parseInt(Hour)<10 || parseInt(Hour) >= 22 || parseInt(Minute) < 0 || parseInt(Minute) >= 60
+            || (Day === todayDate.getDate() && parseInt(Hour) < parseInt(todayDate.getHours()))
+            || (Day === todayDate.getDate() && parseInt(Hour) === parseInt(todayDate.getHours()) && parseInt(Minute) < parseInt(todayDate.getMinutes())))
+        {
+            alert("시간을 알맞은 범위 내로 입력하여주세요."); 
+        }
         else{
-            alert("시간을 알맞은 범위 내로 입력하여주세요.");
+            // 방 정보 전송하는 API
+            transRoomInfoApi();   
+            setIsMake(!isMake);
+            props.onHide();
+            console.log(Year+"\n"+Month+"\n"+Day+"\n"+Hour+"\n"+Minute+"\n"+Destination+"\n"+isLatLng);
         }
     }
 
