@@ -14,8 +14,8 @@ const MakeModal=(props)=>{
     const [Year, setYear] = useState(todayDate.getFullYear());
     const [Month, setMonth] = useState(todayDate.getMonth()+1);
     const [Day, setDay] = useState(todayDate.getDate());
-    const [Hour, setHour] = useState(todayDate.getHours());
-    const [Minute, setMinute] = useState((parseInt(todayDate.getMinutes()/10+1)*10).toString());
+    const [Hour, setHour] = useState(todayDate.getMinutes()+10 >= 60 ? todayDate.getHours()+1 : todayDate.getHours());
+    const [Minute, setMinute] = useState(todayDate.getMinutes()+10 >= 60 ? todayDate.getMinutes()-50 : todayDate.getMinutes()+10);
     const [Destination, setDestination] = useState(null);
 
     const goToday=()=>{
@@ -70,18 +70,18 @@ const MakeModal=(props)=>{
         if(Destination === null){
             alert("목적지를 입력하여주세요.");
         }
-        else if(parseInt(Hour)<10 || parseInt(Hour) >= 22 || parseInt(Minute) < 0 || parseInt(Minute) >= 60
-            || (Day === todayDate.getDate() && parseInt(Hour) < parseInt(todayDate.getHours()))
-            || (Day === todayDate.getDate() && parseInt(Hour) === parseInt(todayDate.getHours()) && parseInt(Minute) < parseInt(todayDate.getMinutes())))
+        else if(Hour <10 || Hour >= 22 || Minute < 0 || Minute >= 60
+            || (Day === todayDate.getDate() && Hour < todayDate.getHours())
+            || (Day === todayDate.getDate() && Hour === todayDate.getHours() && Minute < todayDate.getMinutes()))
         {
             alert("시간을 알맞은 범위 내로 입력하여주세요."); 
         }
         else{
             // 방 정보 전송하는 API
-            transRoomInfoApi();   
-            setIsMake(!isMake);
+            transRoomInfoApi();  
             props.onHide();
-            console.log(Year+"\n"+Month+"\n"+Day+"\n"+Hour+"\n"+Minute+"\n"+Destination+"\n"+isLatLng);
+            console.log(Year+"\n"+Month+"\n"+Day+"\n"+Hour+"\n"+Minute+"\n"+Destination+"\n"+isLatLng); 
+            setIsMake(!isMake);
         }
     }
 
@@ -129,7 +129,7 @@ const MakeModal=(props)=>{
                                     <Badge className='timeP' bg='light' text='dark'>시</Badge>
                                 </div>
                                 <div className='choiceMinute'>
-                                    <Form.Control className='inputMinute' placeholder={Minute===60?0:Minute} maxLength={2}
+                                    <Form.Control className='inputMinute' placeholder={Minute} maxLength={2}
                                     onChange={(event)=> setMinute(event.target.value)}/>
                                     <Badge className='timeP' bg='light' text='dark'>분</Badge>
                                 </div>
