@@ -10,6 +10,7 @@ const Map = () =>{
 
     const { isGet } = useContext(GetContext);
 
+<<<<<<< HEAD
     // 그룹 정보 함수 정의
     const roomInfoStyle = (RoomInfo) => {
 
@@ -21,6 +22,8 @@ const Map = () =>{
                 '</div>';
     };
 
+=======
+>>>>>>> develop
     useEffect(()=>{
         var mapContainer = document.getElementById('map'); // 지도를 표시할 div  
         var mapOption = { 
@@ -85,7 +88,6 @@ const Map = () =>{
                 image : markerImage, // 마커 이미지 
                 clickable: true
             });
-
             // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
             // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
             var iwContent = roomInfoStyle(RoomInfo),iwRemoveable=true;

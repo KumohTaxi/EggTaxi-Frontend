@@ -82,6 +82,7 @@ const MakeModal=(props)=>{
             props.onHide();
             console.log(Year+"\n"+Month+"\n"+Day+"\n"+Hour+"\n"+Minute+"\n"+Destination+"\n"+isLatLng); 
             setIsMake(!isMake);
+            console.log("isMake update!");
         }
     }
 

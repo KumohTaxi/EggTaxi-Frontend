@@ -8,6 +8,7 @@ import React, { useEffect, useState } from 'react';
 import { MakeContext } from './contexts/MakeContext';
 import axios from 'axios';
 import { GetContext } from './contexts/GetContext';
+import RedirectHandler from './components/OAuths/RedirectHandler';
 
 function App() {
   const [isLatLng, setIsLatLng] = useState([36.142410487698, 128.39430145218606])
@@ -29,6 +30,7 @@ function App() {
             <Router>
               <Route className= "LoginPage" path="/" component={LoginPage} exact={true}/>
               <Route className= "MainPage" path="/Main" component={MainPage}/>
+              <Route className= "RedirectPage" path="/oauth/callback/kakao" component={RedirectHandler}></Route>
             </Router>
           </div>
         </GetContext.Provider>
