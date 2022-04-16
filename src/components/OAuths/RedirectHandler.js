@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import {Spinner} from 'react-bootstrap';
 import './RedirectHandler.css';
 
-const RedirectHandler = () => {
+const RedirectHandler = ({ history }) => {
     let code = new URL(window.location.href).searchParams.get("code");
 
     useEffect(() => {   
@@ -21,6 +21,10 @@ const RedirectHandler = () => {
         })
         .then((res)=>{
             console.log(res);
+            history.push('/main');
+        })
+        .catch(()=>{
+            history.push('/');
         })
     }, []);
 
