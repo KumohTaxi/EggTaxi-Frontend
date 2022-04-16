@@ -4,12 +4,10 @@ import { LatLngContext } from '../../contexts/LatLngContexts';
 import { MakeContext } from '../../contexts/MakeContext';
 import { GetContext } from '../../contexts/GetContext';
 
-
 const Map = () =>{
     const { isLatLng, setIsLatLng } = useContext(LatLngContext);
     const { isMake } = useContext(MakeContext);
     const { isGet } = useContext(GetContext);
-
 
     useEffect(()=>{
         var mapContainer = document.getElementById('map'); // 지도를 표시할 div  
@@ -75,7 +73,6 @@ const Map = () =>{
                 image : markerImage, // 마커 이미지 
                 clickable: true
             });
-
             // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
             // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
             var iwContent = '<div style="padding:5px;">목적지<br>'
