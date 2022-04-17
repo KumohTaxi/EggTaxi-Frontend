@@ -15,7 +15,8 @@ const Map = () =>{
     const [groupDay, setGroupDay] = useState('');
     const [groupHour, setGroupHour] = useState('');
     const [groupMinute, setGroupMinute] = useState('');
-        
+    const [groupMemberCount, setGroupMemeberCount] = useState();
+
     useEffect(()=>{
         var mapContainer = document.getElementById('map'); // 지도를 표시할 div  
         var mapOption = { 
@@ -64,14 +65,16 @@ const Map = () =>{
             setMarkers(null);    
         }
 
-        var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+        var GreenImageSrc = "imgs/GreenMarker.png";
+        var RedImageSrc = "imgs/RedMarker.png";
+        var BlackImageSrc = "imgs/BlackMarker.png";
 
         isGet.map(RoomInfo =>{
             // 마커 이미지의 이미지 크기 입니다
-            var imageSize = new kakao.maps.Size(26, 40); 
+            var imageSize = new kakao.maps.Size(26, 44); 
 
             // 마커 이미지를 생성합니다    
-            var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+            var markerImage = new kakao.maps.MarkerImage(GreenImageSrc, imageSize); 
 
             var marker = new kakao.maps.Marker({
                 map: map, // 마커를 표시할 지도
@@ -80,7 +83,6 @@ const Map = () =>{
                 image : markerImage, // 마커 이미지 
                 clickable: true
             });
-            
             // 마커에 클릭이벤트를 등록합니다
             kakao.maps.event.addListener(marker, 'click', function() {
                 // 마커 클릭시 GroupModal을 생성합니다.
@@ -91,6 +93,7 @@ const Map = () =>{
                 setGroupDay(RoomInfo.dateTime[8]+RoomInfo.dateTime[9]);
                 setGroupHour(RoomInfo.dateTime[11]+RoomInfo.dateTime[12]);
                 setGroupMinute(RoomInfo.dateTime[14]+RoomInfo.dateTime[15]);
+                setGroupMemeberCount(String(RoomInfo.memberCount));
             });
         });
 
@@ -106,6 +109,7 @@ const Map = () =>{
                 day={groupDay}
                 hour={groupHour}
                 minute={groupMinute}
+                count={groupMemberCount}
             />
         </div> 
     );

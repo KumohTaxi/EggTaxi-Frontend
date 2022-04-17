@@ -52,7 +52,7 @@ const MyModal=(props)=>{
             </Modal.Body>
 
             <Modal.Footer className='MyFooter' style={{backgroundColor: "#FFFCEE"}}>
-                <Button className='MyBottomButtonLeft'>그룹 삭제</Button>
+                <Button className='MyBottomButtonLeft'>그룹 나가기</Button>
                 <Button className='MyBottomButtonRight' onClick={props.onHide}>확인</Button>
             </Modal.Footer>
         </Modal>
