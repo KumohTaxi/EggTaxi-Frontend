@@ -3,13 +3,19 @@ import React, { useContext, useEffect, useState } from 'react'
 import { LatLngContext } from '../../contexts/LatLngContexts';
 import { MakeContext } from '../../contexts/MakeContext';
 import { GetContext } from '../../contexts/GetContext';
+import GroupInfoModal from '../../modals/GroupInfoModal';
 
 const Map = () =>{
     const { isLatLng, setIsLatLng } = useContext(LatLngContext);
     const { isMake } = useContext(MakeContext);
-
     const { isGet } = useContext(GetContext);
-    
+    const [groupShow, setGroupShow] = useState(false);
+    const [groupDestination, setGroupDestination] = useState('');
+    const [groupMonth, setGroupMonth] = useState('');
+    const [groupDay, setGroupDay] = useState('');
+    const [groupHour, setGroupHour] = useState('');
+    const [groupMinute, setGroupMinute] = useState('');
+        
     useEffect(()=>{
         var mapContainer = document.getElementById('map'); // 지도를 표시할 div  
         var mapOption = { 
@@ -74,27 +80,34 @@ const Map = () =>{
                 image : markerImage, // 마커 이미지 
                 clickable: true
             });
-            // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-            // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-            var iwContent = roomInfoStyle(RoomInfo),iwRemoveable=true;
-
-            // 인포윈도우를 생성합니다
-            var infowindow = new kakao.maps.InfoWindow({
-                content : iwContent,
-                removable : iwRemoveable
-            });
-
+            
             // 마커에 클릭이벤트를 등록합니다
             kakao.maps.event.addListener(marker, 'click', function() {
-                // 마커 위에 인포윈도우를 표시합니다
-                infowindow.open(map, marker);  
+                // 마커 클릭시 GroupModal을 생성합니다.
+                setGroupShow(true);
+
+                setGroupDestination(RoomInfo.destination);
+                setGroupMonth(RoomInfo.dateTime[5]+RoomInfo.dateTime[6]);
+                setGroupDay(RoomInfo.dateTime[8]+RoomInfo.dateTime[9]);
+                setGroupHour(RoomInfo.dateTime[11]+RoomInfo.dateTime[12]);
+                setGroupMinute(RoomInfo.dateTime[14]+RoomInfo.dateTime[15]);
             });
         });
 
     }, [isMake, isGet]);
 
     return (
-        <div id="map" style={{height: "100%"}}></div> 
+        <div id="map" style={{height: "100%"}}>
+            <GroupInfoModal
+                show={groupShow}
+                onHide={() => setGroupShow(false)}
+                destination={groupDestination}
+                month={groupMonth}
+                day={groupDay}
+                hour={groupHour}
+                minute={groupMinute}
+            />
+        </div> 
     );
 };
 
