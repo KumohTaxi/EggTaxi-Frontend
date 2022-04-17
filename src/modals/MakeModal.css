@@ -6,6 +6,8 @@
 
 .subtitle{
     width: 20vmin;
+    display: flex;
+    align-items: center;
 }
 
 .MakeDate, .MakeTime, .MakeDestination, .MakeOther{
@@ -79,6 +81,7 @@
 .MakeTitle{
     color:#EEEEEE;
     font-weight: bold;
+    font-size: 5vmin;
 }
 
 .subtitle{

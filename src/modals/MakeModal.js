@@ -45,7 +45,7 @@ const MakeModal=(props)=>{
         // 포스트 방식 정보 전달
         axios({
             method:'post',
-            url:'./room/new',
+            url:'./group/new',
             data:{
                 destination: Destination,
                 dateTime: Year+"-"+trMonth+"-"+trDay+"T"+trHour+":"+trMinute,
@@ -96,14 +96,14 @@ const MakeModal=(props)=>{
                 >
                 <Modal.Header style={{backgroundColor: "#282828"}}>
                     <Modal.Title className='MakeTitle' id="contained-modal-title-vcenter">
-                    Make Room Modal
+                    Make Group Modal 
                     </Modal.Title>
                 </Modal.Header>
 
                 <Modal.Body>
                     <div className='MakeDate'>
                         <div className='subtitle'>
-                            날짜
+                            <p>날짜</p>
                         </div>
                         <div className="vr" />
                         <div>
@@ -119,7 +119,7 @@ const MakeModal=(props)=>{
                     </div>
                     <div className='MakeTime'>
                         <div className='subtitle'>
-                            시간
+                            <p>출발시각</p>
                         </div>
                         <div className="vr" />
                         <div>
@@ -141,7 +141,7 @@ const MakeModal=(props)=>{
                     </div>
                     <div className='MakeDestination'>
                         <div className='subtitle'>
-                            목적지
+                            <p>목적지</p>
                         </div>
                         <div className="vr" />
                         <div>
