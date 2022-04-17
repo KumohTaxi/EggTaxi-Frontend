@@ -18,32 +18,35 @@ const MyModal=(props)=>{
             <Modal.Body className='MyMiddle'>
                 <div className= 'personBox'>
                     <div className='mySubTitle'>
-                        <p>
+                        <span>
                             인원
-                        </p>
+                        </span>
                     </div>
+                    <div className="vr" />
                     <div className='mySubContent'>
-                        <Badge bg="light" text="dark">1명</Badge>
+                        <Badge bg="light" text="dark">1 / 4명</Badge>
                     </div>
                 </div>
                 <div className='destiBox'>
                     <div className='mySubTitle'>
-                        <p>
+                        <span>
                             목적지
-                        </p>
+                        </span>
                     </div>
+                    <div className="vr" />
                     <div className='mySubContent'>
                         <Badge bg="light" text="dark">목적지</Badge>
                     </div>
                 </div>
                 <div className='timeBox'>
                     <div className='mySubTitle'>
-                        <p>
+                        <span>
                             출발시각
-                        </p>
+                        </span>
                     </div>
+                    <div className="vr" />
                     <div className='mySubContent'>
-                        <Badge bg="light" text="dark">년 월 일 시 분</Badge>
+                        <Badge bg="light" text="dark">월 일 시 분</Badge>
                     </div>
                 </div>
             </Modal.Body>

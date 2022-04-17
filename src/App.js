@@ -16,7 +16,7 @@ function App() {
   const [isGet, setIsGet] = useState([]);
 
   useEffect(()=>{
-    axios.get(`/room`)
+    axios.get(`/group`)
             .then(response => {
                 setIsGet(response.data);
             });

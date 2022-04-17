@@ -45,7 +45,7 @@ const MakeModal=(props)=>{
         // 포스트 방식 정보 전달
         axios({
             method:'post',
-            url:'./room/new',
+            url:'./group/new',
             data:{
                 destination: Destination,
                 dateTime: Year+"-"+trMonth+"-"+trDay+"T"+trHour+":"+trMinute,
