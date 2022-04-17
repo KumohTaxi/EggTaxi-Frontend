@@ -27,7 +27,7 @@ const GroupInfoModal=(props)=>{
                         </div>
                         <div className="vr" />
                         <div className='GISubContent'>
-                            <Badge bg="light" text="dark">1 / 4명</Badge>
+                            <Badge bg="light" text="dark">{props.count} / 4명</Badge>
                         </div>
                     </div>
                     <div className='GIdestiBox'>

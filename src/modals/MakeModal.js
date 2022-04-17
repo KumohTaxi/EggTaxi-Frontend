@@ -51,6 +51,7 @@ const MakeModal=(props)=>{
                 dateTime: Year+"-"+trMonth+"-"+trDay+"T"+trHour+":"+trMinute,
                 latitude: isLatLng[0],
                 longitude: isLatLng[1],
+                accessToken: localStorage.getItem('access_token')
             },
             headers:{
                 'ContentType':'appliction/json'
