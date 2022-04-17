@@ -18,6 +18,7 @@ function App() {
   useEffect(()=>{
     axios.get(`/group`)
             .then(response => {
+                console.log(response.data);
                 setIsGet(response.data);
             });
   }, [isMake]);
