@@ -9,21 +9,7 @@ const Map = () =>{
     const { isMake } = useContext(MakeContext);
 
     const { isGet } = useContext(GetContext);
-
-<<<<<<< HEAD
-    // 그룹 정보 함수 정의
-    const roomInfoStyle = (RoomInfo) => {
-
-        return '<div style="padding:5px;">목적지<br>'
-                    +RoomInfo.destination+
-                    '<br>출발시간<br>'
-                    +RoomInfo.dateTime[5]+RoomInfo.dateTime[6]+'월 '+RoomInfo.dateTime[8]+RoomInfo.dateTime[9]+'일 '
-                    +RoomInfo.dateTime[11]+RoomInfo.dateTime[12]+'시 '+RoomInfo.dateTime[14]+RoomInfo.dateTime[15]+'분'+
-                '</div>';
-    };
-
-=======
->>>>>>> develop
+    
     useEffect(()=>{
         var mapContainer = document.getElementById('map'); // 지도를 표시할 div  
         var mapOption = { 
