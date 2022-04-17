@@ -1,32 +1,32 @@
 import {Modal, Button, Form, Badge} from 'react-bootstrap';
-import './MakeModal.css';
+import './CreationModal.css';
 import React, { useContext, useState } from 'react';
-import { MakeContext } from '../contexts/MakeContext';
-import { LatLngContext } from '../contexts/LatLngContexts';
+import { MakeContext } from '../../contexts/MakeContext';
+import { LatLngContext } from '../../contexts/LatLngContexts';
 import axios from 'axios';
 
-const MakeModal=(props)=>{
-    const {isMake, setIsMake} = useContext(MakeContext);
+const CreationModal=(props)=>{
+    const {isCreation, setIsCreation} = useContext(MakeContext);
     const {isLatLng} = useContext(LatLngContext);
 
     var todayDate = new Date();
 
-    const [Year, setYear] = useState(todayDate.getFullYear());
-    const [Month, setMonth] = useState(todayDate.getMonth()+1);
-    const [Day, setDay] = useState(todayDate.getDate());
-    const [Hour, setHour] = useState(todayDate.getMinutes()+10 >= 60 ? todayDate.getHours()+1 : todayDate.getHours());
-    const [Minute, setMinute] = useState(todayDate.getMinutes()+10 >= 60 ? todayDate.getMinutes()-50 : todayDate.getMinutes()+10);
-    const [Destination, setDestination] = useState(null);
+    const [year, setYear] = useState(todayDate.getFullYear());
+    const [month, setMonth] = useState(todayDate.getMonth()+1);
+    const [day, setDay] = useState(todayDate.getDate());
+    const [hour, setHour] = useState(todayDate.getMinutes()+10 >= 60 ? todayDate.getHours()+1 : todayDate.getHours());
+    const [minute, setMinute] = useState(todayDate.getMinutes()+10 >= 60 ? todayDate.getMinutes()-50 : todayDate.getMinutes()+10);
+    const [destination, setDestination] = useState(null);
 
     const goToday=()=>{
-        if(Day !== todayDate.getDate()){
+        if(day !== todayDate.getDate()){
             setYear(todayDate.getFullYear());
             setMonth(todayDate.getMonth()+1);
             setDay(todayDate.getDate());
         }
     }
     const goTomorrow=()=>{
-        if(Day === todayDate.getDate()){
+        if(day === todayDate.getDate()){
             var tomorrowDate = new Date(todayDate.setDate(todayDate.getDate() + 1));
             setYear(tomorrowDate.getFullYear());
             setMonth(tomorrowDate.getMonth()+1);
@@ -34,21 +34,21 @@ const MakeModal=(props)=>{
         }
     };
 
-    const transRoomInfoApi = () => {
+    const transGroupInfoApi = () => {
         
         // 정보 전달 전 데이터 형식 변환
-        let trMonth = Month < 10 ? "0"+Month : Month;
-        let trDay = Day < 10 ? "0"+Day : Day;
-        let trHour = Hour < 10 ? "0"+Hour : Hour;
-        let trMinute = Minute < 10 ? "0"+Minute : Minute;
+        let conversionMonth = month < 10 ? "0"+month : month;
+        let conversionDay = day < 10 ? "0"+day : day;
+        let conversionHour = hour < 10 ? "0"+hour : hour;
+        let conversionMinute = minute < 10 ? "0"+minute : minute;
 
         // 포스트 방식 정보 전달
         axios({
             method:'post',
             url:'./group/new',
             data:{
-                destination: Destination,
-                dateTime: Year+"-"+trMonth+"-"+trDay+"T"+trHour+":"+trMinute,
+                destination: destination,
+                dateTime: year+"-"+conversionMonth+"-"+conversionDay+"T"+conversionHour+":"+conversionMinute,
                 latitude: isLatLng[0],
                 longitude: isLatLng[1],
                 accessToken: localStorage.getItem('access_token')
@@ -64,25 +64,25 @@ const MakeModal=(props)=>{
             alert("Make 실패");
         })
 
-        console.log(Year+"-"+trMonth+"-"+trDay+"T"+trHour+":"+trMinute);
+        console.log(year+"-"+conversionMonth+"-"+conversionDay+"T"+conversionHour+":"+conversionMinute);
     }
 
     const exceptionTime=()=>{
-        if(Destination === null){
+        if(destination === null){
             alert("목적지를 입력하여주세요.");
         }
-        else if(Hour <10 || Hour >= 22 || Minute < 0 || Minute >= 60
-            || (Day === todayDate.getDate() && Hour < todayDate.getHours())
-            || (Day === todayDate.getDate() && Hour === todayDate.getHours() && Minute < todayDate.getMinutes()))
+        else if(hour <10 || hour >= 22 || minute < 0 || minute >= 60
+            || (day === todayDate.getDate() && hour < todayDate.getHours())
+            || (day === todayDate.getDate() && hour === todayDate.getHours() && minute < todayDate.getMinutes()))
         {
             alert("시간을 알맞은 범위 내로 입력하여주세요."); 
         }
         else{
             // 방 정보 전송하는 API
-            transRoomInfoApi();  
+            transGroupInfoApi();  
             props.onHide();
-            console.log(Year+"\n"+Month+"\n"+Day+"\n"+Hour+"\n"+Minute+"\n"+Destination+"\n"+isLatLng); 
-            setIsMake(!isMake);
+            console.log(year+"\n"+month+"\n"+day+"\n"+hour+"\n"+minute+"\n"+destination+"\n"+isLatLng); 
+            setIsCreation(!isCreation);
             console.log("isMake update!");
         }
     }
@@ -109,7 +109,7 @@ const MakeModal=(props)=>{
                         <div className="vr" />
                         <div>
                             <div className='subcontent'>
-                                <Badge id='todaydate' bg="light" text="dark">{Year}년 {Month}월 {Day}일</Badge>
+                                <Badge id='todaydate' bg="light" text="dark">{year}년 {month}월 {day}일</Badge>
                                 <div className='buttonDate'>
                                     <Button variant="outline-dark" className='buttonDateLeft' onClick={goToday}>오늘</Button>
                                     <Button variant="outline-dark" className='buttonDateRight' onClick={goTomorrow}>내일</Button>
@@ -126,12 +126,12 @@ const MakeModal=(props)=>{
                         <div>
                             <div className='subcontent'>
                                 <div className='choiceHour'>
-                                    <Form.Control className='inputHour' placeholder={Hour} maxLength={2}
+                                    <Form.Control className='inputHour' placeholder={hour} maxLength={2}
                                     onChange={(event)=> setHour(event.target.value)}/>
                                     <Badge className='timeP' bg='light' text='dark'>시</Badge>
                                 </div>
                                 <div className='choiceMinute'>
-                                    <Form.Control className='inputMinute' placeholder={Minute} maxLength={2}
+                                    <Form.Control className='inputMinute' placeholder={minute} maxLength={2}
                                     onChange={(event)=> setMinute(event.target.value)}/>
                                     <Badge className='timeP' bg='light' text='dark'>분</Badge>
                                 </div>
@@ -164,4 +164,4 @@ const MakeModal=(props)=>{
     );
 }
 
-export default MakeModal;
+export default CreationModal;

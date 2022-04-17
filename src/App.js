@@ -1,32 +1,31 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import MainPage from './pages/MainPage.js';
-import LoginPage from './pages/LoginPage.js';
+import MainPage from './components/pages/MainPage.js';
+import LoginPage from './components/pages/LoginPage.js';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import { LatLngContext } from './contexts/LatLngContexts';
 import React, { useEffect, useState } from 'react';
 import { MakeContext } from './contexts/MakeContext';
 import axios from 'axios';
 import { GetContext } from './contexts/GetContext';
-import RedirectHandler from './components/OAuths/RedirectHandler';
+import RedirectHandler from './oauths/RedirectHandler';
 
 function App() {
   const [isLatLng, setIsLatLng] = useState([36.142410487698, 128.39430145218606])
-  const [isMake, setIsMake] = useState([false]);
-  const [isGet, setIsGet] = useState([]);
+  const [isCreation, setIsCreation] = useState([false]);
+  const [isListInfo, setIsListInfo] = useState([]);
 
   useEffect(()=>{
     axios.get(`/group`)
             .then(response => {
-                console.log(response.data);
-                setIsGet(response.data);
+                setIsListInfo(response.data);
             });
-  }, [isMake]);
+  }, [isCreation]);
 
   return (
     <LatLngContext.Provider value={{isLatLng, setIsLatLng}}>
-      <MakeContext.Provider value={{isMake, setIsMake}}>
-        <GetContext.Provider value={{isGet, setIsGet}}>
+      <MakeContext.Provider value={{isCreation, setIsCreation}}>
+        <GetContext.Provider value={{isListInfo, setIsListInfo}}>
           <div className="App">
             <Router>
               <Route className= "LoginPage" path="/" component={LoginPage} exact={true}/>

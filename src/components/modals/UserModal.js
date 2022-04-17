@@ -1,7 +1,7 @@
 import {Modal, Button, Badge} from 'react-bootstrap';
-import './MyModal.css';
+import './UserModal.css';
 
-const MyModal=(props)=>{
+const UserModal=(props)=>{
     return(
         <Modal
         {...props}
@@ -59,4 +59,4 @@ const MyModal=(props)=>{
     );
 }
 
-export default MyModal;
+export default UserModal;

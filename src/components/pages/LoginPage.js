@@ -1,5 +1,5 @@
-import Footer from "../components/Footers/Footer";
-import minFooter from "../components/Footers/minFooter";
+import Footer from "../footers/Footer";
+import MinFooter from "../footers/MinFooter";
 import { useMediaQuery } from "react-responsive"
 import './LoginPage.css';
 import LoginForm from "../forms/LoginForm";
@@ -20,13 +20,13 @@ const LoginPage=()=>{
                 </div>
                 <div className="loginmiddle">
                     <div className="LoginForm">
-                        {LoginForm()}
+                        {<LoginForm/>}
                     </div>
                 </div>
             </div>
             <div className='Footer'>
-                {isPc && Footer()}
-                {isMobile && minFooter()}
+                {isPc && <Footer/>}
+                {isMobile && <MinFooter/>}
             </div>
         </div>
     );

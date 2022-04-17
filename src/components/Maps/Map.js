@@ -3,13 +3,14 @@ import React, { useContext, useEffect, useState } from 'react'
 import { LatLngContext } from '../../contexts/LatLngContexts';
 import { MakeContext } from '../../contexts/MakeContext';
 import { GetContext } from '../../contexts/GetContext';
-import GroupInfoModal from '../../modals/GroupInfoModal';
+import GroupInfoModal from '../modals/GroupInfoModal';
 
 const Map = () =>{
     const { isLatLng, setIsLatLng } = useContext(LatLngContext);
-    const { isMake } = useContext(MakeContext);
-    const { isGet } = useContext(GetContext);
-    const [groupShow, setGroupShow] = useState(false);
+    const { isCreation } = useContext(MakeContext);
+    const { isListInfo } = useContext(GetContext);
+    
+    const [groupView, setGroupView] = useState(false);
     const [groupDestination, setGroupDestination] = useState('');
     const [groupMonth, setGroupMonth] = useState('');
     const [groupDay, setGroupDay] = useState('');
@@ -29,7 +30,8 @@ const Map = () =>{
         // 지도를 클릭했을때 클릭한 위치에 마커를 추가하도록 지도에 클릭이벤트를 등록합니다
         kakao.maps.event.addListener(map, 'click', function(mouseEvent) { 
             hideMarkers();
-            setIsLatLng([mouseEvent.latLng.getLat(), mouseEvent.latLng.getLng()]);
+            setIsLatLng([mouseEvent.latLng.getLat()
+                , mouseEvent.latLng.getLng()]);
             // 클릭한 위치에 마커를 표시합니다 
             addMarker(mouseEvent.latLng); 
         });
@@ -69,7 +71,7 @@ const Map = () =>{
         var RedImageSrc = "imgs/RedMarker.png";
         var BlackImageSrc = "imgs/BlackMarker.png";
 
-        isGet.map(RoomInfo =>{
+        isListInfo.map(groupInfo =>{
             // 마커 이미지의 이미지 크기 입니다
             var imageSize = new kakao.maps.Size(26, 44); 
 
@@ -78,32 +80,31 @@ const Map = () =>{
 
             var marker = new kakao.maps.Marker({
                 map: map, // 마커를 표시할 지도
-                position: new kakao.maps.LatLng(RoomInfo.latitude, RoomInfo.longitude), // 마커를 표시할 위치
-                title : RoomInfo.destination, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                position: new kakao.maps.LatLng(groupInfo.latitude, groupInfo.longitude), // 마커를 표시할 위치
+                title : groupInfo.destination, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
                 image : markerImage, // 마커 이미지 
                 clickable: true
             });
             // 마커에 클릭이벤트를 등록합니다
             kakao.maps.event.addListener(marker, 'click', function() {
                 // 마커 클릭시 GroupModal을 생성합니다.
-                setGroupShow(true);
-
-                setGroupDestination(RoomInfo.destination);
-                setGroupMonth(RoomInfo.dateTime[5]+RoomInfo.dateTime[6]);
-                setGroupDay(RoomInfo.dateTime[8]+RoomInfo.dateTime[9]);
-                setGroupHour(RoomInfo.dateTime[11]+RoomInfo.dateTime[12]);
-                setGroupMinute(RoomInfo.dateTime[14]+RoomInfo.dateTime[15]);
-                setGroupMemeberCount(String(RoomInfo.memberCount));
+                setGroupView(true);
+                setGroupDestination(groupInfo.destination);
+                setGroupMonth(groupInfo.dateTime[5]+groupInfo.dateTime[6]);
+                setGroupDay(groupInfo.dateTime[8]+groupInfo.dateTime[9]);
+                setGroupHour(groupInfo.dateTime[11]+groupInfo.dateTime[12]);
+                setGroupMinute(groupInfo.dateTime[14]+groupInfo.dateTime[15]);
+                setGroupMemeberCount(String(groupInfo.memberCount));
             });
         });
 
-    }, [isMake, isGet]);
+    }, [isCreation, isListInfo]);
 
     return (
         <div id="map" style={{height: "100%"}}>
             <GroupInfoModal
-                show={groupShow}
-                onHide={() => setGroupShow(false)}
+                view={groupView}
+                onHide={() => setGroupView(false)}
                 destination={groupDestination}
                 month={groupMonth}
                 day={groupDay}

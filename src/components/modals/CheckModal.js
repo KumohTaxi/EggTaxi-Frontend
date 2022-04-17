@@ -1,10 +1,10 @@
 import {Modal, Button} from 'react-bootstrap';
 import './CheckModal.css';
-import MakeModal from './MakeModal';
+import CreationModal from './CreationModal';
 import React from 'react'
 
 const CheckModal=(props)=>{
-    const [makeShow, setmakeShow] = React.useState(false);
+    const [creationView, setCreationView] = React.useState(false);
 
     return(
         <div>
@@ -31,14 +31,14 @@ const CheckModal=(props)=>{
                     <Button className='checkbuttonRight' 
                         onClick={() => {
                             props.onHide();
-                            setmakeShow(true);
+                            setCreationView(true);
                             }}>확인</Button>
                 </Modal.Footer>
             </Modal>
 
-            <MakeModal
-                show={makeShow}
-                onHide={() => setmakeShow(false)}
+            <CreationModal
+                view={creationView}
+                onHide={() => setCreationView(false)}
             />
         </div>
 
