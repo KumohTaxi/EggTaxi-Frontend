@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import {Spinner} from 'react-bootstrap';
-import './RedirectHandler.css';
+import './RedirectionHandler.css';
 
-const RedirectHandler = ({ history }) => {
+const RedirectionHandler = ({ history }) => {
     let code = new URL(window.location.href).searchParams.get("code");
 
     useEffect(() => {
@@ -42,4 +42,4 @@ const RedirectHandler = ({ history }) => {
     );
 };
 
-export default RedirectHandler;
+export default RedirectionHandler;
