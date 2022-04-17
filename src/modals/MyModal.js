@@ -11,7 +11,7 @@ const MyModal=(props)=>{
         >
             <Modal.Header style={{backgroundColor: "#282828"}}>
                 <Modal.Title className='MyTitle' id="contained-modal-title-vcenter">
-                My Room
+                My Group
                 </Modal.Title>
             </Modal.Header>
 
@@ -26,16 +26,6 @@ const MyModal=(props)=>{
                         <Badge bg="light" text="dark">1명</Badge>
                     </div>
                 </div>
-                <div className='timeBox'>
-                    <div className='mySubTitle'>
-                        <p>
-                            출발 시각
-                        </p>
-                    </div>
-                    <div className='mySubContent'>
-                        <Badge bg="light" text="dark">년 월 일 시 분</Badge>
-                    </div>
-                </div>
                 <div className='destiBox'>
                     <div className='mySubTitle'>
                         <p>
@@ -46,10 +36,20 @@ const MyModal=(props)=>{
                         <Badge bg="light" text="dark">목적지</Badge>
                     </div>
                 </div>
+                <div className='timeBox'>
+                    <div className='mySubTitle'>
+                        <p>
+                            출발시각
+                        </p>
+                    </div>
+                    <div className='mySubContent'>
+                        <Badge bg="light" text="dark">년 월 일 시 분</Badge>
+                    </div>
+                </div>
             </Modal.Body>
 
             <Modal.Footer className='MyFooter' style={{backgroundColor: "#FFFCEE"}}>
-                <Button className='MyBottomButtonLeft'>방 삭제</Button>
+                <Button className='MyBottomButtonLeft'>그룹 삭제</Button>
                 <Button className='MyBottomButtonRight' onClick={props.onHide}>확인</Button>
             </Modal.Footer>
         </Modal>

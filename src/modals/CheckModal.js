@@ -16,13 +16,13 @@ const CheckModal=(props)=>{
             >
                 <Modal.Header style={{backgroundColor: "#282828"}}>
                     <Modal.Title className='checktitle' id="contained-modal-title-vcenter">
-                    선택한 위치에 방을 만드시겠습니까?
+                    해당 위치에 그룹을 만드시겠습니까?
                     </Modal.Title>
                 </Modal.Header>
 
                 <Modal.Body>
                     <p className='checkbody'>
-                    현재 선택한 마커의 위치에 방이 만들어집니다.
+                    생성된 지도의 마커 위치에 그룹이 만들어집니다.
                     </p>
                 </Modal.Body>
 

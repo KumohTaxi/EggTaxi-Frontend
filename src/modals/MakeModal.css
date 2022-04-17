@@ -6,6 +6,8 @@
 
 .subtitle{
     width: 20vmin;
+    display: flex;
+    align-items: center;
 }
 
 .MakeDate, .MakeTime, .MakeDestination, .MakeOther{
