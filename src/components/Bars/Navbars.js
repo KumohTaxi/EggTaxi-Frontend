@@ -1,12 +1,12 @@
 import {Navbar, Nav, Container} from 'react-bootstrap';
 import './Navbars.css';
 import React from 'react'
-import CheckModal from '../../modals/CheckModal';
-import MyModal from '../../modals/MyModal';
+import CheckModal from '../modals/CheckModal';
+import UserModal from '../modals/UserModal';
 
 const Navbars=()=>{
-    const [checkShow, setcheckShow] = React.useState(false);
-    const [MyShow, setMyShow] = React.useState(false);
+    const [checkView, setCheckView] = React.useState(false);
+    const [userView, setUserView] = React.useState(false);
 
     return(
         <div>
@@ -17,20 +17,20 @@ const Navbars=()=>{
                         style={{width: "60px", height: "60px"}}/>
                     </Navbar.Brand>
                     <Nav className="me-auto">
-                        <Nav.Link onClick={() => setcheckShow(true)}>Make</Nav.Link>
-                        <Nav.Link onClick={() => setMyShow(true)}>My</Nav.Link>
+                        <Nav.Link onClick={() => setCheckView(true)}>Make</Nav.Link>
+                        <Nav.Link onClick={() => setUserView(true)}>My</Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>
 
             <CheckModal
-                show={checkShow}
-                onHide={() => setcheckShow(false)}
+                view={checkView}
+                onHide={() => setCheckView(false)}
             />
 
-            <MyModal
-                show={MyShow}
-                onHide={() => setMyShow(false)}
+            <UserModal
+                view={userView}
+                onHide={() => setUserView(false)}
             />
         </div>
     )

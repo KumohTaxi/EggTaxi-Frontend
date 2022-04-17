@@ -1,7 +1,7 @@
-import Navbars from "../components/Bars/Navbars";
-import Map from "../components/Maps/Map";
-import Footer from "../components/Footers/Footer";
-import minFooter from "../components/Footers/minFooter";
+import Navbars from "../bars/Navbars";
+import Map from "../maps/Map";
+import Footer from "../footers/Footer";
+import MinFooter from "../footers/MinFooter";
 import './MainPage.css';
 import { useMediaQuery } from "react-responsive"
 
@@ -17,14 +17,14 @@ const MainPage=()=>{
     return(
         <div id='Main'>
             <div className='Navbars'>
-                {Navbars()}
+                {<Navbars/>}
             </div>
             <div className='Map'>
-                {Map()}
+                {<Map/>}
             </div>
             <div className='Footer'>
-                {isPc && Footer()}
-                {isMobile && minFooter()}
+                {isPc && <Footer/>}
+                {isMobile && <MinFooter/>}
             </div>
         </div>
     );

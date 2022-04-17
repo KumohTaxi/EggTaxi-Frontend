@@ -1,6 +1,5 @@
-import axios from 'axios';
 import './LoginForm.css';
-import { KAKAO_AUTH_URL } from '../components/OAuths/OAuth';
+import { KAKAO_AUTH_URL } from '../../oauths/OAuth';
 
 const LoginForm =()=>{
   

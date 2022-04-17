@@ -1,6 +1,6 @@
 import './Footer.css';
 
-const minFooter=()=>{
+const MinFooter=()=>{
     return(
         <div id='container'>
             <div id="left">
@@ -15,4 +15,4 @@ const minFooter=()=>{
     )
 }
 
-export default minFooter
+export default MinFooter
