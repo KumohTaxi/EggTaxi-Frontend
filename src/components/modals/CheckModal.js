@@ -37,7 +37,7 @@ const CheckModal=(props)=>{
             </Modal>
 
             <CreationModal
-                view={creationView}
+                show={creationView}
                 onHide={() => setCreationView(false)}
             />
         </div>

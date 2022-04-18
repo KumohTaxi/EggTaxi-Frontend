@@ -1,12 +1,12 @@
 import {Navbar, Nav, Container} from 'react-bootstrap';
 import './Navbars.css';
-import React from 'react'
+import React, {useState} from 'react'
+import UserModal from '../modals/UserModal.js'
 import CheckModal from '../modals/CheckModal';
-import UserModal from '../modals/UserModal';
 
 const Navbars=()=>{
-    const [checkView, setCheckView] = React.useState(false);
-    const [userView, setUserView] = React.useState(false);
+    const [checkView, setCheckView] = useState(false);
+    const [userView, setUserView] = useState(false);
 
     return(
         <div>
@@ -24,13 +24,13 @@ const Navbars=()=>{
             </Navbar>
 
             <CheckModal
-                view={checkView}
-                onHide={() => setCheckView(false)}
+                show = {checkView}
+                onHide = {() => setCheckView(false)}
             />
 
             <UserModal
-                view={userView}
-                onHide={() => setUserView(false)}
+                show = {userView}
+                onHide = {() => setUserView(false)}
             />
         </div>
     )
