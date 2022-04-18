@@ -18,6 +18,8 @@ const Map = () =>{
     const [groupMinute, setGroupMinute] = useState('');
     const [groupMemberCount, setGroupMemeberCount] = useState();
 
+    var todayDate = new Date();
+
     useEffect(()=>{
         var mapContainer = document.getElementById('map'); // 지도를 표시할 div  
         var mapOption = { 
@@ -26,6 +28,14 @@ const Map = () =>{
         };
 
         var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+        var LocationMarker = "imgs/LocationMarker.png"
+
+        // 마커 이미지의 이미지 크기 입니다
+        var locationimageSize = new kakao.maps.Size(25, 32); 
+
+        // 마커 이미지를 생성합니다    
+        var locationmarkerImage = new kakao.maps.MarkerImage(LocationMarker, locationimageSize); 
 
         // 지도를 클릭했을때 클릭한 위치에 마커를 추가하도록 지도에 클릭이벤트를 등록합니다
         kakao.maps.event.addListener(map, 'click', function(mouseEvent) { 
@@ -42,12 +52,14 @@ const Map = () =>{
         // 마커 하나를 지도위에 표시합니다 
         addMarker(new kakao.maps.LatLng(isLatLng[0], isLatLng[1]));
 
+
         // 마커를 생성하고 지도위에 표시하는 함수입니다
         function addMarker(position) {
             
             // 마커를 생성합니다
             var marker = new kakao.maps.Marker({
-                position: position
+                position: position,
+                image: locationmarkerImage
             });
             // 마커가 지도 위에 표시되도록 설정합니다
             marker.setMap(map);
@@ -67,16 +79,31 @@ const Map = () =>{
             setMarkers(null);    
         }
 
-        var GreenImageSrc = "imgs/GreenMarker.png";
-        var RedImageSrc = "imgs/RedMarker.png";
-        var BlackImageSrc = "imgs/BlackMarker.png";
+        var PossibleMarker = "imgs/PossibleMarker.png";
+        var ImpossibleMarker = "imgs/ImpossibleMarker.png";
+        var TimeOutMarker = "imgs/TimeOutMarker.png";
 
         isListInfo.map(groupInfo =>{
+
+            function CheckMarkerImg(){
+                if(String(todayDate.getDate()) === groupInfo.dateTime[8]+groupInfo.dateTime[9]
+                && String(todayDate.getHours()) === groupInfo.dateTime[11]+groupInfo.dateTime[12]
+                && todayDate.getMinutes() > Number(groupInfo.dateTime[14]+groupInfo.dateTime[15])){
+                    return TimeOutMarker;
+                }
+                else if(groupInfo.memberCount === 4){
+                    return ImpossibleMarker;
+                }
+                else{
+                    return PossibleMarker;
+                }
+            };
+
             // 마커 이미지의 이미지 크기 입니다
-            var imageSize = new kakao.maps.Size(26, 44); 
+            var imageSize = new kakao.maps.Size(27, 40); 
 
             // 마커 이미지를 생성합니다    
-            var markerImage = new kakao.maps.MarkerImage(GreenImageSrc, imageSize); 
+            var markerImage = new kakao.maps.MarkerImage(CheckMarkerImg(), imageSize); 
 
             var marker = new kakao.maps.Marker({
                 map: map, // 마커를 표시할 지도
@@ -103,7 +130,7 @@ const Map = () =>{
     return (
         <div id="map" style={{height: "100%"}}>
             <GroupInfoModal
-                view={groupView}
+                show={groupView}
                 onHide={() => setGroupView(false)}
                 destination={groupDestination}
                 month={groupMonth}
