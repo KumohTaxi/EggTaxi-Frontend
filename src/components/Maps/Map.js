@@ -84,36 +84,23 @@ const Map = () =>{
         var TimeOutMarker = "imgs/TimeOutMarker.png";
 
         isListInfo.map(groupInfo =>{
-            var stringYear = groupInfo.dateTime[0]+groupInfo.dateTime[1]+groupInfo.dateTime[2]+groupInfo.dateTime[3]
-            var stringMonth = groupInfo.dateTime[5]+groupInfo.dateTime[6]
-            var stringDay = groupInfo.dateTime[8]+groupInfo.dateTime[9]
-            var stringHour = groupInfo.dateTime[11]+groupInfo.dateTime[12]
-            var stringMinute = groupInfo.dateTime[14]+groupInfo.dateTime[15]
+            var stringYear = groupInfo.dateTime[0]+groupInfo.dateTime[1]+groupInfo.dateTime[2]+groupInfo.dateTime[3];
+            var stringMonth = groupInfo.dateTime[5]+groupInfo.dateTime[6];
+            var stringDay = groupInfo.dateTime[8]+groupInfo.dateTime[9];
+            var stringHour = groupInfo.dateTime[11]+groupInfo.dateTime[12];
+            var stringMinute = groupInfo.dateTime[14]+groupInfo.dateTime[15];
+            
+            var stringTodayYear = String(todayDate.getFullYear());
+            var stringTodayMonth = String(todayDate.getMonth()+1);
+            var stringTodayDay = String(todayDate.getDate());
+            var stringTodayHour = String(todayDate.getHours());
+            var stringTodayMinute = String(todayDate.getMinutes());
 
             function CheckMarkerImg(){
-                if(todayDate.getFullYear() > Number(stringYear)
-                || (
-                    todayDate.getFullYear() === Number(stringYear)
-                    && (todayDate.getMonth()+1) > Number(stringMonth)
-                )
-                || (
-                    todayDate.getFullYear() === Number(stringYear)
-                    && (todayDate.getMonth()+1) === Number(stringMonth)
-                    && todayDate.getDate() > Number(stringDay)
-                )
-                || (
-                    todayDate.getFullYear() === Number(stringYear)
-                    && (todayDate.getMonth()+1) === Number(stringMonth)
-                    && todayDate.getDate() === Number(stringDay)
-                    && todayDate.getHours() > Number(stringHour)
-                )
-                ||(
-                    todayDate.getFullYear() === Number(stringYear)
-                    && (todayDate.getMonth()+1) === Number(stringMonth)
-                    && todayDate.getDate() === Number(stringDay)
-                    && todayDate.getHours() === Number(stringHour) 
-                    && todayDate.getMinutes() > Number(stringMinute)
-                ))
+                if((Number(stringTodayYear+stringTodayMonth+stringTodayDay
+                    +stringTodayHour+stringTodayMinute))
+                > (Number(stringYear+String(Number(stringMonth))+String(Number(stringDay))
+                    +String(Number(stringHour))+String(Number(stringMinute)))))
                 {
                     return TimeOutMarker;
                 }
