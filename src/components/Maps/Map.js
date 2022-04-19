@@ -139,9 +139,6 @@ const Map = () =>{
             });
         });
 
-        // 마커 하나를 지도위에 표시합니다 
-        addMarker(new kakao.maps.LatLng(isLatLng[0], isLatLng[1]));
-
     }, [isCreation, isListInfo]);
 
     return (
