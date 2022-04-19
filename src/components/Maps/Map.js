@@ -32,7 +32,7 @@ const Map = () =>{
         var LocationMarker = "imgs/LocationMarker.png"
 
         // 마커 이미지의 이미지 크기 입니다
-        var locationimageSize = new kakao.maps.Size(25, 32); 
+        var locationimageSize = new kakao.maps.Size(27, 40); 
 
         // 마커 이미지를 생성합니다    
         var locationmarkerImage = new kakao.maps.MarkerImage(LocationMarker, locationimageSize); 
@@ -84,11 +84,29 @@ const Map = () =>{
         var TimeOutMarker = "imgs/TimeOutMarker.png";
 
         isListInfo.map(groupInfo =>{
+            var stringMonth = groupInfo.dateTime[5]+groupInfo.dateTime[6]
+            var stringDay = groupInfo.dateTime[8]+groupInfo.dateTime[9]
+            var stringHour = groupInfo.dateTime[11]+groupInfo.dateTime[12]
+            var stringMinute = groupInfo.dateTime[14]+groupInfo.dateTime[15]
 
             function CheckMarkerImg(){
-                if(String(todayDate.getDate()) === groupInfo.dateTime[8]+groupInfo.dateTime[9]
-                && String(todayDate.getHours()) === groupInfo.dateTime[11]+groupInfo.dateTime[12]
-                && todayDate.getMinutes() > Number(groupInfo.dateTime[14]+groupInfo.dateTime[15])){
+                if((todayDate.getMonth()+1) > Number(stringMonth)
+                || (
+                    (todayDate.getMonth()+1) === Number(stringMonth)
+                    && todayDate.getDate() > Number(stringDay)
+                )
+                || (
+                    (todayDate.getMonth()+1) === Number(stringMonth)
+                    && todayDate.getDate() === Number(stringDay)
+                    && todayDate.getHours() > Number(stringHour)
+                )
+                ||(
+                    (todayDate.getMonth()+1) === Number(stringMonth)
+                    && todayDate.getDate() === Number(stringDay)
+                    && todayDate.getHours() === Number(stringHour) 
+                    && todayDate.getMinutes() > Number(stringMinute)
+                ))
+                {
                     return TimeOutMarker;
                 }
                 else if(groupInfo.memberCount === 4){
@@ -117,10 +135,10 @@ const Map = () =>{
                 // 마커 클릭시 GroupModal을 생성합니다.
                 setGroupView(true);
                 setGroupDestination(groupInfo.destination);
-                setGroupMonth(groupInfo.dateTime[5]+groupInfo.dateTime[6]);
-                setGroupDay(groupInfo.dateTime[8]+groupInfo.dateTime[9]);
-                setGroupHour(groupInfo.dateTime[11]+groupInfo.dateTime[12]);
-                setGroupMinute(groupInfo.dateTime[14]+groupInfo.dateTime[15]);
+                setGroupMonth(stringMonth);
+                setGroupDay(stringDay);
+                setGroupHour(stringHour);
+                setGroupMinute(stringMinute);
                 setGroupMemeberCount(String(groupInfo.memberCount));
             });
         });
