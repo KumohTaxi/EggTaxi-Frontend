@@ -61,7 +61,7 @@ const CreationModal=(props)=>{
             alert("그룹이 생성되었습니다.\n마커가 보이지 않는다면, 새로고침을 눌러주십시오.");
         })
         .catch(() => {
-            alert("그룹 만들기에 실패하였습니다.\n다시 시도해 주십시오.");
+            alert("그룹 만들기에 실패하였습니다.\n다시 시도하여 주십시오.");
         })
 
         console.log(year+"-"+conversionMonth+"-"+conversionDay+"T"+conversionHour+":"+conversionMinute);

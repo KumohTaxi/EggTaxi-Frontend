@@ -84,24 +84,32 @@ const Map = () =>{
         var TimeOutMarker = "imgs/TimeOutMarker.png";
 
         isListInfo.map(groupInfo =>{
+            var stringYear = groupInfo.dateTime[0]+groupInfo.dateTime[1]+groupInfo.dateTime[2]+groupInfo.dateTime[3]
             var stringMonth = groupInfo.dateTime[5]+groupInfo.dateTime[6]
             var stringDay = groupInfo.dateTime[8]+groupInfo.dateTime[9]
             var stringHour = groupInfo.dateTime[11]+groupInfo.dateTime[12]
             var stringMinute = groupInfo.dateTime[14]+groupInfo.dateTime[15]
 
             function CheckMarkerImg(){
-                if((todayDate.getMonth()+1) > Number(stringMonth)
+                if(todayDate.getFullYear() > Number(stringYear)
                 || (
-                    (todayDate.getMonth()+1) === Number(stringMonth)
+                    todayDate.getFullYear() === Number(stringYear)
+                    && (todayDate.getMonth()+1) > Number(stringMonth)
+                )
+                || (
+                    todayDate.getFullYear() === Number(stringYear)
+                    && (todayDate.getMonth()+1) === Number(stringMonth)
                     && todayDate.getDate() > Number(stringDay)
                 )
                 || (
-                    (todayDate.getMonth()+1) === Number(stringMonth)
+                    todayDate.getFullYear() === Number(stringYear)
+                    && (todayDate.getMonth()+1) === Number(stringMonth)
                     && todayDate.getDate() === Number(stringDay)
                     && todayDate.getHours() > Number(stringHour)
                 )
                 ||(
-                    (todayDate.getMonth()+1) === Number(stringMonth)
+                    todayDate.getFullYear() === Number(stringYear)
+                    && (todayDate.getMonth()+1) === Number(stringMonth)
                     && todayDate.getDate() === Number(stringDay)
                     && todayDate.getHours() === Number(stringHour) 
                     && todayDate.getMinutes() > Number(stringMinute)
