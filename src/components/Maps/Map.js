@@ -21,9 +21,13 @@ const Map = () =>{
     var todayDate = new Date();
 
     useEffect(()=>{
+        function settingLatLng(){
+            return (36.14511282413091, 128.39342434932092)
+        }
+
         var mapContainer = document.getElementById('map'); // 지도를 표시할 div  
         var mapOption = { 
-            center: new kakao.maps.LatLng(isLatLng[0], isLatLng[1]), // 지도의 중심좌표
+            center: new kakao.maps.LatLng(isLatLng?isLatLng[0]: 36.14511282413091, isLatLng?isLatLng[1]:128.39342434932092), // 지도의 중심좌표
             level: 5 // 지도의 확대 레벨
         };
 

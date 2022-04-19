@@ -11,7 +11,7 @@ import { GetContext } from './contexts/GetContext';
 import RedirectionHandler from './oauths/RedirectionHandler';
 
 function App() {
-  const [isLatLng, setIsLatLng] = useState([36.142410487698, 128.39430145218606])
+  const [isLatLng, setIsLatLng] = useState();
   const [isCreation, setIsCreation] = useState([false]);
   const [isListInfo, setIsListInfo] = useState([]);
 
