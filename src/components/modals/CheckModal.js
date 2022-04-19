@@ -1,10 +1,21 @@
 import {Modal, Button} from 'react-bootstrap';
 import './CheckModal.css';
 import CreationModal from './CreationModal';
-import React from 'react'
+import React, { useContext } from 'react'
+import { LatLngContext } from '../../contexts/LatLngContexts';
 
 const CheckModal=(props)=>{
+    const {isLatLng} = useContext(LatLngContext);
     const [creationView, setCreationView] = React.useState(false);
+
+    function makePossible(){
+        props.onHide();
+        setCreationView(true);
+    }
+    function makeImpossible(){
+        alert("지도에서 출발 위치를 선택하여 주십시오.")
+        props.onHide();
+    }
 
     return(
         <div>
@@ -30,8 +41,7 @@ const CheckModal=(props)=>{
                     <Button className='checkbuttonLeft' onClick={props.onHide}>취소</Button>
                     <Button className='checkbuttonRight' 
                         onClick={() => {
-                            props.onHide();
-                            setCreationView(true);
+                                isLatLng?makePossible():makeImpossible()
                             }}>확인</Button>
                 </Modal.Footer>
             </Modal>
