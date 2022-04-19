@@ -49,10 +49,6 @@ const Map = () =>{
         // 지도에 표시된 마커 객체를 가지고 있을 배열입니다
         var markers = []; 
 
-        // 마커 하나를 지도위에 표시합니다 
-        addMarker(new kakao.maps.LatLng(isLatLng[0], isLatLng[1]));
-
-
         // 마커를 생성하고 지도위에 표시하는 함수입니다
         function addMarker(position) {
             
@@ -142,6 +138,9 @@ const Map = () =>{
                 setGroupMemeberCount(String(groupInfo.memberCount));
             });
         });
+
+        // 마커 하나를 지도위에 표시합니다 
+        addMarker(new kakao.maps.LatLng(isLatLng[0], isLatLng[1]));
 
     }, [isCreation, isListInfo]);
 
