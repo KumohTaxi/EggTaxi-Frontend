@@ -58,10 +58,10 @@ const CreationModal=(props)=>{
             },
         })
         .then(() => {
-            alert("Make 성공");
+            alert("그룹이 생성되었습니다.\n마커가 보이지 않는다면, 새로고침을 눌러주십시오.");
         })
         .catch(() => {
-            alert("Make 실패");
+            alert("그룹 만들기에 실패하였습니다.\n다시 시도해 주십시오.");
         })
 
         console.log(year+"-"+conversionMonth+"-"+conversionDay+"T"+conversionHour+":"+conversionMinute);
@@ -69,13 +69,13 @@ const CreationModal=(props)=>{
 
     const exceptionTime=()=>{
         if(destination === null){
-            alert("목적지를 입력하여주세요.");
+            alert("목적지를 입력하여주십시오.");
         }
         else if(hour <10 || hour >= 22 || minute < 0 || minute >= 60
             || (day === todayDate.getDate() && hour < todayDate.getHours())
             || (day === todayDate.getDate() && hour === todayDate.getHours() && minute < todayDate.getMinutes()))
         {
-            alert("시간을 알맞은 범위 내로 입력하여주세요."); 
+            alert("시간을 알맞은 범위 내로 입력하여 주십시오."); 
         }
         else{
             // 방 정보 전송하는 API
@@ -83,7 +83,6 @@ const CreationModal=(props)=>{
             props.onHide();
             console.log(year+"\n"+month+"\n"+day+"\n"+hour+"\n"+minute+"\n"+destination+"\n"+isLatLng); 
             setIsCreation(!isCreation);
-            console.log("isMake update!");
         }
     }
 
@@ -97,7 +96,7 @@ const CreationModal=(props)=>{
                 >
                 <Modal.Header style={{backgroundColor: "#282828"}}>
                     <Modal.Title className='MakeTitle' id="contained-modal-title-vcenter">
-                    Make Group Modal 
+                    Make Group
                     </Modal.Title>
                 </Modal.Header>
 
@@ -150,14 +149,14 @@ const CreationModal=(props)=>{
                                 <Form.Control className='inputDestination' placeholder="EX) 구미역 후문" maxLength={30} 
                                 onChange={(event)=> setDestination(event.target.value)}/>
                             </div>
-                            <p className='plusText'>목적지를 상세하게 입력하여 주세요.</p>
+                            <p className='plusText'>목적지를 상세하게 입력하여 주십시오.</p>
                         </div>
                     </div>
                 </Modal.Body>
 
                 <Modal.Footer style={{backgroundColor: "#FFFCEE"}}>
-                    <Button className='MakeButtonLeft' onClick={props.onHide}>Cancel</Button>
-                    <Button className='MakeButtonRight' onClick={exceptionTime}>Make</Button>
+                    <Button className='MakeButtonLeft' onClick={props.onHide}>취소</Button>
+                    <Button className='MakeButtonRight' onClick={exceptionTime}>만들기</Button>
                 </Modal.Footer>
             </Modal>
         </div>
