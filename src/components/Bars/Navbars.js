@@ -18,7 +18,7 @@ const Navbars=()=>{
                     </Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link onClick={() => setCheckView(true)}>Make</Nav.Link>
-                        <Nav.Link onClick={() => setUserView(true)}>MyPage</Nav.Link>
+                        <Nav.Link onClick={() => setUserView(true)}>MyGroup</Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>
