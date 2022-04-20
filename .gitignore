@@ -22,7 +22,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-
 #kakao
 /src/oauths/OAuth.js
 /public/index.html
