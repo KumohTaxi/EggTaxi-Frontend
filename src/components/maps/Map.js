@@ -91,16 +91,14 @@ const Map = () =>{
             var stringMinute = groupInfo.dateTime[14]+groupInfo.dateTime[15];
             
             var stringTodayYear = String(todayDate.getFullYear());
-            var stringTodayMonth = String(todayDate.getMonth()+1);
-            var stringTodayDay = String(todayDate.getDate());
-            var stringTodayHour = String(todayDate.getHours());
-            var stringTodayMinute = String(todayDate.getMinutes());
+            var stringTodayMonth = todayDate.getMonth()+1 < 10 ? '0'+(todayDate.getMonth()+1) : String(todayDate.getMonth()+1);
+            var stringTodayDay = todayDate.getDate() < 10 ? '0'+todayDate.getDate() : String(todayDate.getDate());
+            var stringTodayHour = todayDate.getHours() < 10 ? '0'+todayDate.getHours() : String(todayDate.getHours());
+            var stringTodayMinute = todayDate.getMinutes() < 10 ? '0'+todayDate.getMinutes() : String(todayDate.getMinutes());
 
             function CheckMarkerImg(){
-                if((Number(stringTodayYear+stringTodayMonth+stringTodayDay
-                    +stringTodayHour+stringTodayMinute))
-                > (Number(stringYear+String(Number(stringMonth))+String(Number(stringDay))
-                    +String(Number(stringHour))+String(Number(stringMinute)))))
+                if((Number(stringTodayYear+stringTodayMonth+stringTodayDay+stringTodayHour+stringTodayMinute))
+                    > (Number(stringYear+stringMonth+stringDay+stringHour+stringMinute)))
                 {
                     return TimeOutMarker;
                 }
