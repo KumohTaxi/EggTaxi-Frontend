@@ -46,7 +46,7 @@ const UserModal=(props)=>{
                     </div>
                     <div className="vr" />
                     <div className='mySubContent'>
-                        <Badge bg="light" text="dark">월 일 시 분</Badge>
+                        <Badge bg="light" text="dark">월 일 &nbsp;/&nbsp; 시 분</Badge>
                     </div>
                 </div>
             </Modal.Body>

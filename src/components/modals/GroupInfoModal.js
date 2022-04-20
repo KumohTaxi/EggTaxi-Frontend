@@ -49,7 +49,7 @@ const GroupInfoModal=(props)=>{
                         </div>
                         <div className="vr" />
                         <div className='GISubContent'>
-                            <Badge bg="light" text="dark">{props.month}월 {props.day}일 &nbsp;&nbsp;&nbsp; {props.hour}시 {props.minute}분</Badge>
+                            <Badge bg="light" text="dark">{props.month}월 {props.day}일 &nbsp;/&nbsp; {props.hour}시 {props.minute}분</Badge>
                         </div>
                     </div>
                 </Modal.Body>
