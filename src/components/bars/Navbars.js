@@ -17,8 +17,8 @@ const Navbars=()=>{
                         style={{width: "60px", height: "60px"}}/>
                     </Navbar.Brand>
                     <Nav className="me-auto">
-                        <Nav.Link onClick={() => setCheckView(true)}>Make</Nav.Link>
-                        <Nav.Link onClick={() => setUserView(true)}>MyGroup</Nav.Link>
+                        <Nav.Link className='NavbarsMake' onClick={() => setCheckView(true)}>Make</Nav.Link>
+                        <Nav.Link className='NavbarsMyGroup' onClick={() => setUserView(true)}>MyGroup</Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>
