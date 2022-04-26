@@ -2,9 +2,24 @@
     flex-wrap: wrap;
 }
 
-.NavbarsMake, .NavbarsMyGroup{
-    font-size: 5vmin;
+.NavbarsMake{
+    font-size: 15px;
     color: rgb(180, 180, 180);
-    margin-left: 0;
-    padding-left: 0;
+    margin-left: 10px;
+}
+
+.Logo{
+    margin-bottom: 5px;
+}
+
+#offcanvasNavbar{
+    width: 50vw;
+    min-width: 180px;
+    max-width: 200px;
+    background-color: rgb(37, 36, 37);
+    color: rgb(225, 225, 225);
+}
+
+#offcanvasNavbarDropdown{
+    color: rgb(185, 185, 185);
 }
