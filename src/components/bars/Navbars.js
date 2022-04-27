@@ -38,6 +38,7 @@ const Navbars=()=>{
                             <Nav className="justify-content-end flex-grow-1 pe-3">
                                 <Nav.Link href="#action1" onClick={()=>{righthandleClose();}} style={{color: "rgb(185, 185, 185)"}}>My Page</Nav.Link>
                                 <Nav.Link onClick={() => {setUserView(true); righthandleClose();}} style={{color: "rgb(185, 185, 185)"}}>My Group</Nav.Link>
+                                <Nav.Link onClick={() => {righthandleClose();}} style={{color: "rgb(185, 185, 185)"}}>Loge Out</Nav.Link>
                             </Nav>
                         </Offcanvas.Body>
                     </Offcanvas>
