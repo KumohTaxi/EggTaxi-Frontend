@@ -2,19 +2,26 @@
     flex-wrap: wrap;
 }
 
-.NavbarsMake{
-    font-size: 15px;
+.NavbarsMake, .NavbarsFilter{
+    font-size: 4vmin;
+    max-width: 10px;
     color: rgb(180, 180, 180);
-    margin-left: 10px;
+}
+
+.NavbarsFilter{
+    margin-left: 15px;
 }
 
 .Logo{
     margin-bottom: 5px;
+    max-width: 50px;
+    width: 20vmin;
+
 }
 
-#offcanvasNavbar{
+.offcanvasNavbar, .filterOffCanvas{
     width: 50vw;
-    min-width: 180px;
+    min-width: 190px;
     max-width: 200px;
     background-color: rgb(56, 56, 56);
     color: rgb(225, 225, 225);
@@ -22,4 +29,6 @@
 
 #offcanvasNavbarDropdown{
     color: rgb(185, 185, 185);
+    padding-left: 5px;
+    padding-top: 0;
 }
