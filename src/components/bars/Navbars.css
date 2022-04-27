@@ -3,8 +3,7 @@
 }
 
 .NavbarsMake, .NavbarsFilter{
-    font-size: 4vmin;
-    max-width: 10px;
+    font-size: 80%;
     color: rgb(180, 180, 180);
 }
 

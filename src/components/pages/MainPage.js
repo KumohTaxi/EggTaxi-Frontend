@@ -16,15 +16,17 @@ const MainPage=()=>{
 
     return(
         <div id='Main'>
-            <div className='Navbars'>
-                {<Navbars/>}
-            </div>
-            <div className='Map'>
-                {<Map/>}
-            </div>
-            <div className='Footer'>
-                {isPc && <Footer/>}
-                {isMobile && <MinFooter/>}
+            <div>
+                <div className='Navbars'>
+                    {<Navbars/>}
+                </div>
+                <div className='Map'>
+                    {<Map/>}
+                </div>
+                <div className='Footer'>
+                    {isPc && <Footer/>}
+                    {isMobile && <MinFooter/>}
+                </div>
             </div>
         </div>
     );
