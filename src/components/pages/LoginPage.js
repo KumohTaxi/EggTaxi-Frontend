@@ -16,7 +16,7 @@ const LoginPage=()=>{
         <div id='Login'>
             <div id="loginmain">
                 <div className="logintop">
-                    <img className='loginLogo' src="imgs/Taxi-Logo.png"/>
+                    <img className='loginLogo' src="imgs/Taxi_Logo.png"/>
                 </div>
                 <div className="loginmiddle">
                     <div className="LoginForm">
