@@ -1,4 +1,4 @@
-import {Offcanvas, NavDropdown} from 'react-bootstrap';
+import {Offcanvas, ListGroup} from 'react-bootstrap';
 import './FilterOffCanvas.css'
 
 const FilterOffCanvas=(props)=>{
@@ -9,11 +9,6 @@ const FilterOffCanvas=(props)=>{
                     <Offcanvas.Title id="offcanvasNavbarLabel" style={{fontWeight: "bold"}}>Filter</Offcanvas.Title>                        
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    <NavDropdown id="offcanvasNavbarDropdown" title={"Filter"}>
-                        <NavDropdown.Item href="#action3">#1</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action4">#2</NavDropdown.Item>
-                    </NavDropdown>
                 </Offcanvas.Body>
             </Offcanvas>
         </div>
