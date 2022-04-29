@@ -51,25 +51,28 @@ const UserModal=(props)=>{
                             <Badge bg="light" text="dark">월 일 &nbsp;/&nbsp; 시 분</Badge>
                         </div>
                     </div>
-                    <div>
+                    <div className='myComment'>
                         <div className='myCommentHead'>
-                            <div className='mySubTitle'>
+                            <div className='myCommentTitle'>
                                 Comment
                             </div>
-                            <Button variant="dark">
-                                새로고침
+                            <Button className='myRefreshButton' variant="light">
+                                <img className='refreshImg' src='imgs/Refresh.png'/>
                             </Button>
                         </div>
                         <div className='subScrollBox'>
                         </div>
                         <InputGroup className="mb-3">
                             <FormControl
-                            placeholder="Recipient's username"
+                            placeholder="그룹원들과 소통해보세요."
                             aria-label="Recipient's username"
                             aria-describedby="basic-addon2"
+                            className='myCommentInput'
+                            style={{fontSize: "4vmin"}}
                             />
-                            <Button variant="outline-secondary" id="button-addon2">
-                            Button
+                            <Button className='myCommentInputButton' variant="outline-secondary"
+                             id="button-addon2" style={{fontSize: "4vmin"}}>
+                                등록
                             </Button>
                         </InputGroup>
                     </div>
