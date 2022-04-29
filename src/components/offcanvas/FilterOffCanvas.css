@@ -1,0 +1,13 @@
+.filterOffCanvas{
+    width: 50vw;
+    min-width: 190px;
+    max-width: 200px;
+    background-color: rgb(56, 56, 56);
+    color: rgb(225, 225, 225);
+}
+
+#offcanvasNavbarDropdown{
+    color: rgb(185, 185, 185);
+    padding-left: 5px;
+    padding-top: 0;
+}

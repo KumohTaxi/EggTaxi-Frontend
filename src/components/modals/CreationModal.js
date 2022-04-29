@@ -155,8 +155,8 @@ const CreationModal=(props)=>{
                 </Modal.Body>
 
                 <Modal.Footer style={{backgroundColor: "#FFFCEE"}}>
-                    <Button className='MakeButtonLeft' onClick={props.onHide}>취소</Button>
-                    <Button className='MakeButtonRight' onClick={exceptionTime}>만들기</Button>
+                    <Button variant="dark" className='MakeButtonLeft' onClick={props.onHide}>취소</Button>
+                    <Button variant="dark" className='MakeButtonRight' onClick={exceptionTime}>만들기</Button>
                 </Modal.Footer>
             </Modal>
         </div>

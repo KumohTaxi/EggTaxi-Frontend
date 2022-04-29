@@ -38,8 +38,8 @@ const CheckModal=(props)=>{
                 </Modal.Body>
 
                 <Modal.Footer style={{backgroundColor: "#FFFCEE"}}>
-                    <Button className='checkbuttonLeft' onClick={props.onHide}>취소</Button>
-                    <Button className='checkbuttonRight' 
+                    <Button variant="dark" className='checkbuttonLeft' onClick={props.onHide}>취소</Button>
+                    <Button variant="dark" className='checkbuttonRight' 
                         onClick={() => {
                                 isLatLng?makePossible():makeImpossible()
                             }}>확인</Button>

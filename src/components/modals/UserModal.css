@@ -42,3 +42,13 @@
     border-color: #353535;
     font-size: 3vmin;
 }
+
+.scrollBox{
+    overflow: scroll;
+    height: 200px;
+}
+
+.subScrollBox{
+    overflow: scroll;
+    height: 100px;
+}

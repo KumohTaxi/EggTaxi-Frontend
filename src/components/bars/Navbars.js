@@ -1,19 +1,17 @@
-import {Navbar, Nav, Container, Offcanvas, NavDropdown, Dropdown} from 'react-bootstrap';
+import {Navbar, Container} from 'react-bootstrap';
 import './Navbars.css';
 import React, {useState} from 'react'
-import UserModal from '../modals/UserModal.js'
 import CheckModal from '../modals/CheckModal';
+import MenuOffCanvas from '../offcanvas/MenuOffCanvas';
+import FilterOffCanvas from '../offcanvas/FilterOffCanvas';
 
 const Navbars=()=>{
     const [checkView, setCheckView] = useState(false);
-    const [userView, setUserView] = useState(false);
 
     const [leftCanvasShow, setLeftCanvasShow] = useState(false);
-    const lefthandleClose = () => setLeftCanvasShow(false);
     const lefthandleShow = () => setLeftCanvasShow(true);
 
     const [rightCanvasShow, setRightCanvasShow] = useState(false);
-    const righthandleClose = () => setRightCanvasShow(false);
     const righthandleshow = () => setRightCanvasShow(true);
 
     return(
@@ -30,31 +28,6 @@ const Navbars=()=>{
                     </div>
                     
                     <Navbar.Toggle onClick={righthandleshow}/>
-                    <Offcanvas show={rightCanvasShow} onHide={righthandleClose} className="offcanvasNavbar" placement='end'>
-                        <Offcanvas.Header closeButton>
-                            <Offcanvas.Title id="offcanvasNavbarLabel" style={{fontWeight: "bold"}}>MENU</Offcanvas.Title>                        
-                        </Offcanvas.Header>
-                        <Offcanvas.Body>
-                            <Nav className="justify-content-end flex-grow-1 pe-3">
-                                <Nav.Link className='MenuObject' onClick={() => {setUserView(true); righthandleClose();}}>My Group</Nav.Link>
-                                <Nav.Link className='MenuObject' onClick={() => {righthandleClose();}}>대학교 인증</Nav.Link>
-                                <Nav.Link className='MenuObject' onClick={() => {righthandleClose();}}>Loge Out</Nav.Link>
-                            </Nav>
-                        </Offcanvas.Body>
-                    </Offcanvas>
-
-                    <Offcanvas show={leftCanvasShow} onHide={lefthandleClose} className="filterOffCanvas" placement='start'>
-                        <Offcanvas.Header closeButton>
-                            <Offcanvas.Title id="offcanvasNavbarLabel" style={{fontWeight: "bold"}}>Filter</Offcanvas.Title>                        
-                        </Offcanvas.Header>
-                        <Offcanvas.Body>
-                            <NavDropdown id="offcanvasNavbarDropdown" title={"Filter"}>
-                                <NavDropdown.Item href="#action3">#1</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action4">#2</NavDropdown.Item>
-                            </NavDropdown>
-                        </Offcanvas.Body>
-                    </Offcanvas>
                 </Container>
             </Navbar>
 
@@ -63,9 +36,14 @@ const Navbars=()=>{
                 onHide = {() => setCheckView(false)}
             />
 
-            <UserModal
-                show = {userView}
-                onHide = {() => setUserView(false)}
+            <MenuOffCanvas
+                show = {rightCanvasShow}
+                onHide = {() => setRightCanvasShow(false)}
+            />
+
+            <FilterOffCanvas
+                show = {leftCanvasShow}
+                onHide = {() => setLeftCanvasShow(false)}
             />
         </div>
     )
