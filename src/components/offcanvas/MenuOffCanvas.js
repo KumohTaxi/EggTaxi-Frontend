@@ -22,8 +22,8 @@ const MenuOffCanvas=(props)=>{
             </Offcanvas>
 
             <UserModal
-            show = {userView}
-            onHide = {() => setUserView(false)}
+                show = {userView}
+                onHide = {() => setUserView(false)}
             />
         </div>
     );

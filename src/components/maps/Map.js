@@ -4,6 +4,7 @@ import { LatLngContext } from '../../contexts/LatLngContexts';
 import { MakeContext } from '../../contexts/MakeContext';
 import { GetContext } from '../../contexts/GetContext';
 import GroupInfoModal from '../modals/GroupInfoModal';
+import CheckOffCanvas from '../offcanvas/CheckOffCanvas';
 
 const Map = () =>{
     const { isLatLng, setIsLatLng } = useContext(LatLngContext);
@@ -19,6 +20,9 @@ const Map = () =>{
     const [groupMemberCount, setGroupMemeberCount] = useState();
 
     var todayDate = new Date();
+
+    const [isCheckShow, setIsCheckShow] = useState(false);
+    const checkHandleShow = () => setIsCheckShow(true);
 
     useEffect(()=>{
         var mapContainer = document.getElementById('map'); // 지도를 표시할 div  
@@ -44,6 +48,7 @@ const Map = () =>{
                 , mouseEvent.latLng.getLng()]);
             // 클릭한 위치에 마커를 표시합니다 
             addMarker(mouseEvent.latLng); 
+            checkHandleShow();
         });
 
         // 지도에 표시된 마커 객체를 가지고 있을 배열입니다
@@ -146,8 +151,14 @@ const Map = () =>{
                 minute={groupMinute}
                 count={groupMemberCount}
             />
+            <CheckOffCanvas
+            show = {isCheckShow}
+            onHide = {()=>setIsCheckShow(false)}
+            />
         </div> 
     );
+
+    
 };
 
 export default Map;

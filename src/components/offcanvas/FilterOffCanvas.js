@@ -1,4 +1,4 @@
-import {Offcanvas, ListGroup} from 'react-bootstrap';
+import {Offcanvas} from 'react-bootstrap';
 import './FilterOffCanvas.css'
 
 const FilterOffCanvas=(props)=>{
