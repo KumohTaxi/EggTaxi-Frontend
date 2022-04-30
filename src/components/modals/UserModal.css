@@ -16,8 +16,9 @@
     font-size: 4vmin;
     margin-top: 0;
     margin-bottom: 0;
-    background-color: #424242;
-    border-color: #424242;
+    background-color: #8b8b8b;
+    border-color: #8b8b8b;
+    color: rgb(255, 255, 255);
 }
 
 .UserNameBox, .OpenChatBox{
@@ -72,10 +73,10 @@
 
 .MyPageLeftButton{
     background-color: rgb(237, 237, 255);
-    border: 2px solid #e2e4f5;
+    border: 2px solid #eaebf5;
 }
 
 .MyPageRightButton{
     background-color: rgb(255, 234, 234);
-    border: 2px solid rgb(244, 228, 228);
+    border: 2px solid rgb(241, 231, 231);
 }

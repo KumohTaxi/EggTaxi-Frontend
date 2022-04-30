@@ -9,6 +9,7 @@
     background-color: #d7d3e9;
     font-weight: bold;
     color: rgb(37, 37, 37);
+    font-size: 4vmin;
 }
 
 .checkRightButton{
@@ -16,9 +17,16 @@
     background-color: #12043a;
     font-weight: bold;
     color: rgb(238, 234, 255);
+    font-size: 4vmin;
 }
 
 .checkCanvasBody{
     display: flex;
     justify-content: space-around;
+}
+
+.checkLeftButton, .checkRightButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
