@@ -6,9 +6,9 @@ import CheckOffCanvas from '../offcanvas/CheckOffCanvas';
 import { CheckLatLngContext } from '../../contexts/CheckLatLngContext';
 import { useContext } from 'react';
 import MyGroupModal from '../modals/MyGroupModal.js';
-import UserModal from '../modals/MyGroupModal.js';
+import UserModal from '../modals/UserModal';
 
-const Navbars=()=>{
+const Navbars=({location})=>{
     const [leftCanvasShow, setLeftCanvasShow] = useState(false);
     const lefthandleShow = () => setLeftCanvasShow(true);
 
@@ -17,20 +17,26 @@ const Navbars=()=>{
 
     const [myGroupView, setMyGroupView] = useState(false);
 
+    const [userView, setUserView] = useState(false)
+
+    function reload(){
+        (location || window.location || document.location).reload();
+    }
+
     return(
         <div>
             <Navbar  bg="dark" variant="dark"  expand={false} style={{fontWeight: "bold"}}>
                 <Container fluid>
                     <div className='NavBox'>
                         <Navbar.Brand className='NavTitle'>
-                            <img className='Logo' src="imgs/Taxi_Logo.png"/>
+                            <img className='Logo' src="imgs/Taxi_Logo.png" onClick={reload}/>
                         </Navbar.Brand>
 
-                        <div className='NavBody'>
+                        <div className='NavContent'>
                             <span className='NavbarsFilter' onClick={()=>{lefthandleShow(); checkHandleOnHide();}}>Filter</span>
                             <span className='NavbarsMyGroup' onClick={()=>{setMyGroupView(true); checkHandleOnHide();}}>MyGroup</span>
 
-                            <img className='User' src='imgs/User.png'/>
+                            <img className='User' src='imgs/User.png' onClick={()=>{setUserView(true); checkHandleOnHide();}}/>
                         </div>
                     </div>
                 </Container>
@@ -49,6 +55,11 @@ const Navbars=()=>{
             <MyGroupModal
                 show = {myGroupView}
                 onHide = {() => setMyGroupView(false)}
+            />
+
+            <UserModal
+                show = {userView}
+                onHide = {() => setUserView(false)}
             />
         </div>
     )
