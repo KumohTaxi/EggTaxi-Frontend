@@ -5,11 +5,13 @@ import { MakeContext } from '../../contexts/MakeContext';
 import { GetContext } from '../../contexts/GetContext';
 import GroupInfoModal from '../modals/GroupInfoModal';
 import CheckOffCanvas from '../offcanvas/CheckOffCanvas';
+import { CheckLatLngContext } from '../../contexts/CheckLatLngContext';
 
 const Map = () =>{
     const { isLatLng, setIsLatLng } = useContext(LatLngContext);
     const { isCreation } = useContext(MakeContext);
     const { isListInfo } = useContext(GetContext);
+    const { isCheckShow, setIsCheckShow } = useContext(CheckLatLngContext);
     
     const [groupView, setGroupView] = useState(false);
     const [groupDestination, setGroupDestination] = useState('');
@@ -21,8 +23,8 @@ const Map = () =>{
 
     var todayDate = new Date();
 
-    const [isCheckShow, setIsCheckShow] = useState(false);
     const checkHandleShow = () => setIsCheckShow(true);
+    const checkHandleOnHide = () => setIsCheckShow(false);
 
     useEffect(()=>{
         var mapContainer = document.getElementById('map'); // 지도를 표시할 div  
@@ -134,6 +136,7 @@ const Map = () =>{
                 setGroupHour(stringHour);
                 setGroupMinute(stringMinute);
                 setGroupMemeberCount(String(groupInfo.memberCount));
+                checkHandleOnHide();
             });
         });
 

@@ -1,40 +1,49 @@
 import {Navbar, Container} from 'react-bootstrap';
 import './Navbars.css';
 import React, {useState} from 'react'
-import MenuOffCanvas from '../offcanvas/MenuOffCanvas';
 import FilterOffCanvas from '../offcanvas/FilterOffCanvas';
+import CheckOffCanvas from '../offcanvas/CheckOffCanvas';
+import { CheckLatLngContext } from '../../contexts/CheckLatLngContext';
+import { useContext } from 'react';
+import UserModal from '../modals/UserModal.js';
 
 const Navbars=()=>{
     const [leftCanvasShow, setLeftCanvasShow] = useState(false);
     const lefthandleShow = () => setLeftCanvasShow(true);
 
-    const [rightCanvasShow, setRightCanvasShow] = useState(false);
-    const righthandleshow = () => setRightCanvasShow(true);
+    const { isCheckShow, setIsCheckShow } = useContext(CheckLatLngContext);
+    const checkHandleOnHide = () => setIsCheckShow(false);
+
+    const [userView, setUserView] = useState(false);
 
     return(
         <div>
             <Navbar  bg="dark" variant="dark"  expand={false} style={{fontWeight: "bold"}}>
                 <Container fluid>
-                    <div>
+                    <div className='NavBody'>
                         <Navbar.Brand className='NavTitle'>
                             <img className='Logo' src="imgs/Taxi_Logo.png"/>
                         </Navbar.Brand>
 
-                        <span className='NavbarsFilter' onClick={lefthandleShow}>Filter</span>
+                        <span className='NavbarsFilter' onClick={()=>{lefthandleShow(); checkHandleOnHide();}}>Filter</span>
+                        <span className='NavbarsMyGroup' onClick={()=>{setUserView(true); checkHandleOnHide();}}>MyGroup</span>
                     </div>
-                    
-                    <Navbar.Toggle onClick={righthandleshow}/>
                 </Container>
             </Navbar>
-
-            <MenuOffCanvas
-                show = {rightCanvasShow}
-                onHide = {() => setRightCanvasShow(false)}
-            />
 
             <FilterOffCanvas
                 show = {leftCanvasShow}
                 onHide = {() => setLeftCanvasShow(false)}
+            />
+
+            <CheckOffCanvas
+                show = {isCheckShow}
+                onHide = {() => setIsCheckShow(false)}
+            />
+
+            <UserModal
+                show = {userView}
+                onHide = {() => setUserView(false)}
             />
         </div>
     )

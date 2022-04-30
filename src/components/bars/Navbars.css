@@ -2,9 +2,10 @@
     flex-wrap: wrap;
 }
 
-.NavbarsMake, .NavbarsFilter{
-    font-size: 80%;
+.NavbarsMyGroup, .NavbarsFilter{
+    font-size: 90%;
     color: rgb(180, 180, 180);
+    margin-right: 15px
 }
 
 .NavbarsFilter{
@@ -13,7 +14,11 @@
 
 .Logo{
     margin-bottom: 5px;
-    max-width: 50px;
+    max-width: 60px;
     width: 20vmin;
+}
 
+.NavBody{
+    margin-top: 5px;
+    margin-bottom: 4px;
 }
