@@ -5,7 +5,7 @@ import FilterOffCanvas from '../offcanvas/FilterOffCanvas';
 import CheckOffCanvas from '../offcanvas/CheckOffCanvas';
 import { CheckLatLngContext } from '../../contexts/CheckLatLngContext';
 import { useContext } from 'react';
-import UserModal from '../modals/UserModal.js';
+import MyGroupModal from '../modals/MyGroupModal.js';
 
 const Navbars=()=>{
     const [leftCanvasShow, setLeftCanvasShow] = useState(false);
@@ -20,13 +20,17 @@ const Navbars=()=>{
         <div>
             <Navbar  bg="dark" variant="dark"  expand={false} style={{fontWeight: "bold"}}>
                 <Container fluid>
-                    <div className='NavBody'>
+                    <div className='NavBox'>
                         <Navbar.Brand className='NavTitle'>
                             <img className='Logo' src="imgs/Taxi_Logo.png"/>
                         </Navbar.Brand>
 
-                        <span className='NavbarsFilter' onClick={()=>{lefthandleShow(); checkHandleOnHide();}}>Filter</span>
-                        <span className='NavbarsMyGroup' onClick={()=>{setUserView(true); checkHandleOnHide();}}>MyGroup</span>
+                        <div className='NavBody'>
+                            <span className='NavbarsFilter' onClick={()=>{lefthandleShow(); checkHandleOnHide();}}>Filter</span>
+                            <span className='NavbarsMyGroup' onClick={()=>{setUserView(true); checkHandleOnHide();}}>MyGroup</span>
+
+                            <img className='User' src='imgs/User.png'/>
+                        </div>
                     </div>
                 </Container>
             </Navbar>
@@ -41,7 +45,7 @@ const Navbars=()=>{
                 onHide = {() => setIsCheckShow(false)}
             />
 
-            <UserModal
+            <MyGroupModal
                 show = {userView}
                 onHide = {() => setUserView(false)}
             />

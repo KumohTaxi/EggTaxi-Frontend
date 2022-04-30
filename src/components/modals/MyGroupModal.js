@@ -1,5 +1,5 @@
 import {Modal, Button, Badge, InputGroup, FormControl, Form} from 'react-bootstrap';
-import './UserModal.css';
+import './MyGroupModal.css';
 
 const UserModal=(props)=>{
     return(

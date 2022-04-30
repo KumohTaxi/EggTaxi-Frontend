@@ -1,24 +1,24 @@
-#container{
-    flex-wrap: wrap;
-}
-
 .NavbarsMyGroup, .NavbarsFilter{
     font-size: 90%;
     color: rgb(180, 180, 180);
-    margin-right: 15px
-}
-
-.NavbarsFilter{
-    margin-left: 15px;
+    margin-right: 20px;
 }
 
 .Logo{
-    margin-bottom: 5px;
     max-width: 60px;
     width: 20vmin;
+    padding-bottom: 15px;
 }
 
-.NavBody{
-    margin-top: 5px;
-    margin-bottom: 4px;
+.NavBox{
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.User{
+    width: 4vmin;
+    margin-right: 5px;
+    max-width: 15px;
+    min-width: 15px;
 }
