@@ -81,7 +81,7 @@ const MyGroupModal=(props)=>{
             </Modal.Body>
 
             <Modal.Footer className='MyFooter' style={{backgroundColor: "#FFFCEE"}}>
-                <Button variant="dark" className='MyBottomButtonLeft'>그룹 나가기</Button>
+                <Button variant="dark" className='MyBottomButtonLeft'>그룹 나가기 / 삭제</Button>
                 <Button variant="dark" className='MyBottomButtonRight' onClick={props.onHide}>확인</Button>
             </Modal.Footer>
         </Modal>

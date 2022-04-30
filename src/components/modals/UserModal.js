@@ -36,12 +36,12 @@ const UserModal=(props)=>{
                     </div>
                     <div className='OpenChatBox'>
                         <div className='UserSubTitle'>
-                            Open Chat
+                            Questions
                         </div>
                         <div className="vr" />
                         <div className='userSubContent'>
                             <Button className='OpenChatButton' variant='warning' onClick={OpenChat}>
-                                Open Chat 바로가기
+                                Kakao Open Chat
                             </Button>
                             <p className='UserPlusText'>문의사항 및 불편사항을 말씀해주세요.</p>
                         </div>
