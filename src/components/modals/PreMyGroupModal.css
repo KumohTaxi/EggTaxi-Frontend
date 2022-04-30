@@ -1,0 +1,20 @@
+.PreTitle{
+    color:#EEEEEE;
+    font-weight: bold;
+    font-size: 5vmin;
+}
+
+.PreMiddle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    font-weight: bold;
+    font-size: 4vmin;
+}
+
+.PreBottomButtonRight{
+    background-color: #353535;
+    border-color: #353535;
+    font-size: 4vmin;
+}

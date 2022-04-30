@@ -7,6 +7,7 @@ import { CheckLatLngContext } from '../../contexts/CheckLatLngContext';
 import { useContext } from 'react';
 import MyGroupModal from '../modals/MyGroupModal.js';
 import UserModal from '../modals/UserModal';
+import PreMyGroupModal from '../modals/PreMyGroupModal';
 
 const Navbars=({location})=>{
     const [leftCanvasShow, setLeftCanvasShow] = useState(false);
@@ -16,8 +17,8 @@ const Navbars=({location})=>{
     const checkHandleOnHide = () => setIsCheckShow(false);
 
     const [myGroupView, setMyGroupView] = useState(false);
-
     const [userView, setUserView] = useState(false)
+    const [isPreView, setIsPreView] = useState(false)
 
     function reload(){
         (location || window.location || document.location).reload();
@@ -46,20 +47,21 @@ const Navbars=({location})=>{
                 show = {leftCanvasShow}
                 onHide = {() => setLeftCanvasShow(false)}
             />
-
             <CheckOffCanvas
                 show = {isCheckShow}
                 onHide = {() => setIsCheckShow(false)}
             />
-
             <MyGroupModal
                 show = {myGroupView}
                 onHide = {() => setMyGroupView(false)}
             />
-
             <UserModal
                 show = {userView}
                 onHide = {() => setUserView(false)}
+            />
+            <PreMyGroupModal
+                show = {isPreView}
+                onHide = {() => setIsPreView(false)}
             />
         </div>
     )
