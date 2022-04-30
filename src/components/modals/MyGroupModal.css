@@ -67,12 +67,13 @@
     padding-left: 15px;
     font-size: 4vmin;
     border-radius: 7px 0 0 0 / 7px 0 0 0;
-    border: 1px solid rgb(222, 231, 251);
+    border: 1px solid rgb(227, 227, 227);
 }
 
 .myRefreshButton{
     width: 20%;
     border-radius: 0 7px 0 0 / 0 7px 0 0;
+    border: 1px solid rgb(227, 227, 227);
 }
 
 .myCommentInput{

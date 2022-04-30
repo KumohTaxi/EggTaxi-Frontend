@@ -54,7 +54,7 @@ const MyGroupModal=(props)=>{
                     <div className='myComment'>
                         <div className='myCommentHead'>
                             <div className='myCommentTitle'>
-                                Comment
+                                Communication
                             </div>
                             <Button className='myRefreshButton' variant="light">
                                 <img className='refreshImg' src='imgs/Refresh.png'/>
