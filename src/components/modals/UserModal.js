@@ -1,4 +1,4 @@
-import {Modal, Button} from 'react-bootstrap';
+import {Modal, Button, Badge} from 'react-bootstrap';
 import './UserModal.css';
 import React from 'react'
 
@@ -12,20 +12,43 @@ const UserModal=(props)=>{
             centered
             >
                 <Modal.Header style={{backgroundColor: "#282828"}}>
-                    <Modal.Title className='checktitle' id="contained-modal-title-vcenter">
-                    해당 위치에 그룹을 만드시겠습니까?
+                    <Modal.Title className='UserTitle' id="contained-modal-title-vcenter">
+                    My Page
                     </Modal.Title>
                 </Modal.Header>
 
                 <Modal.Body>
-                    <p className='checkbody'>
-                    생성된 지도의 마커 위치에 그룹이 만들어집니다.
-                    </p>
+                    <div className='UserNameBox'>
+                        <div className='UserSubTitle'>
+                            User Name
+                        </div>
+                        <div className="vr" />
+                        <Badge className='userSubContent' style={{fontSize: "4vmin"}} bg="light" text="dark">User Name</Badge>
+                    </div>
+                    <div className='OpenChatBox'>
+                        <div className='UserSubTitle'>
+                            Open Chat
+                        </div>
+                        <div className="vr" />
+                        <div className='userSubContent'>
+                            <Button className='OpenChatButton' variant='warning'>
+                                Open Chat 바로가기
+                            </Button>
+                            <p className='UserPlusText'>문의사항 및 불편사항을 말씀해주세요.</p>
+                        </div>
+                    </div>
+                    <div className='MyPageButtonGroup'>
+                        <Button variant='light' className='MyPageLeftButton'>
+                            대학교 인증
+                        </Button>
+                        <Button variant='light' className='MyPageRightButton'>
+                            Loge Out
+                        </Button>
+                    </div>
                 </Modal.Body>
 
                 <Modal.Footer style={{backgroundColor: "#FFFCEE"}}>
-                    <Button variant="dark" className='checkbuttonLeft' onClick={props.onHide}>취소</Button>
-                    <Button variant="dark" className='checkbuttonRight' >확인</Button>
+                    <Button variant="dark" className='UserButton' onClick={props.onHide}>닫기</Button>
                 </Modal.Footer>
             </Modal>
         </div>

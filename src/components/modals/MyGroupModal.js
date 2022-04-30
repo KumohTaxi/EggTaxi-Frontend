@@ -1,7 +1,7 @@
-import {Modal, Button, Badge, InputGroup, FormControl, Form} from 'react-bootstrap';
+import {Modal, Button, Badge, InputGroup, FormControl} from 'react-bootstrap';
 import './MyGroupModal.css';
 
-const UserModal=(props)=>{
+const MyGroupModal=(props)=>{
     return(
         <Modal
         {...props}
@@ -87,4 +87,4 @@ const UserModal=(props)=>{
     );
 }
 
-export default UserModal;
+export default MyGroupModal;
