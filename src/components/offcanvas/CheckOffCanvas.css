@@ -6,14 +6,16 @@
 
 .checkLeftButton{
     width: 48%;
-    background-color: #949494;
+    background-color: #d7d3e9;
     font-weight: bold;
+    color: rgb(37, 37, 37);
 }
 
 .checkRightButton{
     width: 48%;
-    background-color: #505050;
+    background-color: #12043a;
     font-weight: bold;
+    color: rgb(238, 234, 255);
 }
 
 .checkCanvasBody{
