@@ -6,6 +6,7 @@ import CheckOffCanvas from '../offcanvas/CheckOffCanvas';
 import { CheckLatLngContext } from '../../contexts/CheckLatLngContext';
 import { useContext } from 'react';
 import MyGroupModal from '../modals/MyGroupModal.js';
+import UserModal from '../modals/MyGroupModal.js';
 
 const Navbars=()=>{
     const [leftCanvasShow, setLeftCanvasShow] = useState(false);
@@ -14,7 +15,7 @@ const Navbars=()=>{
     const { isCheckShow, setIsCheckShow } = useContext(CheckLatLngContext);
     const checkHandleOnHide = () => setIsCheckShow(false);
 
-    const [userView, setUserView] = useState(false);
+    const [myGroupView, setMyGroupView] = useState(false);
 
     return(
         <div>
@@ -27,7 +28,7 @@ const Navbars=()=>{
 
                         <div className='NavBody'>
                             <span className='NavbarsFilter' onClick={()=>{lefthandleShow(); checkHandleOnHide();}}>Filter</span>
-                            <span className='NavbarsMyGroup' onClick={()=>{setUserView(true); checkHandleOnHide();}}>MyGroup</span>
+                            <span className='NavbarsMyGroup' onClick={()=>{setMyGroupView(true); checkHandleOnHide();}}>MyGroup</span>
 
                             <img className='User' src='imgs/User.png'/>
                         </div>
@@ -46,8 +47,8 @@ const Navbars=()=>{
             />
 
             <MyGroupModal
-                show = {userView}
-                onHide = {() => setUserView(false)}
+                show = {myGroupView}
+                onHide = {() => setMyGroupView(false)}
             />
         </div>
     )
