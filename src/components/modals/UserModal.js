@@ -3,8 +3,13 @@ import './UserModal.css';
 import React from 'react'
 
 const UserModal=(props)=>{
-    function Yet() {
+    var OpenChatLink = 'https://open.kakao.com/o/s2mNNVde';
+
+    function Yet(){
         alert('서비스 준비 중 입니다.')
+    }
+    function OpenChat(){
+        window.location.href=OpenChatLink;
     }
 
     return(
@@ -35,7 +40,7 @@ const UserModal=(props)=>{
                         </div>
                         <div className="vr" />
                         <div className='userSubContent'>
-                            <Button className='OpenChatButton' variant='warning'>
+                            <Button className='OpenChatButton' variant='warning' onClick={OpenChat}>
                                 Open Chat 바로가기
                             </Button>
                             <p className='UserPlusText'>문의사항 및 불편사항을 말씀해주세요.</p>
