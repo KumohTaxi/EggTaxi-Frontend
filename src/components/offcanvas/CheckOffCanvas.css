@@ -1,18 +1,22 @@
 .bottomCanvas{
     width: 100vw;
-    height: 10vh;
-    background-color: rgb(255, 255, 247);
+    height: 11vh;
+    background-color: rgb(56, 56, 56);
 }
 
 .checkLeftButton{
-    width: 50%;
+    width: 48%;
+    background-color: #949494;
+    font-weight: bold;
 }
 
 .checkRightButton{
-    width: 50%;
+    width: 48%;
+    background-color: #505050;
+    font-weight: bold;
 }
 
 .checkCanvasBody{
-    display: inline;
-    justify-content: space-evenly;
+    display: flex;
+    justify-content: space-around;
 }
