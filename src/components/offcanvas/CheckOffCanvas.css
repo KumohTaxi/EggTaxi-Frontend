@@ -6,17 +6,17 @@
 
 .checkLeftButton{
     width: 48%;
-    background-color: #d7d3e9;
+    background-color: #c5c5c5;
     font-weight: bold;
-    color: rgb(37, 37, 37);
+    color: rgb(65, 65, 65);
     font-size: 4vmin;
 }
 
 .checkRightButton{
     width: 48%;
-    background-color: #12043a;
+    background-color: #5a5a5a;
     font-weight: bold;
-    color: rgb(238, 234, 255);
+    color: rgb(230, 230, 230);
     font-size: 4vmin;
 }
 

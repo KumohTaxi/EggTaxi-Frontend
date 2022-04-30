@@ -72,11 +72,9 @@
 }
 
 .MyPageLeftButton{
-    background-color: rgb(237, 237, 255);
-    border: 2px solid #eaebf5;
+    background-color: rgb(241, 241, 241);
 }
 
 .MyPageRightButton{
-    background-color: rgb(255, 234, 234);
-    border: 2px solid rgb(241, 231, 231);
+    background-color: rgb(255, 242, 183);
 }

@@ -17,12 +17,12 @@
 }
 
 .filterSubTitle{
-    background-color: rgb(57, 53, 70);
+    background-color: rgb(92, 92, 92);
     border-radius: 7px 7px 0 0 / 7px 7px 0 0;
 }
 
 .filterSubTitle1{
-    color: rgb(234, 234, 234);
+    color: rgb(238, 238, 238);
     font-weight: bold;
     font-size: 5vmin;
     padding-top: 15px;
@@ -35,6 +35,8 @@
     padding-right: 15px;
     font-size: 3vmin;
     color: rgb(223, 223, 223);
+    margin-bottom: 0;
+    padding-bottom: 15px;
 }
 
 .filterContent{
