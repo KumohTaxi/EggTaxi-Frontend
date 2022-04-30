@@ -3,6 +3,10 @@ import './UserModal.css';
 import React from 'react'
 
 const UserModal=(props)=>{
+    function Yet() {
+        alert('서비스 준비 중 입니다.')
+    }
+
     return(
         <div>
             <Modal
@@ -38,7 +42,7 @@ const UserModal=(props)=>{
                         </div>
                     </div>
                     <div className='MyPageButtonGroup'>
-                        <Button variant='light' className='MyPageLeftButton'>
+                        <Button variant='light' className='MyPageLeftButton' onClick={Yet}>
                             대학교 인증
                         </Button>
                         <Button variant='light' className='MyPageRightButton'>
