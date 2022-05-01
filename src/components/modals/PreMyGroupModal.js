@@ -17,7 +17,7 @@ const PreMyGroupModal=(props)=>{
             </Modal.Header>
 
             <Modal.Body className='PreMiddle'>
-                " 현재 만든 / 입장한 그룹 정보가 없습니다. "
+                "현재 만든 / 입장한 그룹 정보가 없습니다."
             </Modal.Body>
 
             <Modal.Footer className='PreFooter' style={{backgroundColor: "#FFFCEE"}}>
