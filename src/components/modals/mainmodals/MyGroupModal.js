@@ -18,8 +18,8 @@ const MyGroupModal=(props)=>{
             },
         })
         .then((res) => {
-            console.log(res);
-            setIsCommentList(res);
+            console.log(res.data);
+            setIsCommentList(res.data);
         })
     };
     function enterComment(){
@@ -35,8 +35,7 @@ const MyGroupModal=(props)=>{
                 'ContentType':'appliction/json'
             },
         })
-        .then((res) => {
-            console.log(res);
+        .then(() => {
             checkComment();
         })
     };
