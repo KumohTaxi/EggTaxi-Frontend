@@ -1,13 +1,14 @@
 import {Navbar, Container} from 'react-bootstrap';
 import './Navbars.css';
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import FilterOffCanvas from '../offcanvas/FilterOffCanvas';
 import CheckOffCanvas from '../offcanvas/CheckOffCanvas';
 import { CheckLatLngContext } from '../../contexts/CheckLatLngContext';
 import { useContext } from 'react';
-import MyGroupModal from '../modals/MyGroupModal.js';
-import UserModal from '../modals/UserModal';
-import PreMyGroupModal from '../modals/PreMyGroupModal';
+import MyGroupModal from '../modals/mainmodals/MyGroupModal.js';
+import UserModal from '../modals/mainmodals/UserModal';
+import PreMyGroupModal from '../modals/submodals/PreMyGroupModal';
+import axios from 'axios';
 
 const Navbars=({location})=>{
     const [leftCanvasShow, setLeftCanvasShow] = useState(false);
@@ -20,9 +21,41 @@ const Navbars=({location})=>{
     const [userView, setUserView] = useState(false)
     const [isPreView, setIsPreView] = useState(false)
 
+    const [myGroupDestination, setMyGroupDestination] = useState('');
+    const [myGroupMonth, setMyGroupMonth] = useState('');
+    const [myGroupDay, setMyGroupDay] = useState('');
+    const [myGroupHour, setMyGroupHour] = useState('');
+    const [myGroupMinute, setMyGroupMinute] = useState('');
+    const [myGroupMemberCount, setMyGroupMemeberCount] = useState();
+    const [myGroupID, setMyGroupID] = useState();
+    const [isPossible, setIsPossible] = useState(false);
+
     function reload(){
         (location || window.location || document.location).reload();
     }
+
+    useEffect(()=>{
+        axios({
+            method:'get',
+            url:`/group/${localStorage.getItem('access_token')}`,
+            headers:{
+                'ContentType':'appliction/json'
+            },
+        })
+        .then((res) => {
+            setIsPossible(true);
+            setMyGroupDestination(res.data.destination);
+            setMyGroupMonth(res.data.dateTime[5]+res.data.dateTime[6]);
+            setMyGroupDay(res.data.dateTime[8]+res.data.dateTime[9]);
+            setMyGroupHour(res.data.dateTime[11]+res.data.dateTime[12]);
+            setMyGroupMinute(res.data.dateTime[14]+res.data.dateTime[15]);
+            setMyGroupMemeberCount(res.data.memberCount);
+            setMyGroupID(res.data.id); 
+        })
+        .catch(() => {
+            setIsPossible(false);
+        });
+    },[])
 
     return(
         <div>
@@ -35,7 +68,11 @@ const Navbars=({location})=>{
 
                         <div className='NavContent'>
                             <span className='NavbarsFilter' onClick={()=>{lefthandleShow(); checkHandleOnHide();}}>Filter</span>
-                            <span className='NavbarsMyGroup' onClick={()=>{setMyGroupView(true); checkHandleOnHide();}}>MyGroup</span>
+                            <span className='NavbarsMyGroup' onClick={()=>{checkHandleOnHide();
+                                                                            isPossible
+                                                                            ?setMyGroupView(true)
+                                                                            :setIsPreView(true);
+                                                                        }}>MyGroup</span>
 
                             <img className='User' src='imgs/User.png' onClick={()=>{setUserView(true); checkHandleOnHide();}}/>
                         </div>
@@ -54,6 +91,13 @@ const Navbars=({location})=>{
             <MyGroupModal
                 show = {myGroupView}
                 onHide = {() => setMyGroupView(false)}
+                mydestination={myGroupDestination}
+                mymonth={myGroupMonth}
+                myday={myGroupDay}
+                myhour={myGroupHour}
+                myminute={myGroupMinute}
+                mycount={myGroupMemberCount}
+                myid = {myGroupID}
             />
             <UserModal
                 show = {userView}
