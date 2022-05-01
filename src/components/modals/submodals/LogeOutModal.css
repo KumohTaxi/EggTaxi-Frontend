@@ -1,0 +1,32 @@
+.LOTitle{
+    color:#EEEEEE;
+    font-weight: bold;
+    font-size: 5vmin;
+}
+
+.LOMiddle{
+    font-weight: bold;
+    font-size: 5vmin;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    padding-left: 7vw;
+}
+
+.LOButtonRight{
+    background-color: #353535;
+    border-color: #353535;
+    font-size: 4vmin;
+    font-weight: bold;
+}
+
+.LOButtonLeft{
+    background-color: #7a7a7a;
+    border-color: #7a7a7a;
+    font-size: 4vmin;
+    font-weight: bold;
+}
+
+.LOFooter{
+    display: flex;
+    justify-content: space-between;
+}
