@@ -32,13 +32,12 @@ const Map = () =>{
         var mapContainer = document.getElementById('map'); // 지도를 표시할 div  
         var mapOption = { 
             center: new kakao.maps.LatLng(isLatLng?isLatLng[0]: 36.14511282413091, isLatLng?isLatLng[1]:128.39342434932092), // 지도의 중심좌표
-            level: 4 // 지도의 확대 레벨
+            level: 5 // 지도의 확대 레벨
         };
 
         var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
         if (navigator.geolocation) {
-    
             // GeoLocation을 이용해서 접속 위치를 얻어옵니다
             navigator.geolocation.getCurrentPosition(function(position) {
                 
@@ -69,6 +68,7 @@ const Map = () =>{
             // 클릭한 위치에 마커를 표시합니다 
             addMarker(mouseEvent.latLng); 
             checkHandleShow();
+            console.log(isListInfo);
         });
 
         // 지도에 표시된 마커 객체를 가지고 있을 배열입니다
