@@ -3,10 +3,9 @@ import React, { useContext, useEffect, useState } from 'react'
 import { LatLngContext } from '../../contexts/LatLngContexts';
 import { MakeContext } from '../../contexts/MakeContext';
 import { GetContext } from '../../contexts/GetContext';
-import GroupInfoModal from '../modals/GroupInfoModal';
+import GroupInfoModal from '../modals/mainmodals/GroupInfoModal';
 import CheckOffCanvas from '../offcanvas/CheckOffCanvas';
 import { CheckLatLngContext } from '../../contexts/CheckLatLngContext';
-import SpinnerModal from '../modals/SpinnerModal';
 
 const Map = () =>{
     const { isLatLng, setIsLatLng } = useContext(LatLngContext);
@@ -69,7 +68,6 @@ const Map = () =>{
             // 클릭한 위치에 마커를 표시합니다 
             addMarker(mouseEvent.latLng); 
             checkHandleShow();
-            console.log(isListInfo);
         });
 
         // 지도에 표시된 마커 객체를 가지고 있을 배열입니다
@@ -176,12 +174,8 @@ const Map = () =>{
                 id = {groupID}
             />
             <CheckOffCanvas
-            show = {isCheckShow}
-            onHide = {()=>setIsCheckShow(false)}
-            />
-            <SpinnerModal
-                show = {isGeo}
-                onHide = {()=>setIsGeo(false)}
+                show = {isCheckShow}
+                onHide = {()=>setIsCheckShow(false)}
             />
         </div> 
     );
