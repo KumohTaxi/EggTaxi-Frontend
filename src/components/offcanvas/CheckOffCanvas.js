@@ -2,7 +2,7 @@ import {Offcanvas, Button} from 'react-bootstrap';
 import './CheckOffCanvas.css'
 import React, { useContext } from 'react'
 import { LatLngContext } from '../../contexts/LatLngContexts';
-import CreationModal from '../modals/CreationModal';
+import CreationModal from '../modals/mainmodals/CreationModal';
 
 const CheckOffCanvas=(props)=>{
     const {isLatLng} = useContext(LatLngContext);
