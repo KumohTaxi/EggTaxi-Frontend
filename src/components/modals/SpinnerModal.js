@@ -7,7 +7,7 @@ const SpinnerModal=(props)=>{
     }
 
     if(props.show === true){
-        setTimeout(TimeOut, 3000)
+        setTimeout(TimeOut, 5000)
     }
 
     return(
