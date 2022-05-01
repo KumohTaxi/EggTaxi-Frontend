@@ -6,6 +6,7 @@ import { GetContext } from '../../contexts/GetContext';
 import GroupInfoModal from '../modals/GroupInfoModal';
 import CheckOffCanvas from '../offcanvas/CheckOffCanvas';
 import { CheckLatLngContext } from '../../contexts/CheckLatLngContext';
+import SpinnerModal from '../modals/SpinnerModal';
 
 const Map = () =>{
     const { isLatLng, setIsLatLng } = useContext(LatLngContext);
@@ -20,6 +21,7 @@ const Map = () =>{
     const [groupHour, setGroupHour] = useState('');
     const [groupMinute, setGroupMinute] = useState('');
     const [groupMemberCount, setGroupMemeberCount] = useState();
+    const [isGeo, setIsGeo] = useState(true);
 
     var todayDate = new Date();
 
@@ -30,10 +32,28 @@ const Map = () =>{
         var mapContainer = document.getElementById('map'); // 지도를 표시할 div  
         var mapOption = { 
             center: new kakao.maps.LatLng(isLatLng?isLatLng[0]: 36.14511282413091, isLatLng?isLatLng[1]:128.39342434932092), // 지도의 중심좌표
-            level: 5 // 지도의 확대 레벨
+            level: 4 // 지도의 확대 레벨
         };
 
         var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+        if (navigator.geolocation) {
+    
+            // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+            navigator.geolocation.getCurrentPosition(function(position) {
+                
+                var lat = position.coords.latitude, // 위도
+                    lon = position.coords.longitude; // 경도
+
+                var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+
+                map.setCenter(locPosition);  
+                if(locPosition){
+                    setIsGeo(false);
+                }
+              });
+            
+        }
 
         var LocationMarker = "imgs/LocationMarker.png"
 
@@ -157,6 +177,10 @@ const Map = () =>{
             <CheckOffCanvas
             show = {isCheckShow}
             onHide = {()=>setIsCheckShow(false)}
+            />
+            <SpinnerModal
+                show = {isGeo}
+                onHide = {()=>setIsGeo(false)}
             />
         </div> 
     );
