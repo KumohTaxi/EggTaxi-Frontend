@@ -48,11 +48,9 @@ const Map = () =>{
                 var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
 
                 map.setCenter(locPosition);  
-                if(locPosition){
-                    setIsGeo(false);
-                }
+                
+                setIsGeo(false);
               });
-            
         }
 
         var LocationMarker = "imgs/LocationMarker.png"

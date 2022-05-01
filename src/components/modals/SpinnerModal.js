@@ -2,6 +2,14 @@ import {Modal, Spinner} from 'react-bootstrap';
 import './SpinnerModal.css';
 
 const SpinnerModal=(props)=>{
+    function TimeOut(){
+        props.onHide();
+    }
+
+    if(props.show === true){
+        setTimeout(TimeOut, 3000)
+    }
+
     return(
         <Modal
         {...props}
