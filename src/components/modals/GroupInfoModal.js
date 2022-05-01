@@ -1,8 +1,46 @@
 import {Modal, Button, Badge} from 'react-bootstrap';
 import './GroupInfoModal.css';
-import React from 'react'
+import React from 'react';
+import axios from 'axios';
 
 const GroupInfoModal=(props)=>{
+
+    function joinGroup(){
+        axios({
+            method:'post',
+            url:`./group/${props.id}`,
+            data:{
+                accessToken: localStorage.getItem('access_token'),
+            },
+            headers:{
+                'ContentType':'appliction/json'
+            },
+        })
+        .then(() => {
+            alert("입장 성공");
+        })
+        .catch(() => {
+            alert("입장 실패");
+        })
+    };
+    function exitGroup(){
+        axios({
+            method:'post',
+            url:`./group/${props.id}/exit`,
+            data:{
+                accessToken: localStorage.getItem('access_token'),
+            },
+            headers:{
+                'ContentType':'appliction/json'
+            },
+        })
+        .then(() => {
+            alert("퇴장 성공");
+        })
+        .catch(() => {
+            alert("퇴장 실패");
+        })
+    };
 
     return(
         <div>
@@ -55,10 +93,11 @@ const GroupInfoModal=(props)=>{
                 </Modal.Body>
 
                 <Modal.Footer style={{backgroundColor: "#FFFCEE"}}>
-                    <Button className='GroupInfoButtonLeft' onClick={props.onHide}>취소</Button>
+                    <Button className='GroupInfoButtonLeft' onClick={()=>{props.onHide(); exitGroup();}}>취소</Button>
                     <Button className='GroupInfoButtonRight' 
                         onClick={() => {
                             props.onHide();
+                            joinGroup();
                             }}>참가</Button>
                 </Modal.Footer>
             </Modal>

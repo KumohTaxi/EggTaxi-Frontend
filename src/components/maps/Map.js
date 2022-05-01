@@ -21,6 +21,7 @@ const Map = () =>{
     const [groupHour, setGroupHour] = useState('');
     const [groupMinute, setGroupMinute] = useState('');
     const [groupMemberCount, setGroupMemeberCount] = useState();
+    const [groupID, setGroupID] = useState();
     const [isGeo, setIsGeo] = useState(true);
 
     var todayDate = new Date();
@@ -154,6 +155,7 @@ const Map = () =>{
                 setGroupHour(stringHour);
                 setGroupMinute(stringMinute);
                 setGroupMemeberCount(String(groupInfo.memberCount));
+                setGroupID(groupInfo.id);
                 checkHandleOnHide();
             });
         });
@@ -171,6 +173,7 @@ const Map = () =>{
                 hour={groupHour}
                 minute={groupMinute}
                 count={groupMemberCount}
+                id = {groupID}
             />
             <CheckOffCanvas
             show = {isCheckShow}
