@@ -1,18 +1,31 @@
 import {Modal, Button, Badge, InputGroup, FormControl} from 'react-bootstrap';
 import './MyGroupModal.css';
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import WarningModal from '../submodals/WarningModal';
 
 const MyGroupModal=(props)=>{
     const [isMsg, setIsMsg] = useState('');
     const [isWarningView, setIsWarningView] = useState(false);
     const [isCommentList, setIsCommentList] = useState([]);
+    const [isNumList, setIsNumList] = useState([]);
+
+    function ConfirmNum(data) {
+        var numList = isNumList;
+        
+        for (let i = 0; i < data.length; i++){
+            if(!isNumList.includes(data[i].identityNum)){
+                numList.push(data[i].identityNum);
+            }
+        };
+
+        setIsNumList(numList);
+    };
 
     function checkComment(){
         axios({
             method:'get',
-            url:`/group/${props.myid}/post`,
+            url:`/group/3/post`,
             headers:{
                 'ContentType':'appliction/json'
             },
@@ -20,8 +33,10 @@ const MyGroupModal=(props)=>{
         .then((res) => {
             console.log(res.data);
             setIsCommentList(res.data);
+            ConfirmNum(res.data);
         })
     };
+
     function enterComment(){
         axios({
             method:'post',
@@ -40,13 +55,33 @@ const MyGroupModal=(props)=>{
         })
     };
 
-    const reloadComment = () => {
+    function reloadComment(){
         const result = [];
         for (let i = 0; i < isCommentList.length; i++){
-            result.push(<div key={i}>{isCommentList[i].msg}</div>);
+            result.push(<div className='messageBox' key={i}>
+                            <div className='msgName'>
+                                익명{isNumList.indexOf(isCommentList[i].identityNum)+1}
+                            </div>
+                            <div className="vr" />
+                            <div className='msgContent'>
+                                {isCommentList[i].msg}
+                            </div>
+                        </div>);
         };
         return result;
     };
+
+    function clearInput(){
+        var el = document.getElementsByClassName('myCommentInput');
+
+        for(var i = 0; i<el.length; i++){
+            el[i].value = '';
+        };
+    };
+
+    useEffect(()=>{
+        checkComment()
+    },[props.show])
 
     return(
         <div>
@@ -108,7 +143,9 @@ const MyGroupModal=(props)=>{
                                 </Button>
                             </div>
                             <div className='subScrollBox'>
-                                {reloadComment()}
+                                <div>
+                                    {reloadComment()}
+                                </div>
                             </div>
                             <InputGroup className="mb-3">
                                 <FormControl
@@ -120,7 +157,7 @@ const MyGroupModal=(props)=>{
                                 onChange={(event)=> setIsMsg(event.target.value)}
                                 />
                                 <Button className='myCommentInputButton' variant="outline-secondary"
-                                id="button-addon2" style={{fontSize: "4vmin"}} onClick={enterComment}>
+                                id="button-addon2" style={{fontSize: "4vmin"}} onClick={()=>{enterComment(); clearInput();}}>
                                     등록
                                 </Button>
                             </InputGroup>
