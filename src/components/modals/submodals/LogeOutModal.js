@@ -2,7 +2,7 @@ import {Modal, Button} from 'react-bootstrap';
 import './LogeOutModal.css';
 
 const LogeOutModal=(props)=>{
-    var LoginPageLink = 'http://localhost:3000'
+    var LoginPageLink = 'http://localhost:3000/'
 
     function reloadLoginPage(){
         window.location.href=LoginPageLink;
