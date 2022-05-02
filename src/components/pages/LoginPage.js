@@ -16,7 +16,7 @@ const LoginPage=()=>{
         <div id='Login'>
             <div id="loginmain">
                 <div className="logintop">
-                    <img className='loginLogo' src="imgs/Taxi_Logo.png"/>
+                    <img className='loginLogo' src="imgs/Taxi_Logo.png" alt="이미지를 불러오지 못했습니다."/>
                 </div>
                 <div className="loginmiddle">
                     <div className="LoginForm">
