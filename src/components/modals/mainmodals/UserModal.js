@@ -1,10 +1,12 @@
 import {Modal, Button, Badge} from 'react-bootstrap';
 import './UserModal.css';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import LogeOutModal from '../submodals/LogeOutModal';
+import axios from 'axios';
 
 const UserModal=(props)=>{
     const [isLogeOut, setIsLogeOut] = useState(false);
+    const [isUserCode, setIsUserCode] = useState();
 
     var OpenChatLink = 'https://open.kakao.com/o/s2mNNVde';
 
@@ -14,6 +16,23 @@ const UserModal=(props)=>{
     function OpenChat(){
         window.location.href=OpenChatLink;
     }
+
+    // function getUserCode(){
+    //     axios({
+    //         method:'get',
+    //         url:``,
+    //         headers:{
+    //             'ContentType':'appliction/json'
+    //         },
+    //     })
+    //     .then((res) => {
+    //         setIsUserCode(res.);
+    //     })
+    // }
+
+    // useEffect(()=>{
+    //     getUserCode();
+    // },[])
 
     return(
         <div>
@@ -36,7 +55,7 @@ const UserModal=(props)=>{
                         </div>
                         <div className="vr" />
                         <Badge className='userSubContent' style={{fontSize: "4vmin"}} bg="light" text="dark">
-                           
+                           {/* {isUserCode} */}
                         </Badge>
                     </div>
                     <div className='OpenChatBox'>
