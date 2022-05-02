@@ -25,13 +25,12 @@ const MyGroupModal=(props)=>{
     function checkComment(){
         axios({
             method:'get',
-            url:`/group/3/post`,
+            url:`/group/${props.myid}/post`,
             headers:{
                 'ContentType':'appliction/json'
             },
         })
         .then((res) => {
-            console.log(res.data);
             setIsCommentList(res.data);
             ConfirmNum(res.data);
         })
