@@ -55,8 +55,12 @@
 }
 
 .subScrollBox{
-    overflow: scroll;
     height: 160px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 15px;
+
 }
 
 .myCommentHead{
@@ -93,4 +97,21 @@
 
 .refreshImg{
     max-width: 25px;
+}
+
+.messageBox{
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+    font-size: 4vmin;
+}
+.msgName{
+    margin-right: 10px;
+    width: 13vw;
+    font-weight: bold;
+}
+.msgContent{
+    margin-left: 10px;
+    width: 77vw;
 }
