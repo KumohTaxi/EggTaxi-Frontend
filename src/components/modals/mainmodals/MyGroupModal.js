@@ -79,7 +79,7 @@ const MyGroupModal=(props)=>{
     };
 
     useEffect(()=>{
-        checkComment()
+        checkComment();
     },[props.show])
 
     return(
