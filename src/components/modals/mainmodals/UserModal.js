@@ -1,12 +1,12 @@
 import {Modal, Button, Badge} from 'react-bootstrap';
 import './UserModal.css';
-import React, { useEffect, useState } from 'react'
+import React, { /*useEffect,*/ useState } from 'react'
 import LogeOutModal from '../submodals/LogeOutModal';
-import axios from 'axios';
+// import axios from 'axios';
 
 const UserModal=(props)=>{
     const [isLogeOut, setIsLogeOut] = useState(false);
-    const [isUserCode, setIsUserCode] = useState();
+    // const [isUserCode, setIsUserCode] = useState();
 
     var OpenChatLink = 'https://open.kakao.com/o/s2mNNVde';
 
