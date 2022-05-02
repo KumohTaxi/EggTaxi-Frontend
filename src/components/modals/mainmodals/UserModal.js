@@ -32,10 +32,12 @@ const UserModal=(props)=>{
                 <Modal.Body>
                     <div className='UserNameBox'>
                         <div className='UserSubTitle'>
-                            User Name
+                            User Code
                         </div>
                         <div className="vr" />
-                        <Badge className='userSubContent' style={{fontSize: "4vmin"}} bg="light" text="dark">User Name</Badge>
+                        <Badge className='userSubContent' style={{fontSize: "4vmin"}} bg="light" text="dark">
+                           
+                        </Badge>
                     </div>
                     <div className='OpenChatBox'>
                         <div className='UserSubTitle'>
