@@ -7,9 +7,10 @@
 .LOMiddle{
     font-weight: bold;
     font-size: 5vmin;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
-    padding-left: 7vw;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .LOButtonRight{

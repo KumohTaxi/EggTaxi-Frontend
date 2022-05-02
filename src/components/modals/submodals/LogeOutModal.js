@@ -1,13 +1,8 @@
 import {Modal, Button} from 'react-bootstrap';
 import './LogeOutModal.css';
+import { Link } from 'react-router-dom';
 
 const LogeOutModal=(props)=>{
-    var LoginPageLink = 'http://localhost:3000/'
-
-    function reloadLoginPage(){
-        window.location.href=LoginPageLink;
-    }
-
     return(
         <Modal
         {...props}
@@ -28,7 +23,9 @@ const LogeOutModal=(props)=>{
 
             <Modal.Footer className='LOFooter' style={{backgroundColor: "#FFFCEE"}}>
                 <Button variant="dark" className='LOButtonLeft' onClick={props.onHide}>취소</Button>
-                <Button variant="dark" className='LOButtonRight' onClick={reloadLoginPage}>Loge Out</Button>
+                <Link to='/'>
+                    <Button variant="dark" className='LOButtonRight'>Loge Out</Button>
+                </Link>
             </Modal.Footer>
         </Modal>
     );

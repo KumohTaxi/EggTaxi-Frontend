@@ -63,7 +63,7 @@ const Navbars=({location})=>{
                 <Container fluid>
                     <div className='NavBox'>
                         <Navbar.Brand className='NavTitle'>
-                            <img className='Logo' src="imgs/Taxi_Logo.png" onClick={reload}/>
+                            <img className='Logo' src="imgs/Taxi_Logo.png" alt='이미지를 불러올 수 없습니다.' onClick={reload}/>
                         </Navbar.Brand>
 
                         <div className='NavContent'>
@@ -74,7 +74,7 @@ const Navbars=({location})=>{
                                                                             :setIsPreView(true);
                                                                         }}>MyGroup</span>
 
-                            <img className='User' src='imgs/User.png' onClick={()=>{setUserView(true); checkHandleOnHide();}}/>
+                            <img className='User' src='imgs/User.png' alt='이미지를 불러올 수 없습니다.' onClick={()=>{setUserView(true); checkHandleOnHide();}}/>
                         </div>
                     </div>
                 </Container>
