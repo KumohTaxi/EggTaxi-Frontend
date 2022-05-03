@@ -3,6 +3,7 @@ import './WarningModal.css';
 import axios from 'axios';
 import { useContext } from 'react';
 import { MakeContext } from '../../../contexts/MakeContext';
+import { PROXY } from '../../../contexts/ProxyContext';
 
 const WarningModal=(props)=>{
     const {isCreation, setIsCreation} = useContext(MakeContext);
@@ -10,7 +11,7 @@ const WarningModal=(props)=>{
     function exitGroup(){
         axios({
             method:'post',
-            url:`./group/${props.myid}/exit`,
+            url:`${PROXY}/./group/${props.myid}/exit`,
             data:{
                 accessToken: localStorage.getItem('access_token'),
             },

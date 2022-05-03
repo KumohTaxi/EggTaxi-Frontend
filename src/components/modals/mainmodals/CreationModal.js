@@ -4,6 +4,7 @@ import React, { useContext, useState } from 'react';
 import { MakeContext } from '../../../contexts/MakeContext';
 import { LatLngContext } from '../../../contexts/LatLngContexts';
 import axios from 'axios';
+import { PROXY } from '../../../contexts/ProxyContext';
 
 const CreationModal=(props)=>{
     const {isCreation, setIsCreation} = useContext(MakeContext);
@@ -41,11 +42,12 @@ const CreationModal=(props)=>{
         let conversionDay = day < 10 ? "0"+day : day;
         let conversionHour = hour < 10 ? "0"+hour : hour;
         let conversionMinute = minute < 10 ? "0"+minute : minute;
+        conversionMinute = conversionMinute === "000" ? "00" : conversionMinute;
 
         // 포스트 방식 정보 전달
         axios({
             method:'post',
-            url:'./group/new',
+            url:`${PROXY}/./group/new`,
             data:{
                 destination: destination,
                 dateTime: year+"-"+conversionMonth+"-"+conversionDay+"T"+conversionHour+":"+conversionMinute,
@@ -62,18 +64,23 @@ const CreationModal=(props)=>{
         })
         .catch(() => {
             alert("그룹 만들기에 실패하였습니다.\n다시 시도하여 주십시오.");
+            console.log(year+"-"+conversionMonth+"-"+conversionDay+"T"+conversionHour+":"+conversionMinute);
+            console.log(destination);
+            console.log(localStorage.getItem('access_token'));
+            console.log(isLatLng[0], isLatLng[1])
         })
 
-        console.log(year+"-"+conversionMonth+"-"+conversionDay+"T"+conversionHour+":"+conversionMinute);
     }
 
     const exceptionTime=()=>{
+        console.log(minute);
+        console.log(todayDate.getMinutes());
         if(destination === null){
             alert("목적지를 입력하여주십시오.");
         }
         else if(hour <10 || hour >= 22 || minute < 0 || minute >= 60
             || (day === todayDate.getDate() && hour < todayDate.getHours())
-            || (day === todayDate.getDate() && hour === todayDate.getHours() && minute < todayDate.getMinutes()))
+            || (day === todayDate.getDate() && hour === todayDate.getHours() && minute <= todayDate.getMinutes()))
         {
             alert("시간을 알맞은 범위 내로 입력하여 주십시오."); 
         }

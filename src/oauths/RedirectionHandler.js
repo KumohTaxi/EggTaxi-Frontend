@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import {Spinner} from 'react-bootstrap';
 import './RedirectionHandler.css';
+import { PROXY } from "../contexts/ProxyContext";
 
 const RedirectionHandler = ({ history }) => {
     let code = new URL(window.location.href).searchParams.get("code");
@@ -9,7 +10,7 @@ const RedirectionHandler = ({ history }) => {
     useEffect(() => {
         axios({
             method: "POST",
-            url: "/auth/kakao",
+            url: `${PROXY}/auth/kakao`,
             data:{
                 authCode : code,
             },

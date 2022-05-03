@@ -9,6 +9,7 @@ import MyGroupModal from '../modals/mainmodals/MyGroupModal.js';
 import UserModal from '../modals/mainmodals/UserModal';
 import PreMyGroupModal from '../modals/submodals/PreMyGroupModal';
 import axios from 'axios';
+import { PROXY } from '../../contexts/ProxyContext';
 
 const Navbars=({location})=>{
     const [leftCanvasShow, setLeftCanvasShow] = useState(false);
@@ -37,7 +38,7 @@ const Navbars=({location})=>{
     useEffect(()=>{
         axios({
             method:'get',
-            url:`/group/${localStorage.getItem('access_token')}`,
+            url:`${PROXY}/group/${localStorage.getItem('access_token')}`,
             headers:{
                 'ContentType':'appliction/json'
             },

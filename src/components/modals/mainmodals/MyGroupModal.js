@@ -3,6 +3,7 @@ import './MyGroupModal.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import WarningModal from '../submodals/WarningModal';
+import { PROXY } from '../../../contexts/ProxyContext';
 
 const MyGroupModal=(props)=>{
     const [isMsg, setIsMsg] = useState('');
@@ -25,7 +26,7 @@ const MyGroupModal=(props)=>{
     function checkComment(){
         axios({
             method:'get',
-            url:`/group/${props.myid}/post`,
+            url:`${PROXY}/group/${props.myid}/post`,
             headers:{
                 'ContentType':'appliction/json'
             },
@@ -39,7 +40,7 @@ const MyGroupModal=(props)=>{
     function enterComment(){
         axios({
             method:'post',
-            url:`/posts/new`,
+            url:`${PROXY}/posts/new`,
             data:{
                 accessToken: localStorage.getItem('access_token'),
                 msg : isMsg,

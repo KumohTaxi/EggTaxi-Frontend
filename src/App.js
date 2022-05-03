@@ -10,6 +10,7 @@ import axios from 'axios';
 import { GetContext } from './contexts/GetContext';
 import RedirectionHandler from './oauths/RedirectionHandler';
 import { CheckLatLngContext } from './contexts/CheckLatLngContext';
+import { PROXY } from './contexts/ProxyContext';
 
 function App() {
   const [isLatLng, setIsLatLng] = useState();
@@ -18,7 +19,7 @@ function App() {
   const [isCheckShow, setIsCheckShow] = useState(false);
 
   useEffect(()=>{
-    axios.get(`/group`)
+    axios.get(`${PROXY}/group`)
             .then(response => {
                 setIsListInfo(response.data);
             });

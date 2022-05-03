@@ -2,12 +2,13 @@ import {Modal, Button, Badge} from 'react-bootstrap';
 import './GroupInfoModal.css';
 import React from 'react';
 import axios from 'axios';
+import { PROXY } from '../../../contexts/ProxyContext';
 
 const GroupInfoModal=(props)=>{
     function joinGroup(){
         axios({
             method:'post',
-            url:`./group/${props.id}`,
+            url:`${PROXY}/./group/${props.id}`,
             data:{
                 accessToken: localStorage.getItem('access_token'),
             },
