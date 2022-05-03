@@ -75,7 +75,7 @@ const UserModal=(props)=>{
                             대학교 인증
                         </Button>
                         <Button variant='light' className='MyPageRightButton' onClick={()=>{props.onHide(); setIsLogeOut(true);}}>
-                            Loge Out
+                            LogOut
                         </Button>
                     </div>
                 </Modal.Body>
