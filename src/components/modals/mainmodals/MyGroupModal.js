@@ -15,12 +15,14 @@ const MyGroupModal=(props)=>{
         var numList = isNumList;
         
         for (let i = 0; i < data.length; i++){
-            if(!isNumList.includes(data[i].identityNum)){
+            if(!numList.includes(data[i].identityNum)){
                 numList.push(data[i].identityNum);
             }
         };
 
-        setIsNumList(numList);
+        localStorage.setItem('user_code', numList);
+
+        // setIsNumList(numList);
     };
 
     function checkComment(){
@@ -60,7 +62,7 @@ const MyGroupModal=(props)=>{
         for (let i = 0; i < isCommentList.length; i++){
             result.push(<div className='messageBox' key={i}>
                             <div className='msgName'>
-                                익명{isNumList.indexOf(isCommentList[i].identityNum)+1}
+                                익명{localStorage.getItem('user_code').indexOf(String(isCommentList[i].identityNum))+1}
                             </div>
                             <div className="vr" />
                             <div className='msgContent'>
