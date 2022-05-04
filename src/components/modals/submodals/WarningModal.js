@@ -21,6 +21,7 @@ const WarningModal=(props)=>{
         })
         .then(() => {
             alert("퇴장 성공");
+            window.location.replace('/main');
         })
         .catch(() => {
             alert("퇴장 실패");
