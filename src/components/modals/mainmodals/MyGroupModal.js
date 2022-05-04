@@ -6,23 +6,19 @@ import WarningModal from '../submodals/WarningModal';
 import { PROXY } from '../../../contexts/ProxyContext';
 
 const MyGroupModal=(props)=>{
-    const [isMsg, setIsMsg] = useState('');
     const [isWarningView, setIsWarningView] = useState(false);
     const [isCommentList, setIsCommentList] = useState([]);
-    const [isNumList, setIsNumList] = useState([]);
 
     function ConfirmNum(data) {
-        var numList = isNumList;
+        var numList = [];
         
         for (let i = 0; i < data.length; i++){
-            if(!numList.includes(data[i].identityNum)){
-                numList.push(data[i].identityNum);
+            if(!localStorage.getItem('user_code').includes(data[i].identityNum)){
+                numList.push(data[i].identityNum)
             }
         };
 
         localStorage.setItem('user_code', numList);
-
-        // setIsNumList(numList);
     };
 
     function checkComment(){
@@ -34,18 +30,27 @@ const MyGroupModal=(props)=>{
             },
         })
         .then((res) => {
+            localStorage.setItem('user_code', res.data[0].identityNum);
+
             setIsCommentList(res.data);
             ConfirmNum(res.data);
         })
     };
 
-    function enterComment(){
+    function saveMsg(){
+        var text = document.getElementsByClassName('myCommentInput')[0].value;
+        clearInput();
+
+        enterComment(text);
+    }
+
+    function enterComment(text){
         axios({
             method:'post',
             url:`${PROXY}/posts/new`,
             data:{
                 accessToken: localStorage.getItem('access_token'),
-                msg : isMsg,
+                msg : text,
                 groupId : props.myid,
             },
             headers:{
@@ -62,7 +67,7 @@ const MyGroupModal=(props)=>{
         for (let i = 0; i < isCommentList.length; i++){
             result.push(<div className='messageBox' key={i}>
                             <div className='msgName'>
-                                익명{localStorage.getItem('user_code').indexOf(String(isCommentList[i].identityNum))+1}
+                                익명{localStorage.getItem('user_code').indexOf(isCommentList[i].identityNum)+1}
                             </div>
                             <div className="vr" />
                             <div className='msgContent'>
@@ -80,6 +85,12 @@ const MyGroupModal=(props)=>{
             el[i].value = '';
         };
     };
+
+    const EnterKeyPress = (e) =>{
+        if(e.key==='Enter'){
+            saveMsg(); 
+        }
+    }
 
     useEffect(()=>{
         checkComment();
@@ -156,10 +167,10 @@ const MyGroupModal=(props)=>{
                                 aria-describedby="basic-addon2"
                                 className='myCommentInput'
                                 style={{fontSize: "4vmin"}}
-                                onChange={(event)=> setIsMsg(event.target.value)}
+                                onKeyPress = {EnterKeyPress}
                                 />
                                 <Button className='myCommentInputButton' variant="outline-secondary"
-                                id="button-addon2" style={{fontSize: "4vmin"}} onClick={()=>{enterComment(); clearInput();}}>
+                                id="button-addon2" style={{fontSize: "4vmin"}} onClick={()=>{saveMsg();}}>
                                     등록
                                 </Button>
                             </InputGroup>
