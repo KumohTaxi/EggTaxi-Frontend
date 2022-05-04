@@ -74,14 +74,12 @@ const CreationModal=(props)=>{
     }
 
     const exceptionTime=()=>{
-        console.log(minute);
-        console.log(todayDate.getMinutes());
         if(destination === null){
             alert("목적지를 입력하여주십시오.");
         }
         else if(hour <10 || hour >= 22 || minute < 0 || minute >= 60
-            || (day === todayDate.getDate() && hour < todayDate.getHours())
-            || (day === todayDate.getDate() && hour === todayDate.getHours() && minute <= todayDate.getMinutes()))
+            || (day === todayDate.getDate() && parseInt(hour) < todayDate.getHours())
+            || (day === todayDate.getDate() && parseInt(hour) === todayDate.getHours() && minute <= todayDate.getMinutes()))
         {
             alert("시간을 알맞은 범위 내로 입력하여 주십시오."); 
         }
@@ -89,7 +87,6 @@ const CreationModal=(props)=>{
             // 방 정보 전송하는 API
             transGroupInfoApi();  
             props.onHide();
-            console.log(year+"\n"+month+"\n"+day+"\n"+hour+"\n"+minute+"\n"+destination+"\n"+isLatLng); 
             setIsCreation(!isCreation);
         }
     }
