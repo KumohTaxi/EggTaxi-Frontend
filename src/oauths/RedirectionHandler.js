@@ -24,9 +24,6 @@ const RedirectionHandler = ({ history }) => {
                 history.push('/');
             }
             else{
-                console.log(res.data.accessToken);
-                console.log(res.data.refreshToken);
-                
                 const ACCESS_TOKEN = res.data.accessToken;
                 const REFRESH_TOKEN = res.data.refreshToken;
     

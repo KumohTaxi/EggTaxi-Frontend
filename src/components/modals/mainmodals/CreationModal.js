@@ -65,10 +65,6 @@ const CreationModal=(props)=>{
         })
         .catch(() => {
             alert("그룹 만들기에 실패하였습니다.\n다시 시도하여 주십시오.");
-            console.log(year+"-"+conversionMonth+"-"+conversionDay+"T"+conversionHour+":"+conversionMinute);
-            console.log(destination);
-            console.log(localStorage.getItem('access_token'));
-            console.log(isLatLng[0], isLatLng[1])
         })
 
     }
