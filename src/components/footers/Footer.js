@@ -5,7 +5,7 @@ const Footer=()=>{
         <div id='container'>
             <div id="left">
                 <div id="top">
-                    TAXI
+                    <img className='companyName' src='imgs/company_name_white.png'/>
                 </div>
                 <div id="bottom">
                     Kumoh National Institute of Technology

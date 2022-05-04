@@ -7,11 +7,11 @@
     height: 100%;
 }
 
-#left #top{
+#left{
     font-size: 1.5vh;
     font-size: 1.5vw;
     font-weight: bold;
-    color: #8081BA;
+    color: #4a6797;
 }
 #left #bottom{
     font-size: 0.8vh;
@@ -21,4 +21,9 @@
 #right{
     font-size: 1vh;
     font-size: 1vw;
+}
+
+.companyName{
+    max-width: 70px;
+    margin-bottom: 4px;
 }

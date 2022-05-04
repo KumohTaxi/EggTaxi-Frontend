@@ -64,7 +64,7 @@ const Navbars=({location})=>{
                 <Container fluid>
                     <div className='NavBox'>
                         <Navbar.Brand className='NavTitle'>
-                            <img className='Logo' src="imgs/Taxi_Logo.png" alt='이미지를 불러올 수 없습니다.' onClick={reload}/>
+                            <img className='Logo' src="imgs/ET_Logo.png" alt='이미지를 불러올 수 없습니다.' onClick={reload}/>
                         </Navbar.Brand>
 
                         <div className='NavContent'>
