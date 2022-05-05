@@ -1,13 +1,13 @@
 import {Modal, Button, Badge} from 'react-bootstrap';
 import './UserModal.css';
-import React, { /*useEffect,*/ useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import LogeOutModal from '../submodals/LogeOutModal';
-// import { PROXY } from '../../../contexts/ProxyContext';
-// import axios from 'axios';
+import { PROXY } from '../../../contexts/ProxyContext';
+import axios from 'axios';
 
 const UserModal=(props)=>{
     const [isLogeOut, setIsLogeOut] = useState(false);
-    // const [isUserCode, setIsUserCode] = useState();
+    const [isUserCode, setIsUserCode] = useState();
 
     var OpenChatLink = 'https://open.kakao.com/o/s2mNNVde';
 
@@ -18,22 +18,25 @@ const UserModal=(props)=>{
         window.location.href=OpenChatLink;
     }
 
-    // function getUserCode(){
-    //     axios({
-    //         method:'get',
-    //         url:``,
-    //         headers:{
-    //             'ContentType':'appliction/json'
-    //         },
-    //     })
-    //     .then((res) => {
-    //         setIsUserCode(res.);
-    //     })
-    // }
+    function getUserCode(){
+        axios({
+            method:'get',
+            url:`${PROXY}/member/id`,
+            data:{
+                accessToken: localStorage.getItem('access_token'),
+            },
+            headers:{
+                'ContentType':'appliction/json'
+            },
+        })
+        .then((res) => {
+            setIsUserCode(res.data.identityNum);
+        })
+    }
 
-    // useEffect(()=>{
-    //     getUserCode();
-    // },[])
+    useEffect(()=>{
+        getUserCode();
+    },[])
 
     return(
         <div>
@@ -56,7 +59,7 @@ const UserModal=(props)=>{
                         </div>
                         <div className="vr" />
                         <Badge className='userSubContent' style={{fontSize: "4vmin"}} bg="light" text="dark">
-                           {/* {isUserCode} */}
+                           {isUserCode}
                         </Badge>
                     </div>
                     <div className='OpenChatBox'>
