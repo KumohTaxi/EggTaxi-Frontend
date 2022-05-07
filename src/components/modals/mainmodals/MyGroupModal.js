@@ -26,7 +26,7 @@ const MyGroupModal=(props)=>{
             method:'get',
             url:`${PROXY}/group/${props.myid}/post`,
             headers:{
-                'ContentType':'appliction/json'
+                'ContentType':'application/json'
             },
         })
         .then((res) => {
@@ -54,7 +54,7 @@ const MyGroupModal=(props)=>{
                 groupId : props.myid,
             },
             headers:{
-                'ContentType':'appliction/json'
+                'ContentType':'application/json'
             },
         })
         .then(() => {
@@ -100,12 +100,11 @@ const MyGroupModal=(props)=>{
         <div>
             <Modal
             {...props}
-            size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered
             className='box'
             >
-                <Modal.Header style={{backgroundColor: "#282828"}}>
+                <Modal.Header style={{backgroundColor: "#212428"}}>
                     <Modal.Title className='MyTitle' id="contained-modal-title-vcenter">
                     My Group
                     </Modal.Title>
@@ -166,11 +165,10 @@ const MyGroupModal=(props)=>{
                                 aria-label="Recipient's username"
                                 aria-describedby="basic-addon2"
                                 className='myCommentInput'
-                                style={{fontSize: "4vmin"}}
                                 onKeyPress = {EnterKeyPress}
                                 />
                                 <Button className='myCommentInputButton' variant="outline-secondary"
-                                id="button-addon2" style={{fontSize: "4vmin"}} onClick={()=>{saveMsg();}}>
+                                id="button-addon2" onClick={()=>{saveMsg();}}>
                                     등록
                                 </Button>
                             </InputGroup>

@@ -13,7 +13,7 @@ const GroupInfoModal=(props)=>{
                 accessToken: localStorage.getItem('access_token'),
             },
             headers:{
-                'ContentType':'appliction/json'
+                'ContentType':'application/json'
             },
         })
         .then(() => {
@@ -28,11 +28,10 @@ const GroupInfoModal=(props)=>{
         <div>
             <Modal
             {...props}
-            size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered
             >
-                <Modal.Header style={{backgroundColor: "#282828"}}>
+                <Modal.Header style={{backgroundColor: "#212428"}}>
                     <Modal.Title className='GroupInfoTitle' id="contained-modal-title-vcenter">
                         Group Infomation
                     </Modal.Title>

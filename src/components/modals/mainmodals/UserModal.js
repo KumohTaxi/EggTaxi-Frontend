@@ -20,17 +20,17 @@ const UserModal=(props)=>{
 
     function getUserCode(){
         axios({
-            method:'get',
+            method:'post',
             url:`${PROXY}/member/id`,
             data:{
                 accessToken: localStorage.getItem('access_token'),
             },
             headers:{
-                'ContentType':'appliction/json'
+                'ContentType':'application/json'
             },
         })
         .then((res) => {
-            setIsUserCode(res.data.identityNum);
+            setIsUserCode(res.data);
         })
     }
 
@@ -42,11 +42,10 @@ const UserModal=(props)=>{
         <div>
             <Modal
             {...props}
-            size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered
             >
-                <Modal.Header style={{backgroundColor: "#282828"}}>
+                <Modal.Header style={{backgroundColor: "#212428"}}>
                     <Modal.Title className='UserTitle' id="contained-modal-title-vcenter">
                     My Page
                     </Modal.Title>
@@ -58,7 +57,7 @@ const UserModal=(props)=>{
                             User Code
                         </div>
                         <div className="vr" />
-                        <Badge className='userSubContent' style={{fontSize: "4vmin"}} bg="light" text="dark">
+                        <Badge className='userCode' bg="light" text="dark">
                            {isUserCode}
                         </Badge>
                     </div>
