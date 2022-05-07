@@ -1,0 +1,10 @@
+.MDPage{
+    background-color: #212428;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    padding: 10px;
+}
