@@ -7,9 +7,6 @@ const Footer=()=>{
                 <div id="top">
                     <img className='companyName' src='imgs/company_name_white.png'/>
                 </div>
-                <div id="bottom">
-                    Kumoh National Institute of Technology
-                </div>
             </div>
             <div id="right">
                 <div id="top">
