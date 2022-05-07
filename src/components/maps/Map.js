@@ -6,6 +6,7 @@ import { GetContext } from '../../contexts/GetContext';
 import GroupInfoModal from '../modals/mainmodals/GroupInfoModal';
 import CheckOffCanvas from '../offcanvas/CheckOffCanvas';
 import { CheckLatLngContext } from '../../contexts/CheckLatLngContext';
+import LoadingModal from '../modals/submodals/LoadingModal';
 
 const Map = () =>{
     const { isLatLng, setIsLatLng } = useContext(LatLngContext);
@@ -21,7 +22,7 @@ const Map = () =>{
     const [groupMinute, setGroupMinute] = useState('');
     const [groupMemberCount, setGroupMemeberCount] = useState();
     const [groupID, setGroupID] = useState();
-    const [isGeo, setIsGeo] = useState(true);
+    const [isLoadingShow, setIsLoadingShow] = useState(true);
 
     var todayDate = new Date();
 
@@ -47,9 +48,9 @@ const Map = () =>{
                 var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
 
                 map.setCenter(locPosition);  
-                
-                setIsGeo(false);
-              });
+
+                setIsLoadingShow(false)
+            });
         }
 
         var LocationMarker = "imgs/LocationMarker.png"
@@ -176,6 +177,11 @@ const Map = () =>{
             <CheckOffCanvas
                 show = {isCheckShow}
                 onHide = {()=>setIsCheckShow(false)}
+            />
+
+            <LoadingModal
+                show = {isLoadingShow}
+                onHide = {()=>setIsLoadingShow(false)}
             />
         </div> 
     );
