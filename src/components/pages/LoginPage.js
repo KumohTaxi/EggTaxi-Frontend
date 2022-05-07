@@ -1,16 +1,8 @@
 import Footer from "../footers/Footer";
-import MinFooter from "../footers/MinFooter";
-import { useMediaQuery } from "react-responsive"
 import './LoginPage.css';
 import LoginForm from "../forms/LoginForm";
 
 const LoginPage=()=>{
-    const isPc = useMediaQuery({
-        query : "(min-width:351px)"
-    });
-    const isMobile = useMediaQuery({
-    query : "(max-width:350px)"
-    });
 
     return(
         <div id='Login'>
@@ -25,8 +17,7 @@ const LoginPage=()=>{
                 </div>
             </div>
             <div className='Footer'>
-                {isPc && <Footer/>}
-                {isMobile && <MinFooter/>}
+                {<Footer/>}
             </div>
         </div>
     );
