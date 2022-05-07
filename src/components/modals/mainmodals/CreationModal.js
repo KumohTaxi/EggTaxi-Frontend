@@ -56,7 +56,7 @@ const CreationModal=(props)=>{
                 accessToken: localStorage.getItem('access_token')
             },
             headers:{
-                'ContentType':'appliction/json'
+                'ContentType':'application/json'
             },
         })
         .then(() => {
@@ -86,16 +86,16 @@ const CreationModal=(props)=>{
             setIsCreation(!isCreation);
         }
     }
+    
 
     return(
         <div>
             <Modal
                 {...props}
-                size="lg"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
                 >
-                <Modal.Header style={{backgroundColor: "#282828"}}>
+                <Modal.Header style={{backgroundColor: "#212428"}}>
                     <Modal.Title className='MakeTitle' id="contained-modal-title-vcenter">
                     Make Group
                     </Modal.Title>
@@ -104,10 +104,10 @@ const CreationModal=(props)=>{
                 <Modal.Body>
                     <div className='MakeDate'>
                         <div className='subtitle'>
-                            <p>날짜</p>
+                            날짜
                         </div>
                         <div className="vr" />
-                        <div>
+                        <div className='creationContentBox'>
                             <div className='subcontent'>
                                 <Badge id='todaydate' bg="light" text="dark">{year}년 {month}월 {day}일</Badge>
                                 <div className='buttonDate'>
@@ -115,15 +115,15 @@ const CreationModal=(props)=>{
                                     <Button variant="outline-dark" className='buttonDateRight' onClick={goTomorrow}>내일</Button>
                                 </div>
                             </div>
-                            <p className='plusText'>날짜는 오늘과 내일만 선택 가능합니다.</p>
+                            <span className='plusText'>날짜는 오늘과 내일만 선택 가능합니다.</span>
                         </div>
                     </div>
                     <div className='MakeTime'>
                         <div className='subtitle'>
-                            <p>출발시각</p>
+                            출발시각
                         </div>
                         <div className="vr" />
-                        <div>
+                        <div className='creationContentBox'>
                             <div className='subcontent'>
                                 <div className='choiceHour'>
                                     <Form.Control className='inputHour' placeholder={hour} maxLength={2}
@@ -136,21 +136,24 @@ const CreationModal=(props)=>{
                                     <Badge className='timeP' bg='light' text='dark'>분</Badge>
                                 </div>
                             </div>
-                            <p className='plusText' >EX) 오후 1시 ➤ 13시</p>
-                            <p className='plusText' >합승 제도 상 10시부터 22시까지 가능합니다.</p>
+                            <div>
+                                
+                            </div>
+                            <span className='plusText' >EX) 오후 1시 ➤ 13시<br></br></span>
+                            <span className='plusText' >합승 제도 상 10시부터 22시까지 가능합니다.</span>
                         </div>
                     </div>
                     <div className='MakeDestination'>
                         <div className='subtitle'>
-                            <p>목적지</p>
+                            목적지
                         </div>
                         <div className="vr" />
-                        <div>
+                        <div className='creationContentBox'>
                             <div className='subcontent'> 
                                 <Form.Control className='inputDestination' placeholder="EX) 구미역 후문" maxLength={30} 
                                 onChange={(event)=> setDestination(event.target.value)}/>
                             </div>
-                            <p className='plusText'>목적지를 상세하게 입력하여 주십시오.</p>
+                            <span className='plusText'>목적지를 상세하게 입력하여 주십시오.</span>
                         </div>
                     </div>
                 </Modal.Body>
