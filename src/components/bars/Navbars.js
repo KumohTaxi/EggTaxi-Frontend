@@ -40,7 +40,7 @@ const Navbars=({location})=>{
             method:'get',
             url:`${PROXY}/group/${localStorage.getItem('access_token')}`,
             headers:{
-                'ContentType':'appliction/json'
+                'ContentType':'application/json'
             },
         })
         .then((res) => {
@@ -60,7 +60,7 @@ const Navbars=({location})=>{
 
     return(
         <div>
-            <Navbar  bg="dark" variant="dark"  expand={false} style={{fontWeight: "bold"}}>
+            <Navbar variant="dark"  expand={false} style={{fontWeight: "bold", backgroundColor: "#212428"}}>
                 <Container fluid>
                     <div className='NavBox'>
                         <Navbar.Brand className='NavTitle'>
@@ -68,12 +68,13 @@ const Navbars=({location})=>{
                         </Navbar.Brand>
 
                         <div className='NavContent'>
-                            <span className='NavbarsFilter' onClick={()=>{lefthandleShow(); checkHandleOnHide();}}>Filter</span>
                             <span className='NavbarsMyGroup' onClick={()=>{checkHandleOnHide();
                                                                             isPossible
                                                                             ?setMyGroupView(true)
                                                                             :setIsPreView(true);
                                                                         }}>MyGroup</span>
+                            <img className='NavbarsFilter' src='imgs/Search.png' alt='이미지를 불러올 수 없습니다.'
+                            onClick={()=>{lefthandleShow(); checkHandleOnHide();}}/>
 
                             <img className='User' src='imgs/User.png' alt='이미지를 불러올 수 없습니다.' onClick={()=>{setUserView(true); checkHandleOnHide();}}/>
                         </div>
