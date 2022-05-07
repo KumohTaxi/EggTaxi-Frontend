@@ -5,22 +5,11 @@
     align-items: center;
     color: #ACACAC;
     height: 100%;
-}
-
-#left{
-    font-size: 1.5vh;
-    font-size: 1.5vw;
-    font-weight: bold;
-    color: #4a6797;
-}
-#left #bottom{
-    font-size: 0.8vh;
-    font-size: 0.8vw;
+    background-color: #212428;
 }
 
 #right{
-    font-size: 1vh;
-    font-size: 1vw;
+    font-size: 10px;
 }
 
 .companyName{
