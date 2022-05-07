@@ -1,12 +1,17 @@
-.NavbarsMyGroup, .NavbarsFilter{
+.NavbarsMyGroup{
     font-size: 90%;
     color: rgb(180, 180, 180);
     margin-right: 20px;
 }
 
+.NavbarsFilter{
+    width: 21px;
+    height: 21px;
+    margin-right: 20px;
+}
+
 .Logo{
-    max-width: 40px;
-    width: 20vmin;
+    width: 40px;
 }
 
 .NavBox{
@@ -16,12 +21,14 @@
 }
 
 .User{
-    width: 4vmin;
+    width: 4px;
     margin-right: 5px;
     max-width: 15px;
     min-width: 15px;
+    height: 20px;
 }
 
 .NavContent{
     margin-top: 8px;
+    display: flex;
 }
