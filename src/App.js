@@ -11,6 +11,8 @@ import { GetContext } from './contexts/GetContext';
 import RedirectionHandler from './oauths/RedirectionHandler';
 import { CheckLatLngContext } from './contexts/CheckLatLngContext';
 import { PROXY } from './contexts/ProxyContext';
+import { useMediaQuery } from 'react-responsive';
+import MinDisplayPage from './components/pages/MinDisplayPage';
 
 function App() {
   const [isLatLng, setIsLatLng] = useState();
@@ -25,21 +27,29 @@ function App() {
             });
   }, [isCreation]);
 
+  const isMin = useMediaQuery({
+    query : "(min-width:270px)"
+  });
+  const isMax = useMediaQuery({
+    query : "(max-width:269px)"
+  });
+
   return (
     <LatLngContext.Provider value={{isLatLng, setIsLatLng}}>
       <MakeContext.Provider value={{isCreation, setIsCreation}}>
         <GetContext.Provider value={{isListInfo, setIsListInfo}}>
           <CheckLatLngContext.Provider value={{isCheckShow, setIsCheckShow}}>
             <div className="App">
-              <Router>
-                <Route className= "LoginPage" path="/" component={LoginPage} exact={true}/>
-                <Route className= "MainPage" path="/Main" component={MainPage}/>
-                <Route className= "RedirectPage" path="/oauth/callback/kakao" component={RedirectionHandler}></Route>
-              </Router>
+              {isMin && <Router>
+                  <Route className= "LoginPage" path="/" component={LoginPage} exact={true}/>
+                  <Route className= "MainPage" path="/Main" component={MainPage}/>
+                  <Route className= "RedirectPage" path="/oauth/callback/kakao" component={RedirectionHandler}></Route>
+                </Router>}
+              {isMax && <MinDisplayPage/>}
             </div>
           </CheckLatLngContext.Provider>
         </GetContext.Provider>
-      </MakeContext.Provider>
+      </MakeContext.Provider> 
     </LatLngContext.Provider>
   );
 }
