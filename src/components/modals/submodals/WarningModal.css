@@ -1,34 +1,97 @@
+@media only screen and (min-width: 270px) and (max-width: 299px) {
+    .WarningTitle{
+        font-size: 15px;
+    }
+    .WarningMiddle{
+        height: 110px;
+    }
+    .WarningButtonRight, .WarningButtonLeft{
+        font-size: 12px;
+    }
+    .WarningP1{
+        font-size: 15px;
+        margin-bottom: 5px;
+    }
+    .WarningP2, .WarningP3{
+        font-size: 12px;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 399px) {
+    .WarningTitle{
+        font-size: 17px;
+    }
+    .WarningMiddle{
+        height: 120px;
+    }
+    .WarningButtonRight, .WarningButtonLeft{
+        font-size: 13px;
+    }
+    .WarningP1{
+        font-size: 17px;
+        margin-bottom: 6px;
+    }
+    .WarningP2, .WarningP3{
+        font-size: 13px;
+    }
+}
+
+@media only screen and (min-width: 400px) {
+    .WarningTitle{
+        font-size: 20px;
+    }
+    .WarningMiddle{
+        height: 130px;
+    }
+    .WarningButtonRight, .WarningButtonLeft{
+        font-size: 15px;
+    }
+    .WarningP1{
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+    .WarningP2, .WarningP3{
+        font-size: 15px;
+    }
+}
+
 .WarningTitle{
     color:#EEEEEE;
     font-weight: bold;
-    font-size: 5vmin;
 }
 
 .WarningMiddle{
-    height: 20vh;
     font-weight: bold;
-    font-size: 4vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .WarningButtonRight{
-    background-color: #353535;
-    border-color: #353535;
-    font-size: 4vmin;
+    background-color: #212428;
+    border-color: #212428;
     font-weight: bold;
+    margin: 0;
 }
 
 .WarningButtonLeft{
-    background-color: #7a7a7a;
-    border-color: #7a7a7a;
-    font-size: 4vmin;
+    background-color: #777777;
+    border-color: #777777;
     font-weight: bold;
-}
-
-.WarningP{
-    margin-bottom: 8px;
+    margin: 0;
 }
 
 .WarningFooter{
     display: flex;
     justify-content: space-between;
+}
+
+.WarningP1, .WarningP2, .WarningP3{
+    display: flex;
+    justify-content: center;
+}
+
+.WarningP2, .WarningP3{
+    color: rgb(128, 128, 128);
+    margin-bottom: 0;
 }

@@ -1,28 +1,58 @@
+@media only screen and (min-width: 270px) and (max-width: 299px) {
+    .checkCanvasBody{
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .checkLeftButton, .checkRightButton{
+        font-size: 16px;
+        width: 45%;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 399px) {
+    .checkCanvasBody{
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .checkLeftButton, .checkRightButton{
+        font-size: 18px;
+        width: 45%;
+    }
+}
+
+@media only screen and (min-width: 400px) {
+    .checkCanvasBody{
+        display: flex;
+        justify-content: center;
+    }
+
+    .checkLeftButton, .checkRightButton{
+        font-size: 18px;
+        width: 200px;
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+}
+
 .bottomCanvas{
     width: 100vw;
     height: 11vh;
-    background-color: rgb(43, 43, 43);
+    min-height: 75px;
+    background-color: #212428;
 }
 
 .checkLeftButton{
-    width: 48%;
-    background-color: #c5c5c5;
+    background-color: #e1e1e1;
     font-weight: bold;
-    color: rgb(65, 65, 65);
-    font-size: 4vmin;
+    color: rgb(0, 0, 0);
 }
 
 .checkRightButton{
-    width: 48%;
-    background-color: #5a5a5a;
+    background-color: #396992;
     font-weight: bold;
-    color: rgb(230, 230, 230);
-    font-size: 4vmin;
-}
-
-.checkCanvasBody{
-    display: flex;
-    justify-content: space-around;
+    color: rgb(255, 255, 255);
 }
 
 .checkLeftButton, .checkRightButton{

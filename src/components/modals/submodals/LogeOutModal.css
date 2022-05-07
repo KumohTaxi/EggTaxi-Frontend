@@ -1,33 +1,78 @@
+@media only screen and (min-width: 270px) and (max-width: 299px) {
+    .LOTitle{
+        font-size: 15px;
+    }
+    
+    .LOMiddle{
+        font-size: 15px;
+        height: 80px;
+    }
+    
+    .LOButtonRight, .LOButtonLeft{
+        font-size: 13px;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 399px) {
+    .LOTitle{
+        font-size: 17px;
+    }
+    
+    .LOMiddle{
+        font-size: 17px;
+        height: 90px;
+    }
+    
+    .LOButtonRight, .LOButtonLeft{
+        font-size: 15px;
+    }
+}
+
+@media only screen and (min-width: 400px) {
+    .LOTitle{
+        font-size: 20px;
+    }
+    
+    .LOMiddle{
+        font-size: 20px;
+        height: 120px;
+    }
+    
+    .LOButtonRight, .LOButtonLeft{
+        font-size: 17px;
+    }
+}
+
 .LOTitle{
     color:#EEEEEE;
     font-weight: bold;
-    font-size: 5vmin;
 }
 
 .LOMiddle{
     font-weight: bold;
-    font-size: 5vmin;
-    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .LOButtonRight{
-    background-color: #353535;
-    border-color: #353535;
-    font-size: 4vmin;
+    background-color: #212428;
+    border-color: #212428;
     font-weight: bold;
 }
 
 .LOButtonLeft{
-    background-color: #7a7a7a;
-    border-color: #7a7a7a;
-    font-size: 4vmin;
+    background-color: #777777;
+    border-color: #777777;
     font-weight: bold;
+    margin: 0;
 }
 
 .LOFooter{
     display: flex;
     justify-content: space-between;
+}
+
+.LogOutLink{
+    margin: 0;
 }

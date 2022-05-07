@@ -1,21 +1,68 @@
+@media only screen and (min-width: 270px) and (max-width: 299px) {
+    .PreTitle{
+        font-size: 15px;
+    }
+    .PreMiddle{
+        font-size: 16px;
+        height: 110px;
+    }
+    .PreBottomButtonRight{
+        font-size: 13px;
+    }
+    .PreMiddleContent1{
+        margin-bottom: 5px;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 399px) {
+    .PreTitle{
+        font-size: 18x;
+    }
+    .PreMiddle{
+        font-size: 18px;
+        height: 120px;
+    }
+    .PreBottomButtonRight{
+        font-size: 15px;
+    }
+    .PreMiddleContent1{
+        margin-bottom: 7px;
+    }
+}
+
+@media only screen and (min-width: 400px) {
+    .PreTitle{
+        font-size: 20x;
+    }
+    .PreMiddle{
+        font-size: 20px;
+        height: 130px;
+    }
+    .PreBottomButtonRight{
+        font-size: 18px;
+    }
+    .PreMiddleContent1{
+        margin-bottom: 8px;
+    }
+}
+
 .PreTitle{
     color:#EEEEEE;
     font-weight: bold;
-    font-size: 5vmin;
 }
-
 .PreMiddle{
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.PreMiddleContent1, .PreMiddleContent2{
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 20vh;
-    font-weight: bold;
-    font-size: 4vmin;
 }
-
 .PreBottomButtonRight{
-    background-color: #353535;
-    border-color: #353535;
-    font-size: 4vmin;
+    background-color: #212428;
+    border-color: #212428;
     font-weight: bold;
+    margin: 0;
 }
