@@ -25,6 +25,7 @@ yarn-error.log*
 #kakao
 /src/oauths/OAuth.js
 /public/index.html
+/src/oauths/ReAuth.js
 
 #proxy
 /src/contexts/ProxyContext.js
