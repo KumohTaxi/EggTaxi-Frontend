@@ -150,9 +150,6 @@ const MyGroupModal=(props)=>{
                                 <div className='myCommentTitle'>
                                     Communication
                                 </div>
-                                <Button className='myRefreshButton' variant="light" onClick={checkComment}>
-                                    <img className='refreshImg' src='imgs/Refresh.png'/>
-                                </Button>
                             </div>
                             <div className='subScrollBox'>
                                 <div>
@@ -170,6 +167,9 @@ const MyGroupModal=(props)=>{
                                 <Button className='myCommentInputButton' variant="outline-secondary"
                                 id="button-addon2" onClick={()=>{saveMsg();}}>
                                     등록
+                                </Button>
+                                <Button className='myRefreshButton' variant="light" onClick={checkComment}>
+                                    <img className='refreshImg' src='imgs/Refresh.png'/>
                                 </Button>
                             </InputGroup>
                         </div>
