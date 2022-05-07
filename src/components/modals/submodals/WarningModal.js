@@ -16,7 +16,7 @@ const WarningModal=(props)=>{
                 accessToken: localStorage.getItem('access_token'),
             },
             headers:{
-                'ContentType':'appliction/json'
+                'ContentType':'application/json'
             },
         })
         .then(() => {
@@ -31,23 +31,25 @@ const WarningModal=(props)=>{
     return(
         <Modal
         {...props}
-        size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
         className='box'
         >
-            <Modal.Header style={{backgroundColor: "#282828"}}>
+            <Modal.Header style={{backgroundColor: "#212428"}}>
                 <Modal.Title className='WarningTitle' id="contained-modal-title-vcenter">
                 My Group
                 </Modal.Title>
             </Modal.Header>
 
             <Modal.Body className='WarningMiddle'>
-                <p className='WarningP'>
+                <p className='WarningP1'>
                 정말 방을 나가시겠습니까?
                 </p>
-                <p className='WarningP'>
-                출발 시각 5분 전에 나가면 사용에 불이익이 있을 수 있습니다.
+                <p className='WarningP2'>
+                출발 시각 5분 전에 나가면 사용에 
+                </p>
+                <p className='WarningP3'>  
+                    불이익이 있을 수 있습니다.
                 </p>
             </Modal.Body>
 

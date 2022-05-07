@@ -24,7 +24,7 @@ const CheckOffCanvas=(props)=>{
                     <Button variant='dark' className='checkLeftButton' onClick={props.onHide}>
                         취소
                     </Button>
-                    <Button variant='dark' className='checkRightButton' onClick={()=>{isLatLng?makePossible():makeImpossible()}}>
+                    <Button variant='dark' className='checkRightButton' onClick={()=>{isLatLng?makePossible():makeImpossible();}}>
                         그룹 만들기
                     </Button>
                 </Offcanvas.Body>

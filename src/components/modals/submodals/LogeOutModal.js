@@ -6,12 +6,11 @@ const LogeOutModal=(props)=>{
     return(
         <Modal
         {...props}
-        size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
         className='box'
         >
-            <Modal.Header style={{backgroundColor: "#282828"}}>
+            <Modal.Header style={{backgroundColor: "#212428"}}>
                 <Modal.Title className='LOTitle' id="contained-modal-title-vcenter">
                 My Page
                 </Modal.Title>
@@ -23,8 +22,8 @@ const LogeOutModal=(props)=>{
 
             <Modal.Footer className='LOFooter' style={{backgroundColor: "#FFFCEE"}}>
                 <Button variant="dark" className='LOButtonLeft' onClick={props.onHide}>취소</Button>
-                <Link to='/'>
-                    <Button variant="dark" className='LOButtonRight'>Loge Out</Button>
+                <Link className='LogOutLink' to='/'>
+                    <Button variant="dark" className='LOButtonRight'>Log Out</Button>
                 </Link>
             </Modal.Footer>
         </Modal>

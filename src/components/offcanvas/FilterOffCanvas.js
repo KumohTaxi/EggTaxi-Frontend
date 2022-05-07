@@ -6,7 +6,7 @@ const FilterOffCanvas=(props)=>{
         <div>
             <Offcanvas show={props.show} onHide={props.onHide} className="filterOffCanvas" placement='start'>
                 <Offcanvas.Header closeButton>
-                    <Offcanvas.Title id="offcanvasNavbarLabel" style={{fontWeight: "bold"}}>Filter</Offcanvas.Title>                        
+                    <Offcanvas.Title id="offcanvasNavbarLabel" style={{fontWeight: "bold"}}>Search</Offcanvas.Title>                        
                 </Offcanvas.Header>
                 <Offcanvas.Body className='filterBodyBox'>
                     <div className='filterBody'>
