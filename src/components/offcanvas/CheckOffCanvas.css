@@ -45,12 +45,14 @@
 
 .checkLeftButton{
     background-color: #e1e1e1;
+    border-color: #e1e1e1;
     font-weight: bold;
     color: rgb(0, 0, 0);
 }
 
 .checkRightButton{
     background-color: #396992;
+    border-color: #396992;
     font-weight: bold;
     color: rgb(255, 255, 255);
 }

@@ -284,10 +284,11 @@
 
 .myRefreshButton{
     border-radius: 0 0 0 0 / 0 0 0 0;
-    border: 1px solid #e1e1e1;
+    border: 1px solid #777777;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #e1e1e1;
 }
 
 .myCommentInput{
@@ -296,7 +297,7 @@
 }
 
 .myCommentInputButton{
-    border: 1px solid #e1e1e1;
+    border: 1px solid #777777;
     background-color: #e1e1e1;
     color: black;
     font-weight: bold;

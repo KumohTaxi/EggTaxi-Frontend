@@ -184,10 +184,13 @@
 }
 
 .MyPageLeftButton{
-    background-color: #5a8cb7;
-    color: white;
+    background-color: #e1e1e1;
+    color: black;
+    border-color: #e1e1e1;
 }
 
 .MyPageRightButton{
-    background-color: #e1e1e1;
+    background-color: #5a8cb7;
+    color: white;
+    border-color: #5a8cb7;
 }
