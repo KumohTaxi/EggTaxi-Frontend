@@ -1,0 +1,87 @@
+@media only screen and (min-width: 270px) and (max-width: 299px) {
+    .checkAuthTitle{
+        font-size: 15px;
+    }
+    .checkAuthContent{
+        height: 130px;
+    }
+    .CAP1, .CAP2{
+        font-size: 13px;
+    }
+    .CAP3{
+        font-size: 16px;
+        margin-bottom: 3px;
+    }
+    .authButtonRight, .authButtonLeft{
+        font-size: 13px;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 399px) {
+    .checkAuthTitle{
+        font-size: 17px;
+    }
+    .checkAuthContent{
+        height: 140px;
+    }
+    .CAP1, .CAP2{
+        font-size: 15px;
+    }
+    .CAP3{
+        font-size: 18px;
+        margin-bottom: 4px;
+    }
+    .authButtonRight, .authButtonLeft{
+        font-size: 15px;
+    }
+}
+
+@media only screen and (min-width: 400px) {
+    .checkAuthTitle{
+        font-size: 20px;
+    }
+    .checkAuthContent{
+        height: 160px;
+    }
+    .CAP1, .CAP2{
+        font-size: 18px;
+    }
+    .CAP3{
+        font-size: 22px;
+        margin-bottom: 4px;
+    }
+    .authButtonRight, .authButtonLeft{
+        font-size: 18px;
+    }
+}
+
+.checkAuthTitle{
+    color: white;
+    font-weight: bold;
+}
+.checkAuthContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.CAP1, .CAP2, .CAP3{
+    font-weight: bold;
+}
+.CAP1{
+    margin-bottom: 0;
+}
+.authButtonLeft{
+    background-color: #777777;
+    border-color: #ffffff;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.authButtonRight{
+    background-color: #212428;
+    border-color: #212428;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
