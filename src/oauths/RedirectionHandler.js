@@ -23,10 +23,17 @@ const RedirectionHandler = ({ history }) => {
                 alert("로그인에 실패하였습니다.");
                 history.push('/');
             }
-            // else if(res.data.accessToken === 'genderless' || res.data.refreshToken === 'genderless'){
-            //     history.push('/main');
-            //     alert("성별이 없습니다.");
-            // }
+            else if(res.data.accessToken === 'genderless' || res.data.refreshToken === 'genderless'){
+                alert("성별이 없습니다.");
+
+                const ACCESS_TOKEN = res.data.accessToken;
+                const REFRESH_TOKEN = res.data.refreshToken;
+
+                localStorage.setItem("access_token", ACCESS_TOKEN);
+                localStorage.setItem("refresh_token", REFRESH_TOKEN);
+
+                history.push('/main');
+            }
             else{
                 const ACCESS_TOKEN = res.data.accessToken;
                 const REFRESH_TOKEN = res.data.refreshToken;
