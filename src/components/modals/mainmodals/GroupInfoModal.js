@@ -17,10 +17,9 @@ const GroupInfoModal=(props)=>{
             },
         })
         .then(() => {
-            alert("참가 성공");
         })
         .catch(() => {
-            alert("참가 실패");
+            alert("참가 할 수 없는 방입니다.");
         })
     };
 
@@ -74,8 +73,8 @@ const GroupInfoModal=(props)=>{
                 </Modal.Body>
 
                 <Modal.Footer style={{backgroundColor: "#FFFCEE"}}>
-                    <Button className='GroupInfoButtonLeft' variant='black' onClick={()=>{props.onHide();}}>취소</Button>
-                    <Button className='GroupInfoButtonRight' variant='black'
+                    <Button className='GroupInfoButtonLeft' variant='dark' onClick={()=>{props.onHide();}}>취소</Button>
+                    <Button className='GroupInfoButtonRight' variant='light'
                         onClick={() => {
                             props.onHide();
                             joinGroup();
