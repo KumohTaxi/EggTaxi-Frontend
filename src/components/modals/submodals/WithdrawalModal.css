@@ -1,0 +1,100 @@
+@media only screen and (min-width: 270px) and (max-width: 299px) {
+    .WDTitle{
+        font-size: 15px;
+    }
+    
+    .WDMiddle{
+        height: 120px;
+    }
+    .WDP1{
+        font-size: 17px;
+    }
+    .WDP2{
+        font-size: 15px;
+    }
+    
+    .WDButtonRight, .WDButtonLeft{
+        font-size: 13px;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 399px) {
+    .WDTitle{
+        font-size: 17px;
+    }
+    
+    .WDMiddle{
+        height: 130px;
+    }
+    .WDP1{
+        font-size: 20px;
+    }
+    .WDP2{
+        font-size: 17px;
+    }
+    
+    .WDButtonRight, .WDButtonLeft{
+        font-size: 15px;
+    }
+}
+
+@media only screen and (min-width: 400px) {
+    .WDTitle{
+        font-size: 20px;
+    }
+    
+    .WDMiddle{
+        height: 140px;
+    }
+    .WDP1{
+        font-size: 23px;
+    }
+    .WDP2{
+        font-size: 19px;
+    }
+    
+    .WDButtonRight, .WDButtonLeft{
+        font-size: 17px;
+    }
+}
+
+.WDTitle{
+    color:#EEEEEE;
+    font-weight: bold;
+}
+
+.WDMiddle{
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.WDButtonRight{
+    background-color: #212428;
+    border-color: #212428;
+    font-weight: bold;
+    color: white;
+}
+
+.WDButtonLeft{
+    background-color: #777777;
+    border-color: #777777;
+    font-weight: bold;
+    margin: 0;
+}
+
+.WDFooter{
+    display: flex;
+    justify-content: space-between;
+}
+
+.WDLink{
+    margin: 0;
+}
+
+.WDP2{
+    margin-bottom: 0;
+    color: rgb(103, 103, 103);
+}
