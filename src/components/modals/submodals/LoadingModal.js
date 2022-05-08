@@ -7,7 +7,6 @@ const LoadingModal=(props)=>{
         {...props}
         aria-labelledby="contained-modal-title-vcenter"
         centered
-        className='box'
         backdrop="static"
         >
             <Modal.Body className='LoadingMiddle'>
@@ -21,7 +20,7 @@ const LoadingModal=(props)=>{
                 <p className='LoadingP3'>
                     브라우저의 '위치 액세스 허용'을 확인 해주세요.
                 </p>
-                <Button className='LoadingButton' variant='dark' onClick={props.onHide}>
+                <Button className='LoadingButton' variant='light' onClick={props.onHide}>
                     직접 위치 찾기
                 </Button>
             </Modal.Body>

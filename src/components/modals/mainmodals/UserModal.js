@@ -4,16 +4,15 @@ import React, { useEffect, useState } from 'react'
 import LogeOutModal from '../submodals/LogeOutModal';
 import { PROXY } from '../../../contexts/ProxyContext';
 import axios from 'axios';
+import WithdrawalModal from '../submodals/WithdrawalModal';
 
 const UserModal=(props)=>{
     const [isLogeOut, setIsLogeOut] = useState(false);
     const [isUserCode, setIsUserCode] = useState();
+    const [isWithDrawal, setIsWithDrawal] = useState(false);
 
     var OpenChatLink = 'https://open.kakao.com/o/s2mNNVde';
 
-    function Yet(){
-        alert('서비스 준비 중 입니다.')
-    }
     function OpenChat(){
         window.location.href=OpenChatLink;
     }
@@ -74,8 +73,8 @@ const UserModal=(props)=>{
                         </div>
                     </div>
                     <div className='MyPageButtonGroup'>
-                        <Button variant='light' className='MyPageLeftButton' onClick={Yet}>
-                            대학교 인증
+                        <Button variant='dark' className='MyPageLeftButton' onClick={()=>{props.onHide(); setIsWithDrawal(true);}}>
+                            회원 탈퇴
                         </Button>
                         <Button variant='light' className='MyPageRightButton' onClick={()=>{props.onHide(); setIsLogeOut(true);}}>
                             LogOut
@@ -84,13 +83,17 @@ const UserModal=(props)=>{
                 </Modal.Body>
 
                 <Modal.Footer style={{backgroundColor: "#FFFCEE"}}>
-                    <Button variant="dark" className='UserButton' onClick={props.onHide}>닫기</Button>
+                    <Button variant="light" className='UserButton' onClick={props.onHide}>닫기</Button>
                 </Modal.Footer>
             </Modal>
 
             <LogeOutModal
                 show={isLogeOut}
                 onHide={()=>{setIsLogeOut(false)}}
+            />
+            <WithdrawalModal
+                show={isWithDrawal}
+                onHide={()=>{setIsWithDrawal(false)}}
             />
         </div>
     );

@@ -1,13 +1,11 @@
 import {Modal, Button, Form, Badge} from 'react-bootstrap';
 import './CreationModal.css';
 import React, { useContext, useState } from 'react';
-import { MakeContext } from '../../../contexts/MakeContext';
 import { LatLngContext } from '../../../contexts/LatLngContexts';
 import axios from 'axios';
 import { PROXY } from '../../../contexts/ProxyContext';
 
 const CreationModal=(props)=>{
-    const {isCreation, setIsCreation} = useContext(MakeContext);
     const {isLatLng} = useContext(LatLngContext);
 
     var todayDate = new Date();
@@ -66,7 +64,6 @@ const CreationModal=(props)=>{
         .catch(() => {
             alert("그룹 만들기에 실패하였습니다.\n다시 시도하여 주십시오.");
         })
-
     }
 
     const exceptionTime=()=>{
@@ -83,7 +80,6 @@ const CreationModal=(props)=>{
             // 방 정보 전송하는 API
             transGroupInfoApi();  
             props.onHide();
-            setIsCreation(!isCreation);
         }
     }
     
@@ -111,8 +107,8 @@ const CreationModal=(props)=>{
                             <div className='subcontent'>
                                 <Badge id='todaydate' bg="light" text="dark">{year}년 {month}월 {day}일</Badge>
                                 <div className='buttonDate'>
-                                    <Button variant="outline-dark" className='buttonDateLeft' onClick={goToday}>오늘</Button>
-                                    <Button variant="outline-dark" className='buttonDateRight' onClick={goTomorrow}>내일</Button>
+                                    <Button variant="light" className='buttonDateLeft' onClick={goToday}>오늘</Button>
+                                    <Button variant="light" className='buttonDateRight' onClick={goTomorrow}>내일</Button>
                                 </div>
                             </div>
                             <span className='plusText'>날짜는 오늘과 내일만 선택 가능합니다.</span>
@@ -160,7 +156,7 @@ const CreationModal=(props)=>{
 
                 <Modal.Footer style={{backgroundColor: "#FFFCEE"}}>
                     <Button variant="dark" className='MakeButtonLeft' onClick={props.onHide}>취소</Button>
-                    <Button variant="dark" className='MakeButtonRight' onClick={exceptionTime}>만들기</Button>
+                    <Button variant="light" className='MakeButtonRight' onClick={exceptionTime}>만들기</Button>
                 </Modal.Footer>
             </Modal>
         </div>

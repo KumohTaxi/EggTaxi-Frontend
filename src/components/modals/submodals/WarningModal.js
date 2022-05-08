@@ -2,12 +2,9 @@ import {Modal, Button} from 'react-bootstrap';
 import './WarningModal.css';
 import axios from 'axios';
 import { useContext } from 'react';
-import { MakeContext } from '../../../contexts/MakeContext';
 import { PROXY } from '../../../contexts/ProxyContext';
 
 const WarningModal=(props)=>{
-    const {isCreation, setIsCreation} = useContext(MakeContext);
-
     function exitGroup(){
         axios({
             method:'post',
@@ -33,7 +30,6 @@ const WarningModal=(props)=>{
         {...props}
         aria-labelledby="contained-modal-title-vcenter"
         centered
-        className='box'
         >
             <Modal.Header style={{backgroundColor: "#212428"}}>
                 <Modal.Title className='WarningTitle' id="contained-modal-title-vcenter">
@@ -55,7 +51,7 @@ const WarningModal=(props)=>{
 
             <Modal.Footer className='WarningFooter' style={{backgroundColor: "#FFFCEE"}}>
                 <Button variant="dark" className='WarningButtonLeft' onClick={props.onHide}>취소</Button>
-                <Button variant="dark" className='WarningButtonRight' onClick={()=>{props.onHide(); exitGroup(); setIsCreation(!isCreation);}}>그룹 나가기</Button>
+                <Button variant="light" className='WarningButtonRight' onClick={()=>{props.onHide(); exitGroup();}}>그룹 나가기</Button>
             </Modal.Footer>
         </Modal>
     );

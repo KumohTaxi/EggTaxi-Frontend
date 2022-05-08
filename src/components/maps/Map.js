@@ -1,7 +1,6 @@
 /*global kakao*/ 
 import React, { useContext, useEffect, useState } from 'react'
 import { LatLngContext } from '../../contexts/LatLngContexts';
-import { MakeContext } from '../../contexts/MakeContext';
 import { GetContext } from '../../contexts/GetContext';
 import GroupInfoModal from '../modals/mainmodals/GroupInfoModal';
 import CheckOffCanvas from '../offcanvas/CheckOffCanvas';
@@ -10,7 +9,6 @@ import LoadingModal from '../modals/submodals/LoadingModal';
 
 const Map = () =>{
     const { isLatLng, setIsLatLng } = useContext(LatLngContext);
-    const { isCreation } = useContext(MakeContext);
     const { isListInfo } = useContext(GetContext);
     const { isCheckShow, setIsCheckShow } = useContext(CheckLatLngContext);
     
@@ -51,6 +49,9 @@ const Map = () =>{
 
                 setIsLoadingShow(false)
             });
+        }
+        else{
+            alert("위치를 받아올수 없습니다.")
         }
 
         var LocationMarker = "imgs/LocationMarker.png"
@@ -159,7 +160,7 @@ const Map = () =>{
             });
         });
 
-    }, [isCreation, isListInfo]);
+    }, [isListInfo]);
 
     return (
         <div id="map" style={{height: "100%"}}>
