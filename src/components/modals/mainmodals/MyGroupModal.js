@@ -102,7 +102,6 @@ const MyGroupModal=(props)=>{
             {...props}
             aria-labelledby="contained-modal-title-vcenter"
             centered
-            className='box'
             >
                 <Modal.Header style={{backgroundColor: "#212428"}}>
                     <Modal.Title className='MyTitle' id="contained-modal-title-vcenter">
@@ -168,7 +167,7 @@ const MyGroupModal=(props)=>{
                                 id="button-addon2" onClick={()=>{saveMsg();}}>
                                     등록
                                 </Button>
-                                <Button className='myRefreshButton' variant="light" onClick={checkComment}>
+                                <Button className='myRefreshButton' variant="secondary" onClick={checkComment}>
                                     <img className='refreshImg' src='imgs/Refresh.png'/>
                                 </Button>
                             </InputGroup>
@@ -178,7 +177,7 @@ const MyGroupModal=(props)=>{
 
                 <Modal.Footer className='MyFooter' style={{backgroundColor: "#FFFCEE"}}>
                     <Button variant="dark" className='MyBottomButtonLeft' onClick={()=>{props.onHide(); setIsWarningView(true);}}>그룹 나가기</Button>
-                    <Button variant="dark" className='MyBottomButtonRight' onClick={()=>{props.onHide();}}>확인</Button>
+                    <Button variant="light" className='MyBottomButtonRight' onClick={()=>{props.onHide();}}>확인</Button>
                 </Modal.Footer>
             </Modal>
 
