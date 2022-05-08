@@ -76,6 +76,7 @@
     border-color: #212428;
     font-weight: bold;
     color: white;
+    margin: 0;
 }
 
 .WDButtonLeft{
@@ -88,10 +89,6 @@
 .WDFooter{
     display: flex;
     justify-content: space-between;
-}
-
-.WDLink{
-    margin: 0;
 }
 
 .WDP2{

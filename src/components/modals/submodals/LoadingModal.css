@@ -26,7 +26,7 @@
 
 @media only screen and (min-width: 300px) and (max-width: 399px) {
     .LoadingMiddle{
-        height: 240px;
+        height: 250px;
     }
     .loadingSpinner{
         width: 35px;
@@ -52,7 +52,7 @@
 
 @media only screen and (min-width: 400px) {
     .LoadingMiddle{
-        height: 260px;
+        height: 280px;
     }
     .loadingSpinner{
         width: 38px;

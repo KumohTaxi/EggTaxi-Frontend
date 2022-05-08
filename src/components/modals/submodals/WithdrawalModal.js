@@ -6,8 +6,6 @@ import { PROXY } from '../../../contexts/ProxyContext';
 
 const WithdrawalModal=(props)=>{
     function removeInfo(){
-        localStorage.clear();
-
         axios({
             method:'post',
             url:`${PROXY}/member/unlink`,
@@ -19,10 +17,12 @@ const WithdrawalModal=(props)=>{
             },
         })
         .then(() => {
-            alert("탈퇴 성공");
+            localStorage.clear();
+            window.location.replace('/');
         })
         .catch(() => {
-            alert("탈퇴 실패");
+            alert("탈퇴에 실패하였습니다.");
+            window.location.replace('/main');
         })
     }
 
@@ -45,9 +45,7 @@ const WithdrawalModal=(props)=>{
 
             <Modal.Footer className='WDFooter' style={{backgroundColor: "#FFFCEE"}}>
                 <Button variant="dark" className='WDButtonLeft' onClick={props.onHide}>취소</Button>
-                <Link className='WDLink' to='/'>
-                    <Button variant="lgiht" className='WDButtonRight' onClick={removeInfo}>회원 탈퇴</Button>
-                </Link>
+                <Button variant="lgiht" className='WDButtonRight' onClick={removeInfo}>회원 탈퇴</Button>
             </Modal.Footer>
         </Modal>
     );
