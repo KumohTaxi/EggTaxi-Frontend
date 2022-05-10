@@ -1,6 +1,5 @@
 import {Modal, Button} from 'react-bootstrap';
 import './WithdrawalModal.css';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { PROXY } from '../../../contexts/ProxyContext';
 
