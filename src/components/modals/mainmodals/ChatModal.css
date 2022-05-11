@@ -5,33 +5,136 @@
     .CloseButton{
         width: 15px;
     }
+
+    .ChatMiddle{
+        height: 50vh;
+    }
+    .messageBox{
+        margin-top: 8px;
+    }
+    .msgName{
+        font-size: 13px;
+        margin-right: 3px;
+    }
+    .msgContent{
+        font-size: 15px;
+        margin-left: 5px;
+    }
+
+    .chatInputGroup{
+        height: 45px;
+    }
     .ChatInput{
-        font-size: 12px;
+        font-size: 13px;
     }
     .myCommentInputButton{
-        font-size: 12px;
-
+        font-size: 13px;
     }
     .refreshImg{
         width: 20px;
     }
-    .ChatMiddle{
-        height: 40vh;
-    }
 }
 
 @media only screen and (min-width: 300px) and (max-width: 399px) {
+    .ChatTitle{
+        font-size: 17px;
+    }
+    .CloseButton{
+        width: 18px;
+    }
 
+    .ChatMiddle{
+        height: 50vh;
+    }
+    .messageBox{
+        margin-top: 10px;
+    }
+    .msgName{
+        font-size: 14px;
+        margin-right: 5px;
+    }
+    .msgContent{
+        font-size: 16px;
+        margin-left: 8px;
+    }
+
+    .chatInputGroup{
+        height: 48px;
+    }
+    .ChatInput{
+        font-size: 15px;
+    }
+    .myCommentInputButton{
+        font-size: 15px;
+    }
+    .refreshImg{
+        width: 22px;
+    }
 }
 
 @media only screen and (min-width: 400px) {
+    .ChatTitle{
+        font-size: 20px;
+    }
+    .CloseButton{
+        width: 21px;
+    }
 
+    .ChatMiddle{
+        height: 50vh;
+    }
+    .messageBox{
+        margin-top: 12px;
+    }
+    .msgName{
+        font-size: 16px;
+        margin-right: 7px;
+    }
+    .msgContent{
+        font-size: 17px;
+        margin-left: 10px;
+    }
+
+    .chatInputGroup{
+        height: 50px;
+    }
+    .ChatInput{
+        font-size: 18px;
+    }
+    .myCommentInputButton{
+        font-size: 18px;
+    }
+    .refreshImg{
+        width: 25px;
+    }
 }
 
 .ChatTitle{
     color:#EEEEEE;
     font-weight: bold;
 }
-.ChatInput, .myRefreshButton{
+.ChatMiddle{
+    padding: 10px;
+    overflow-y:auto;
+    display: flex;
+    flex-direction: column-reverse;
+}
+.messageBox{
+    display: flex;
+}
+.msgName{
+    font-weight: bold;
+    color: black;
+}
+.ChatInput, .myCommentInputButton, .myRefreshButton{
     border-radius: 0 0 0 0 / 0 0 0 0;
+    border: 1px solid #cacaca;
+}
+.ChatInput{
+    background-color: #fffdf7;
+}
+.myCommentInputButton, .myRefreshButton{
+    background-color: #e1e1e1;
+    color: black;
+    font-weight: bold;
 }

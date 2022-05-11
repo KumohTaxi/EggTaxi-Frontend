@@ -1,4 +1,4 @@
-import {Modal, Button, InputGroup, FormControl} from 'react-bootstrap';
+import {Modal, Button, InputGroup, FormControl, Badge} from 'react-bootstrap';
 import './ChatModal.css';import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { PROXY } from '../../../contexts/ProxyContext';
@@ -63,9 +63,9 @@ const ChatModal=(props)=>{
         const result = [];
         for (let i = 0; i < isCommentList.length; i++){
             result.push(<div className='messageBox' key={i}>
-                            <div className='msgName'>
+                            <Badge bg='light' className='msgName'>
                                 익명{localStorage.getItem('user_code').indexOf(isCommentList[i].identityNum)+1}
-                            </div>
+                            </Badge>
                             <div className="vr" />
                             <div className='msgContent'>
                                 {isCommentList[i].msg}
@@ -98,7 +98,6 @@ const ChatModal=(props)=>{
         {...props}
         aria-labelledby="contained-modal-title-vcenter"
         centered
-        className='ChatModal'
         >
             <Modal.Header style={{backgroundColor: "#212428"}}>
                 <Modal.Title className="ChatTitle" id="contained-modal-title-vcenter">
@@ -108,10 +107,12 @@ const ChatModal=(props)=>{
             </Modal.Header>
 
             <Modal.Body className='ChatMiddle'>
+                <div>
                 {reloadComment()}
+                </div>
             </Modal.Body>
 
-            <InputGroup> 
+            <InputGroup className='chatInputGroup'> 
                 <FormControl
                 placeholder="그룹원들과 소통해보세요."
                 aria-label="Recipient's username"
