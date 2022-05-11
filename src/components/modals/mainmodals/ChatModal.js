@@ -10,7 +10,10 @@ const ChatModal=(props)=>{
         var numList = [];
         
         for (let i = 0; i < data.length; i++){
-            if(!localStorage.getItem('user_code').includes(data[i].identityNum)){
+            if (data.memberStatus === "CAPTAIN" && !localStorage.getItem('user_code').includes(0)){
+                numList.push(0);
+            }
+            else if(!localStorage.getItem('user_code').includes(data[i].identityNum)){
                 numList.push(data[i].identityNum);
             }
         };
@@ -27,7 +30,12 @@ const ChatModal=(props)=>{
             },
         })
         .then((res) => {
-            localStorage.setItem('user_code', res.data[0].identityNum);
+            if(res.data[0].memberStatus === "CAPTAIN"){
+                localStorage.setItem('user_code', 0);
+            }
+            else{
+                localStorage.setItem('user_code', res.data[0].identityNum);
+            }
 
             setIsCommentList(res.data);
             ConfirmNum(res.data);
@@ -63,9 +71,13 @@ const ChatModal=(props)=>{
         const result = [];
         for (let i = 0; i < isCommentList.length; i++){
             result.push(<div className='messageBox' key={i}>
-                            <Badge bg='light' className='msgName'>
-                                익명{localStorage.getItem('user_code').indexOf(isCommentList[i].identityNum)+1}
-                            </Badge>
+                            <div>
+                                <Badge bg='light' className='msgName'>
+                                    {isCommentList[i].memberStatus === "CAPTAIN"
+                                    ?'그룹장'
+                                    :'익명'+(localStorage.getItem('user_code').indexOf(isCommentList[i].identityNum)+1)}
+                                </Badge>
+                            </div>
                             <div className="vr" />
                             <div className='msgContent'>
                                 {isCommentList[i].msg}
