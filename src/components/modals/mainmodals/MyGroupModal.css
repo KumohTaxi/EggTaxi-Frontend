@@ -22,54 +22,6 @@
     .MyBottomButtonLeft, .MyBottomButtonRight{
         font-size: 13px;
     }
-    
-    .myComment{
-        margin-top: 20px;
-    }
-    
-    .scrollBox{
-        height: 160px;
-    }
-    
-    .subScrollBox{
-        height: 100px;
-        padding: 8px;
-    }
-    
-    .myCommentTitle{
-        width: 100%;
-        font-size: 13px;
-        height: 30px;
-    }
-    
-    .messageBox{
-        font-size: 12px;
-        margin-top: 5px;
-
-    }
-    .msgName{
-        width: 15%;
-        margin-right: 5px;
-    }
-    .msgContent{
-        width: 80%;
-        margin-left: 5px;
-    }
-
-    .myCommentInput{
-        font-size: 12px;
-    }
-    .myCommentInputButton{
-        font-size: 11px;
-        width: 21%;
-    }
-    .myRefreshButton{
-        width: 13%;
-    }
-
-    .refreshImg{
-        width: 20px;
-    }
 }
 
 @media only screen and (min-width: 300px) and (max-width: 399px) {
@@ -95,54 +47,6 @@
     
     .MyBottomButtonLeft, .MyBottomButtonRight{
         font-size: 15px;
-    }
-    
-    .myComment{
-        margin-top: 25px;
-    }
-    
-    .scrollBox{
-        height: 180px;
-    }
-    
-    .subScrollBox{
-        height: 120px;
-        padding: 10px;
-    }
-    
-    .myCommentTitle{
-        width: 100%;
-        font-size: 14px;
-        height: 32px;
-    }
-    
-    .messageBox{
-        font-size: 13px;
-        margin-top: 7px;
-
-    }
-    .msgName{
-        width: 15%;
-        margin-right: 6px;
-    }
-    .msgContent{
-        width: 80%;
-        margin-left: 6px;
-    }
-
-    .myCommentInput{
-        font-size: 14px;
-    }
-    .myCommentInputButton{
-        font-size: 14px;
-        width: 21%;
-    }
-    .myRefreshButton{
-        width: 13%;
-    }
-
-    .refreshImg{
-        width: 23px;
     }
 }
 
@@ -170,53 +74,6 @@
     .MyBottomButtonLeft, .MyBottomButtonRight{
         font-size: 18px;
     }
-    
-    .myComment{
-        margin-top: 30px;
-    }
-    
-    .scrollBox{
-        height: 200px;
-    }
-    
-    .subScrollBox{
-        height: 140px;
-        padding: 5px;
-    }
-    
-    .myCommentTitle{
-        width: 100%;
-        font-size: 18px;
-        height: 36px;
-    }
-    
-    .messageBox{
-        font-size: 16px;
-        margin-top: 8px;
-
-    }
-    .msgName{
-        width: 15%;
-        margin-right: 6px;
-    }
-    .msgContent{
-        width: 80%;
-        margin-left: 10px;
-    }
-
-    .myCommentInput{
-        font-size: 17px;
-    }
-    .myCommentInputButton{
-        font-size: 17px;
-    }
-    .myRefreshButton{
-        width: 15%;
-    }
-
-    .refreshImg{
-        width: 27px;
-    }
 }
 
 .MyTitle{
@@ -228,7 +85,7 @@
     display: flex;
 }
 
-.mySubTitle, .myCommentTitle{
+.mySubTitle{
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -259,62 +116,4 @@
     font-weight: bold;
     color: white;
     margin: 0;
-}
-
-.scrollBox{
-    overflow: scroll;
-}
-
-.subScrollBox{
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column-reverse;
-}
-
-.myCommentHead{
-    display: flex;
-}
-
-.myCommentTitle{
-    background-color: #e1e1e1;
-    color: black;
-    border-radius: 7px 7px 0 0 / 7px 7px 0 0;
-    border: 1px solid #e1e1e1;
-}
-
-.myRefreshButton{
-    border-radius: 0 0 0 0 / 0 0 0 0;
-    border: 1px solid #777777;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #e1e1e1;
-}
-
-.myCommentInput{
-    border-radius: 0 0 0 0/ 0 0 0 0;
-    border: 1px solid #e1e1e1;
-}
-
-.myCommentInputButton{
-    border: 1px solid #777777;
-    background-color: #e1e1e1;
-    color: black;
-    font-weight: bold;
-}
-
-.subScrollBox{
-    border-left: 1px solid #e1e1e1;
-    border-right: 1px solid #e1e1e1;
-}
-
-.messageBox{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.msgName{
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
 }
