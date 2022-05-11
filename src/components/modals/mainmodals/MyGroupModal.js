@@ -5,7 +5,6 @@ import WarningModal from '../submodals/WarningModal';
 
 const MyGroupModal=(props)=>{
     const [isWarningView, setIsWarningView] = useState(false);
-
     return(
         <div>
             <Modal
@@ -54,34 +53,6 @@ const MyGroupModal=(props)=>{
                                 <Badge bg="light" text="dark">{props.mymonth}월 {props.myday}일 &nbsp;/&nbsp; {props.myhour}시 {props.myminute}분</Badge>
                             </div>
                         </div>
-                        {/* <div className='myComment'>
-                            <div className='myCommentHead'>
-                                <div className='myCommentTitle'>
-                                    Communication
-                                </div>
-                            </div>
-                            <div className='subScrollBox'>
-                                <div>
-                                    {reloadComment()}
-                                </div>
-                            </div>
-                            <InputGroup className="mb-3">
-                                <FormControl
-                                placeholder="그룹원들과 소통해보세요."
-                                aria-label="Recipient's username"
-                                aria-describedby="basic-addon2"
-                                className='myCommentInput'
-                                onKeyPress = {EnterKeyPress}
-                                />
-                                <Button className='myCommentInputButton' variant="outline-secondary"
-                                id="button-addon2" onClick={()=>{saveMsg();}}>
-                                    등록
-                                </Button>
-                                <Button className='myRefreshButton' variant="secondary" onClick={checkComment}>
-                                    <img className='refreshImg' src='imgs/Refresh.png'/>
-                                </Button>
-                            </InputGroup>
-                        </div> */}
                     </div>
                 </Modal.Body>
 

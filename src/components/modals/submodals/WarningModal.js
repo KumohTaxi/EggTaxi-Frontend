@@ -1,7 +1,6 @@
 import {Modal, Button} from 'react-bootstrap';
 import './WarningModal.css';
 import axios from 'axios';
-import { useContext } from 'react';
 import { PROXY } from '../../../contexts/ProxyContext';
 
 const WarningModal=(props)=>{
