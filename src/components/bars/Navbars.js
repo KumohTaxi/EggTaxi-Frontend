@@ -10,6 +10,7 @@ import UserModal from '../modals/mainmodals/UserModal';
 import PreMyGroupModal from '../modals/submodals/PreMyGroupModal';
 import axios from 'axios';
 import { PROXY } from '../../contexts/ProxyContext';
+import ChatModal from '../modals/mainmodals/ChatModal';
 
 const Navbars=({location})=>{
     const [leftCanvasShow, setLeftCanvasShow] = useState(false);
@@ -19,8 +20,9 @@ const Navbars=({location})=>{
     const checkHandleOnHide = () => setIsCheckShow(false);
 
     const [myGroupView, setMyGroupView] = useState(false);
-    const [userView, setUserView] = useState(false)
-    const [isPreView, setIsPreView] = useState(false)
+    const [userView, setUserView] = useState(false);
+    const [isPreView, setIsPreView] = useState(false);
+    const [isChatView, setIsChatView] = useState(false);
 
     const [myGroupDestination, setMyGroupDestination] = useState('');
     const [myGroupMonth, setMyGroupMonth] = useState('');
@@ -73,9 +75,9 @@ const Navbars=({location})=>{
                                                                             ?setMyGroupView(true)
                                                                             :setIsPreView(true);
                                                                         }}>MyGroup</span>
+                            <img className='NavbarChat' src='imgs/Chat.png' alt='이미지를 불러올 수 없습니다.' onClick={()=>setIsChatView(true)}/>
                             <img className='NavbarsFilter' src='imgs/Search.png' alt='이미지를 불러올 수 없습니다.'
                             onClick={()=>{lefthandleShow(); checkHandleOnHide();}}/>
-
                             <img className='User' src='imgs/User.png' alt='이미지를 불러올 수 없습니다.' onClick={()=>{setUserView(true); checkHandleOnHide();}}/>
                         </div>
                     </div>
@@ -99,7 +101,6 @@ const Navbars=({location})=>{
                 myhour={myGroupHour}
                 myminute={myGroupMinute}
                 mycount={myGroupMemberCount}
-                myid = {myGroupID}
             />
             <UserModal
                 show = {userView}
@@ -108,6 +109,12 @@ const Navbars=({location})=>{
             <PreMyGroupModal
                 show = {isPreView}
                 onHide = {() => setIsPreView(false)}
+            />
+
+            <ChatModal
+                show = {isChatView}
+                onHide = {() => setIsChatView(false)}
+                myid = {myGroupID}
             />
         </div>
     )
