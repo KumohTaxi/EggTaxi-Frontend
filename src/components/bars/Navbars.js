@@ -75,7 +75,11 @@ const Navbars=({location})=>{
                                                                             ?setMyGroupView(true)
                                                                             :setIsPreView(true);
                                                                         }}>MyGroup</span>
-                            <img className='NavbarChat' src='imgs/Chat.png' alt='이미지를 불러올 수 없습니다.' onClick={()=>setIsChatView(true)}/>
+                            <img className='NavbarChat' src='imgs/Chat.png' alt='이미지를 불러올 수 없습니다.' 
+                                                            onClick={()=>{checkHandleOnHide();
+                                                                            isPossible
+                                                                            ?setIsChatView(true)
+                                                                            :setIsPreView(true);}}/>
                             <img className='NavbarsFilter' src='imgs/Search.png' alt='이미지를 불러올 수 없습니다.'
                             onClick={()=>{lefthandleShow(); checkHandleOnHide();}}/>
                             <img className='User' src='imgs/User.png' alt='이미지를 불러올 수 없습니다.' onClick={()=>{setUserView(true); checkHandleOnHide();}}/>
@@ -101,6 +105,7 @@ const Navbars=({location})=>{
                 myhour={myGroupHour}
                 myminute={myGroupMinute}
                 mycount={myGroupMemberCount}
+                myid = {myGroupID}
             />
             <UserModal
                 show = {userView}
