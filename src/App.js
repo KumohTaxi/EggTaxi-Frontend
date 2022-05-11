@@ -18,10 +18,19 @@ function App() {
   const [isCheckShow, setIsCheckShow] = useState(false);
 
   useEffect(()=>{
-    axios.get(`${PROXY}/group`)
-            .then(response => {
-                setIsListInfo(response.data);
-            });
+    axios({
+      method:'post',
+      url:`${PROXY}/group`,
+      data:{
+          accessToken: localStorage.getItem('access_token'),
+      },
+      headers:{
+          'ContentType':'application/json'
+      },
+    })
+    .then((response) => {
+      setIsListInfo(response.data);
+    })
   }, []);
 
   const isMin = useMediaQuery({
