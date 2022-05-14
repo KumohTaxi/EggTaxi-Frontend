@@ -30,6 +30,7 @@ const UserModal=(props)=>{
         })
         .then((res) => {
             setIsUserCode(res.data);
+            localStorage.setItem("my_code", res.data);
         })
     }
 
