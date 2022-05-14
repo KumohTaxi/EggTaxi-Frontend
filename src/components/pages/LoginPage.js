@@ -3,6 +3,14 @@ import './LoginPage.css';
 import LoginForm from "../forms/LoginForm";
 
 const LoginPage=()=>{
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+
+    window.addEventListener("resize", () => {
+        console.log("resize");
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty("--vh", `${vh}px`);
+    });
 
     return(
         <div id="loginmain">
