@@ -6,6 +6,15 @@ import { PROXY } from '../../../contexts/ProxyContext';
 const ChatModal=(props)=>{
     const [isCommentList, setIsCommentList] = useState([]);
 
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+
+    window.addEventListener("resize", () => {
+        console.log("resize");
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty("--vh", `${vh}px`);
+    });
+
     function ConfirmNum(data) {
         var numList = [];
         
@@ -70,7 +79,14 @@ const ChatModal=(props)=>{
     function reloadComment(){
         const result = [];
         for (let i = 0; i < isCommentList.length; i++){
-            result.push(<div className='messageBox' key={i}>
+            result.push(
+                        isCommentList[i].identityNum == localStorage.getItem("my_code")?
+                        <div className='MyMessageBox' key={i}>
+                            <div className='MyMsgContent'>
+                                {isCommentList[i].msg}
+                            </div>
+                        </div>:
+                        <div className='messageBox' key={i}>
                             <div>
                                 <Badge bg='light' className='msgName'>
                                     {isCommentList[i].memberStatus === "CAPTAIN"
@@ -127,16 +143,13 @@ const ChatModal=(props)=>{
             <InputGroup className='chatInputGroup'> 
                 <FormControl
                 placeholder="그룹원들과 소통해보세요."
-                aria-label="Recipient's username"
-                aria-describedby="basic-addon2"
                 className='ChatInput'
                 onKeyPress = {EnterKeyPress}
                 />
-                <Button className='myCommentInputButton' variant="outline-secondary"
-                    id="button-addon2" onClick={()=>{saveMsg();}}>
+                <Button className='myCommentInputButton' variant="secondary" onClick={()=>{saveMsg();}}>
                     등록
                 </Button>
-                <Button className='myRefreshButton' variant="outline-secondary" onClick={checkComment}>
+                <Button className='myRefreshButton' variant="secondary" onClick={checkComment}>
                     <img className='refreshImg' src='imgs/Refresh.png'/>
                 </Button>
             </InputGroup>
