@@ -16,6 +16,9 @@ const MyGroupModal=(props)=>{
                     <Modal.Title className='MyTitle' id="contained-modal-title-vcenter">
                     My Group
                     </Modal.Title>
+                    <button className='CopyUrlButton'>
+                        Copy Link
+                    </button>
                 </Modal.Header>
 
                 <Modal.Body className='MyMiddle'>

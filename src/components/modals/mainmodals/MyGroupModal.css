@@ -117,3 +117,13 @@
     color: white;
     margin: 0;
 }
+.CopyUrlButton{
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 7px 7px 7px 7px / 7px 7px 7px 7px;
+    background-color: #212428;
+}

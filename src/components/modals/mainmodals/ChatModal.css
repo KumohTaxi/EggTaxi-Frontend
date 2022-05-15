@@ -126,6 +126,7 @@
 }
 .messageBox{
     display: flex;
+    margin-right: 5vw;
 }
 .msgName{
     font-weight: bold;
@@ -152,6 +153,7 @@
 .MyMessageBox{
     display: flex;
     flex-direction: row-reverse;
+    margin-left: 5vw;
 }
 .chatInputGroup{
     background-color: #212428;
