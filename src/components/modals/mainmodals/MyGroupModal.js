@@ -1,10 +1,22 @@
-import {Modal, Button, Badge, InputGroup, FormControl} from 'react-bootstrap';
+import {Modal, Button, Badge} from 'react-bootstrap';
 import './MyGroupModal.css';
 import { useState } from 'react';
 import WarningModal from '../submodals/WarningModal';
 
 const MyGroupModal=(props)=>{
     const [isWarningView, setIsWarningView] = useState(false);
+
+    function copyLink(){
+        const promotionLink = window.location.host + `/promotion/${props.myid}`;
+        navigator.clipboard.writeText(promotionLink)
+            .then(()=>{
+                alert("링크가 복사되었습니다. sns로 그룹 참가를 권해보세요!")
+        })
+            .catch(()=>{
+                alert("링크 복사에 실패했습니다.")
+        })
+    }
+
     return(
         <div>
             <Modal
@@ -16,7 +28,7 @@ const MyGroupModal=(props)=>{
                     <Modal.Title className='MyTitle' id="contained-modal-title-vcenter">
                     My Group
                     </Modal.Title>
-                    <button className='CopyUrlButton'>
+                    <button className='CopyUrlButton' onClick={copyLink}>
                         Copy Link
                     </button>
                 </Modal.Header>

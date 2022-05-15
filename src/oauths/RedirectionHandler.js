@@ -43,6 +43,15 @@ const RedirectionHandler = ({ history }) => {
 
                 history.push('/main');
             }
+            else if(localStorage.getItem("promotion") === 'true'){
+                const ACCESS_TOKEN = res.data.accessToken;
+                const REFRESH_TOKEN = res.data.refreshToken;
+
+                localStorage.setItem("access_token", ACCESS_TOKEN);
+                localStorage.setItem("refresh_token", REFRESH_TOKEN);
+
+                window.location.href= localStorage.getItem("promotionLink");
+            }
             else{
                 const ACCESS_TOKEN = res.data.accessToken;
                 const REFRESH_TOKEN = res.data.refreshToken;

@@ -1,0 +1,124 @@
+@media only screen and (min-width: 270px) and (max-width: 299px) {
+    .proTitle{
+        font-size: 15px;
+    }
+    
+    .propersonBox, .protimeBox, .prodestiBox{
+        height: 30px;
+        margin-bottom: 7px;
+    }
+    
+    .proSubTitle{
+        font-size: 12px;
+        width: 20%;
+        margin-right: 5px;
+    }
+
+    .proSubContent{
+        font-size: 16px;
+        width: 80%;
+    }
+    
+    .proBottomButtonLeft, .proBottomButtonRight{
+        font-size: 13px;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 399px) {
+    .proTitle{
+        font-size: 17px;
+    }
+    
+    .propersonBox, .protimeBox, .prodestiBox{
+        height: 35px;
+        margin-bottom: 9px;
+    }
+    
+    .proSubTitle{
+        font-size: 14px;
+        width: 20%;
+        margin-right: 6px;
+    }
+
+    .proSubContent{
+        font-size: 19px;
+        width: 80%;
+    }
+    
+    .proBottomButtonLeft, .proBottomButtonRight{
+        font-size: 15px;
+    }
+}
+
+@media only screen and (min-width: 400px) {
+    .proTitle{
+        font-size: 20px;
+    }
+    
+    .propersonBox, .protimeBox, .prodestiBox{
+        height: 40px;
+        margin-bottom: 10px;
+    }
+    
+    .proSubTitle{
+        font-size: 17px;
+        width: 20%;
+        margin-right: 8px;
+    }
+
+    .proSubContent{
+        font-size: 24px;
+        width: 80%;
+    }
+    
+    .proBottomButtonLeft, .proBottomButtonRight{
+        font-size: 18px;
+    }
+}
+
+.proTitle{
+    color:#EEEEEE;
+    font-weight: bold;
+}
+
+.propersonBox, .protimeBox, .prodestiBox{
+    display: flex;
+}
+
+.proSubTitle{
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.proSubContent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.proFooter{
+    display: flex;
+    justify-content: space-between;
+}
+
+.proBottomButtonLeft{
+    background-color: #777777;
+    border-color: #777777;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
+
+.proBottomButtonRight{
+    background-color: #212428;
+    border-color: #212428;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
+
+.PromotionModal{
+    background-color: #212428;
+    height: 100vh;
+}
