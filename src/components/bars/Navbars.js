@@ -40,7 +40,7 @@ const Navbars=({location})=>{
     useEffect(()=>{
         axios({
             method:'get',
-            url:`${PROXY}/group/${localStorage.getItem('access_token')}`,
+            url:`${PROXY}/group/member/${localStorage.getItem('access_token')}`,
             headers:{
                 'ContentType':'application/json'
             },
@@ -54,6 +54,7 @@ const Navbars=({location})=>{
             setMyGroupMinute(res.data.dateTime[14]+res.data.dateTime[15]);
             setMyGroupMemeberCount(res.data.memberCount);
             setMyGroupID(res.data.id); 
+            localStorage.setItem("mygroupid", res.data.id);
         })
         .catch(() => {
             setIsPossible(false);
