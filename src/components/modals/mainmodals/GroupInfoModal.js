@@ -6,21 +6,26 @@ import { PROXY } from '../../../contexts/ProxyContext';
 
 const GroupInfoModal=(props)=>{
     function joinGroup(){
-        axios({
-            method:'post',
-            url:`${PROXY}/./group/${props.id}`,
-            data:{
-                accessToken: localStorage.getItem('access_token'),
-            },
-            headers:{
-                'ContentType':'application/json'
-            },
-        })
-        .then(() => {
-        })
-        .catch(() => {
-            alert("참가 할 수 없는 방입니다.");
-        })
+        if(localStorage.getItem("mygroupid")){
+            alert("이미 참가한 방이 있습니다.")
+        }
+        else{
+            axios({
+                method:'post',
+                url:`${PROXY}/./group/${props.id}`,
+                data:{
+                    accessToken: localStorage.getItem('access_token'),
+                },
+                headers:{
+                    'ContentType':'application/json'
+                },
+            })
+            .then(() => {
+            })
+            .catch(() => {
+                alert("참가 할 수 없는 방입니다.");
+            })
+        }
     };
 
     return(
