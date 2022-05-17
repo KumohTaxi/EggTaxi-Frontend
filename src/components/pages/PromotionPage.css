@@ -1,124 +1,178 @@
 @media only screen and (min-width: 270px) and (max-width: 299px) {
-    .proTitle{
-        font-size: 15px;
+    .proTop{
+        height: 120px;
     }
-    
-    .propersonBox, .protimeBox, .prodestiBox{
-        height: 30px;
-        margin-bottom: 7px;
+    .proInfo{
+        margin-bottom: 5px;
     }
-    
-    .proSubTitle{
+    .proInfoName, .proInfoContent{
         font-size: 12px;
-        width: 20%;
-        margin-right: 5px;
+    }
+    .proInfoSub{
+        padding: 3px;
+        font-size: 10px;
+        margin-top: 3px;
+    }
+    .proMiddle{
+        padding-top: 120px;
     }
 
-    .proSubContent{
-        font-size: 16px;
-        width: 80%;
+    .proBottom{
+        justify-content: space-around;
     }
-    
-    .proBottomButtonLeft, .proBottomButtonRight{
-        font-size: 13px;
+    .proleftbutton{
+        width: 45%;
+    }
+    .prorightbutton{
+        width: 45%;
     }
 }
 
 @media only screen and (min-width: 300px) and (max-width: 399px) {
-    .proTitle{
-        font-size: 17px;
+    .proTop{
+        height: 140px;
     }
-    
-    .propersonBox, .protimeBox, .prodestiBox{
-        height: 35px;
-        margin-bottom: 9px;
+    .proInfo{
+        margin-bottom: 5px;
     }
-    
-    .proSubTitle{
-        font-size: 14px;
-        width: 20%;
-        margin-right: 6px;
+    .proInfoName, .proInfoContent{
+        font-size: 15px;
+    }
+    .proInfoSub{
+        padding: 3px;
+        font-size: 13px;
+        margin-top: 3px;
+    }
+    .proMiddle{
+        padding-top: 140px;
     }
 
-    .proSubContent{
-        font-size: 19px;
-        width: 80%;
+    .proBottom{
+        justify-content: space-around;
     }
-    
-    .proBottomButtonLeft, .proBottomButtonRight{
-        font-size: 15px;
+    .proleftbutton{
+        width: 45%;
+    }
+    .prorightbutton{
+        width: 45%;
     }
 }
 
 @media only screen and (min-width: 400px) {
-    .proTitle{
-        font-size: 20px;
+    .proTop{
+        height: 150px;
+        align-items: center;
     }
-    
-    .propersonBox, .protimeBox, .prodestiBox{
-        height: 40px;
-        margin-bottom: 10px;
+    .proInfo{
+        margin-bottom: 5px;
+        width: 400px;
     }
-    
-    .proSubTitle{
+    .proInfoName, .proInfoContent{
         font-size: 17px;
-        width: 20%;
-        margin-right: 8px;
+    }
+    .proInfoSub{
+        width: 100%;
+        padding: 3px;
+        font-size: 14px;
+        margin-top: 3px;
+    }
+    .proMiddle{
+        padding-top: 150px;
     }
 
-    .proSubContent{
-        font-size: 24px;
-        width: 80%;
+    .proBottom{
+        justify-content: center;
     }
-    
-    .proBottomButtonLeft, .proBottomButtonRight{
-        font-size: 18px;
+    .proleftbutton{
+        width: 190px;
+        margin-right: 5px;
     }
-}
-
-.proTitle{
-    color:#EEEEEE;
-    font-weight: bold;
-}
-
-.propersonBox, .protimeBox, .prodestiBox{
-    display: flex;
-}
-
-.proSubTitle{
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.proSubContent{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.proFooter{
-    display: flex;
-    justify-content: space-between;
-}
-
-.proBottomButtonLeft{
-    background-color: #777777;
-    border-color: #777777;
-    font-weight: bold;
-    color: white;
-    margin: 0;
-}
-
-.proBottomButtonRight{
-    background-color: #212428;
-    border-color: #212428;
-    font-weight: bold;
-    color: white;
-    margin: 0;
+    .prorightbutton{
+        width: 190px;
+        margin-left: 5px;
+    }
 }
 
 .PromotionModal{
-    background-color: #212428;
     height: 100vh;
+    height: calc(var(--vh, 1vh)*100);
+}
+
+.proTop{
+    color: white;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #212428;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-top: 5px;
+}
+.proMiddle{
+    height: 100vh;
+    height: calc(var(--vh, 1vh)*100);
+    padding-bottom: 60px;
+}
+.proBottom{
+    background-color: #212428;
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    padding: 10px;
+}
+.proInfo{
+    display: flex;
+}
+.proInfoName{
+    font-weight: bold;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.proInfoContent{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.proInfoSub{
+    font-weight: bold;
+    border-top: 1px solid #396992;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.proSpan{
+    background-color: #396992;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius:  10px 10px 10px 10px / 10px 10px 10px 10px;
+}
+
+.proleftbutton{
+    background-color: #e1e1e1;
+    border-color: #e1e1e1;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+
+.prorightbutton{
+    background-color: #396992;
+    border-color: #396992;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}
+
+.proleftbutton, .prorightbutton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
