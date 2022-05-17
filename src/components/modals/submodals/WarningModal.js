@@ -17,6 +17,7 @@ const WarningModal=(props)=>{
         })
         .then(() => {
             alert("퇴장 성공");
+            localStorage.removeItem("mygroupid");
             window.location.replace('/main');
         })
         .catch(() => {
