@@ -14,11 +14,14 @@
 
 .filterBody{
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .filterSubTitle{
     background-color: #396992;
     border-radius: 7px 7px 0 0 / 7px 7px 0 0;
+    height: 70px;
 }
 
 .filterSubTitle1{
@@ -40,12 +43,30 @@
 }
 
 .filterContent{
-    background-color: rgb(248, 248, 248);
+    flex-grow: 1;
+    background-color: rgb(244, 244, 244);
     color: #777777;
+    border-radius: 0 0 7px 7px / 0 0 7px 7px;
+    overflow-y:auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.falseDes{
+    height: 100%;
+    font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80%;
-    border-radius: 0 0 7px 7px / 0 0 7px 7px;
-    overflow: scroll;
+}
+.trueDes{
+    padding: 10px;
+    padding-left: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(44, 44, 44);
+    background-color: #dfdfdf;
+    border-color: #dfdfdf;
+    border-radius: 7px 7px 7px 7px / 7px 7px 7px 7px;
+    margin: 5px;
 }

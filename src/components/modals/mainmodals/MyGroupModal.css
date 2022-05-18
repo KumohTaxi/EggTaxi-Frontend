@@ -22,6 +22,10 @@
     .MyBottomButtonLeft, .MyBottomButtonRight{
         font-size: 13px;
     }
+
+    .CopyUrlButton{
+        font-size: 14px;
+    }
 }
 
 @media only screen and (min-width: 300px) and (max-width: 399px) {
@@ -48,6 +52,9 @@
     .MyBottomButtonLeft, .MyBottomButtonRight{
         font-size: 15px;
     }
+    .CopyUrlButton{
+        font-size: 15px;
+    }
 }
 
 @media only screen and (min-width: 400px) {
@@ -72,6 +79,9 @@
     }
     
     .MyBottomButtonLeft, .MyBottomButtonRight{
+        font-size: 18px;
+    }
+    .CopyUrlButton{
         font-size: 18px;
     }
 }
