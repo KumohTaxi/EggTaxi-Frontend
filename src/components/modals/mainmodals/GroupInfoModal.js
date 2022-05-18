@@ -21,6 +21,8 @@ const GroupInfoModal=(props)=>{
                 },
             })
             .then(() => {
+                alert("그룹에 참가했습니다.")
+                window.location.replace('/main');
             })
             .catch(() => {
                 alert("참가 할 수 없는 방입니다.");
