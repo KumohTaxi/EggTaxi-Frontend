@@ -1,6 +1,5 @@
 /*global kakao*/ 
 import React, { useEffect } from 'react'
-import { InputGroup } from 'react-bootstrap';
 
 const PromotionMap = (props) =>{
     useEffect(()=>{
