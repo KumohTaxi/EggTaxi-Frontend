@@ -62,7 +62,7 @@ const CreationModal=(props)=>{
             window.location.replace('/main');
         })
         .catch(() => {
-            alert("그룹 만들기에 실패하였습니다.\n다시 시도하여 주십시오.");
+            alert("그룹 만들기에 실패하였습니다.\n이미 그룹이 있지않으신가요?");
         })
     }
 
