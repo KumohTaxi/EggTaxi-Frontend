@@ -1,7 +1,37 @@
-import {Offcanvas} from 'react-bootstrap';
+import {Offcanvas, Button} from 'react-bootstrap';
 import './FilterOffCanvas.css'
 
 const FilterOffCanvas=(props)=>{
+    function loadDestination(){
+        const destinationList = [];
+
+        if(true){
+            destinationList.push(
+                <Button variant="secondary" className='trueDes'>
+                    전체 보기
+                </Button>
+            );
+            for (let i = 0; i < 40; i++){
+                destinationList.push(
+                    <Button variant="secondary" className='trueDes'>
+                        {i}
+                    </Button>
+                    );
+            };
+        }
+        else{
+            for (let i = 0; i < 1; i++){
+                destinationList.push(
+                    <div className='falseDes'>
+                        현재 존재하는 그룹이 없습니다.
+                    </div>
+                    );
+            };
+        }
+
+        return destinationList;
+    };
+
     return(
         <div>
             <Offcanvas show={props.show} onHide={props.onHide} className="filterOffCanvas" placement='start'>
@@ -19,7 +49,7 @@ const FilterOffCanvas=(props)=>{
                             </p>
                         </div>
                         <div className='filterContent'>
-                            서비스 준비 중 입니다.
+                            {loadDestination()}
                         </div>
                     </div>
                 </Offcanvas.Body>
