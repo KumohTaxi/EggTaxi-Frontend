@@ -1,6 +1,5 @@
 import './PromotionPage.css';
 import { useEffect, useState } from 'react';
-import { KAKAO_AUTH_URL } from '../../oauths/OAuth';
 import { PROXY } from '../../contexts/ProxyContext';
 import axios from 'axios';
 import {Button} from 'react-bootstrap';
@@ -32,7 +31,7 @@ const PromotionPage=()=> {
         }
         axios({
             method:'get',
-            url:`${PROXY}/group/${window.location.pathname[11]}`,
+            url:`${PROXY}/group/${window.location.pathname.substring(11)}`,
             headers:{
                 'ContentType':'application/json'
             },
@@ -72,7 +71,7 @@ const PromotionPage=()=> {
         else{
             axios({
                 method:'post',
-                url:`${PROXY}/./group/${window.location.pathname[11]}`,
+                url:`${PROXY}/./group/${window.location.pathname.substring(11)}`,
                 data:{
                     accessToken: localStorage.getItem('access_token'),
                 },
