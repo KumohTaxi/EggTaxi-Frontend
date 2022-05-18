@@ -41,11 +41,6 @@ function App() {
     query : "(max-width:269px)"
   });
 
-  const promotionUrl = [];
-  isListInfo.map(data=>
-    promotionUrl.push(`/promotion/${data.id}`)
-  );
-
   return (
     <LatLngContext.Provider value={{isLatLng, setIsLatLng}}>
       <GetContext.Provider value={{isListInfo, setIsListInfo}}>
@@ -55,9 +50,7 @@ function App() {
                 <Route className= "LoginPage" path="/" component={LoginPage} exact={true}/>
                 <Route className= "MainPage" path="/Main" component={MainPage}/>
                 <Route className= "RedirectPage" path="/oauth/callback/kakao" component={RedirectionHandler}></Route>
-                {promotionUrl.map(url=>
-                  <Route key={url} className= "PromotionPage" path={url} component={PromotionPage}></Route>
-                )}
+                <Route className= "PromotionPage" path='/promotion/:groupid' component={PromotionPage}></Route>
               </Router>}
             {isMax && <MinDisplayPage/>}
           </div>

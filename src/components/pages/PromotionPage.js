@@ -4,6 +4,7 @@ import { PROXY } from '../../contexts/ProxyContext';
 import axios from 'axios';
 import {Button} from 'react-bootstrap';
 import PromotionMap from '../maps/PromotionMap';
+import { useParams } from 'react-router-dom';
 
 const PromotionPage=()=> {
     let vh = window.innerHeight * 0.01;
@@ -15,6 +16,8 @@ const PromotionPage=()=> {
         document.documentElement.style.setProperty("--vh", `${vh}px`);
     });
 
+    let {groupid} = useParams();
+
     const [isMemberCount, setIsMemberCount] = useState();
     const [isMonth, setIsMonth] = useState();
     const [isDay, setIsDay] = useState();
@@ -25,13 +28,13 @@ const PromotionPage=()=> {
     const [isLng, setIsLng] = useState();
 
     useEffect(()=>{
-        if(localStorage.getItem("access_token") === null){
+        if(!localStorage.getItem("access_token")){
             localStorage.setItem("promotion", true);
             localStorage.setItem("promotionLink", document.location.href);
         }
         axios({
             method:'get',
-            url:`${PROXY}/group/${window.location.pathname.substring(11)}`,
+            url:`${PROXY}/group/${groupid}`,
             headers:{
                 'ContentType':'application/json'
             },
@@ -52,7 +55,7 @@ const PromotionPage=()=> {
         window.location.replace('/');
     }
     function CheckAgree(){
-        if(localStorage.getItem("access_token") === null){
+        if(!localStorage.getItem("access_token")){
             if(window.confirm("로그인이 필요한 서비스입니다.\n로그인 페이지로 이동하겠습니까?") == true){
                 window.location.replace('/');
             }
@@ -71,7 +74,7 @@ const PromotionPage=()=> {
         else{
             axios({
                 method:'post',
-                url:`${PROXY}/./group/${window.location.pathname.substring(11)}`,
+                url:`${PROXY}/./group/${groupid}`,
                 data:{
                     accessToken: localStorage.getItem('access_token'),
                 },
