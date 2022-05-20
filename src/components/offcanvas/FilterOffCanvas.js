@@ -5,7 +5,7 @@ const FilterOffCanvas=(props)=>{
     function loadDestination(){
         const destinationList = [];
 
-        if(true){
+        if(false){
             destinationList.push(
                 <Button variant="secondary" className='trueDes'>
                     전체 보기
@@ -13,7 +13,7 @@ const FilterOffCanvas=(props)=>{
             );
             for (let i = 0; i < 40; i++){
                 destinationList.push(
-                    <Button variant="secondary" className='trueDes'>
+                    <Button key={i} variant="secondary" className='trueDes'>
                         {i}
                     </Button>
                     );
@@ -22,7 +22,7 @@ const FilterOffCanvas=(props)=>{
         else{
             for (let i = 0; i < 1; i++){
                 destinationList.push(
-                    <div className='falseDes'>
+                    <div key={i} className='falseDes'>
                         현재 존재하는 그룹이 없습니다.
                     </div>
                     );
