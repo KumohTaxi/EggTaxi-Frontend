@@ -3,7 +3,7 @@ import './CheckOffCanvas.css'
 import React, { useContext, useState } from 'react'
 import { LatLngContext } from '../../contexts/LatLngContexts';
 import CreationModal from '../modals/mainmodals/CreationModal';
-import CheckAuthModal from '../modals/submodals/CheckAuthModal';
+import CheckAuthModal from '../modals/submodals/alert_modals/CheckAuthModal';
 
 const CheckOffCanvas=(props)=>{
     const {isLatLng} = useContext(LatLngContext);

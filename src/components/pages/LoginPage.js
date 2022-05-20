@@ -1,7 +1,7 @@
 import './LoginPage.css';
 import LoginForm from "../forms/LoginForm";
 import { useEffect, useState } from "react";
-import GuideModal from '../modals/submodals/GuideModal';
+import GuideModal from '../modals/submodals/guide_modals/GuideModal';
 
 const LoginPage=()=>{
     let vh = window.innerHeight * 0.01;

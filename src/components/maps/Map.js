@@ -5,7 +5,7 @@ import { GetContext } from '../../contexts/GetContext';
 import GroupInfoModal from '../modals/mainmodals/GroupInfoModal';
 import CheckOffCanvas from '../offcanvas/CheckOffCanvas';
 import { CheckLatLngContext } from '../../contexts/CheckLatLngContext';
-import LoadingModal from '../modals/submodals/LoadingModal';
+import LoadingModal from '../modals/submodals/alert_modals/LoadingModal';
 
 const Map = () =>{
     const { isLatLng, setIsLatLng } = useContext(LatLngContext);
