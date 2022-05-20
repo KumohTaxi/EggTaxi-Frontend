@@ -1,7 +1,7 @@
 import {Modal, Button} from 'react-bootstrap';
 import './WarningModal.css';
 import axios from 'axios';
-import { PROXY } from '../../../contexts/ProxyContext';
+import { PROXY } from '../../../../contexts/ProxyContext';
 
 const WarningModal=(props)=>{
     function exitGroup(){

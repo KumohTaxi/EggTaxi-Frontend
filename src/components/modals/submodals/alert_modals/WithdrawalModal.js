@@ -1,7 +1,7 @@
 import {Modal, Button} from 'react-bootstrap';
 import './WithdrawalModal.css';
 import axios from 'axios';
-import { PROXY } from '../../../contexts/ProxyContext';
+import { PROXY } from '../../../../contexts/ProxyContext';
 
 const WithdrawalModal=(props)=>{
     function removeInfo(){

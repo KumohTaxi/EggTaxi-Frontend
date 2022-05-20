@@ -1,6 +1,6 @@
 import {Modal, Button} from 'react-bootstrap';
 import './CheckAuthModal.css';
-import { GENDER_AUTH_URL } from '../../../oauths/ReAuth';
+import { GENDER_AUTH_URL } from '../../../../oauths/ReAuth';
 
 const LogeOutModal=(props)=>{
     function moveReDirect(){
