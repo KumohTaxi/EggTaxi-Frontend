@@ -44,7 +44,8 @@ const WithdrawalModal=(props)=>{
 
             <Modal.Body className='WDMiddle'>
                 <p className='WDP1'>회원 탈퇴를 하시겠습니까?</p>
-                <p className='WDP2'>회원님의 모든 정보가 사라집니다.</p>
+                <p className='WDP2'>혹시 모를 사후 처리를 위해 회원님의 </p>
+                <p className='WDP2'>정보는 일주일간 안전하게 보관됩니다.</p>
             </Modal.Body>
 
             <Modal.Footer className='WDFooter' style={{backgroundColor: "#FFFCEE"}}>
