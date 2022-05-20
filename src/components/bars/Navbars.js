@@ -7,10 +7,11 @@ import { CheckLatLngContext } from '../../contexts/CheckLatLngContext';
 import { useContext } from 'react';
 import MyGroupModal from '../modals/mainmodals/MyGroupModal.js';
 import UserModal from '../modals/mainmodals/UserModal';
-import PreMyGroupModal from '../modals/submodals/PreMyGroupModal';
+import PreMyGroupModal from '../modals/submodals/info_modals/PreMyGroupModal';
 import axios from 'axios';
 import { PROXY } from '../../contexts/ProxyContext';
 import ChatModal from '../modals/mainmodals/ChatModal';
+import InfoGuideModal from '../modals/submodals/guide_modals/InfoGuideModal';
 
 const Navbars=({location})=>{
     const [leftCanvasShow, setLeftCanvasShow] = useState(false);
@@ -23,6 +24,7 @@ const Navbars=({location})=>{
     const [userView, setUserView] = useState(false);
     const [isPreView, setIsPreView] = useState(false);
     const [isChatView, setIsChatView] = useState(false);
+    const [isGuideModal, setIsGuideModal] = useState(false);
 
     const [myGroupDestination, setMyGroupDestination] = useState('');
     const [myGroupMonth, setMyGroupMonth] = useState('');
@@ -71,11 +73,12 @@ const Navbars=({location})=>{
                         </Navbar.Brand>
 
                         <div className='NavContent'>
-                            <span className='NavbarsMyGroup' onClick={()=>{checkHandleOnHide();
+                            <img className='NavbarsMyGroup' src='imgs/mygroup.png' alt='이미지를 불러올 수 없습니다.'
+                                                            onClick={()=>{checkHandleOnHide();
                                                                             isPossible
                                                                             ?setMyGroupView(true)
                                                                             :setIsPreView(true);
-                                                                        }}>MyGroup</span>
+                                                                        }}/>
                             <img className='NavbarChat' src='imgs/Chat.png' alt='이미지를 불러올 수 없습니다.' 
                                                             onClick={()=>{checkHandleOnHide();
                                                                             isPossible
@@ -84,6 +87,8 @@ const Navbars=({location})=>{
                             <img className='NavbarsFilter' src='imgs/Search.png' alt='이미지를 불러올 수 없습니다.'
                             onClick={()=>{lefthandleShow(); checkHandleOnHide();}}/>
                             <img className='User' src='imgs/User.png' alt='이미지를 불러올 수 없습니다.' onClick={()=>{setUserView(true); checkHandleOnHide();}}/>
+                            <img className='taxiInformation' src='imgs/information.png' alt='이미지를 불러올 수 없습니다.'
+                            onClick={()=>setIsGuideModal(true)}/>
                         </div>
                     </div>
                 </Container>
@@ -112,6 +117,7 @@ const Navbars=({location})=>{
                 show = {userView}
                 onHide = {() => setUserView(false)}
             />
+
             <PreMyGroupModal
                 show = {isPreView}
                 onHide = {() => setIsPreView(false)}
@@ -121,6 +127,11 @@ const Navbars=({location})=>{
                 show = {isChatView}
                 onHide = {() => setIsChatView(false)}
                 myid = {myGroupID}
+            />
+            
+            <InfoGuideModal
+                show={isGuideModal}
+                onHide={() => setIsGuideModal(false)}
             />
         </div>
     )

@@ -1,6 +1,6 @@
 .NavbarsMyGroup{
-    font-size: 90%;
-    color: rgb(180, 180, 180);
+    width: 24px;
+    height: 23px;
     margin-right: 15px;
 }
 
@@ -22,7 +22,7 @@
 
 .User{
     width: 17px;
-    margin-right: 5px;
+    margin-right: 15px;
     height: 20px;
 }
 
@@ -35,4 +35,10 @@
 .NavContent{
     margin-top: 8px;
     display: flex;
+}
+
+.taxiInformation{
+    width: 21px;
+    height: 21px;
+    margin-right: 5px;
 }
