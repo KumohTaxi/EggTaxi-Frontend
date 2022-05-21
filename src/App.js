@@ -12,6 +12,7 @@ import { PROXY } from './contexts/ProxyContext';
 import { useMediaQuery } from 'react-responsive';
 import MinDisplayPage from './components/pages/MinDisplayPage';
 import PromotionPage from './components/pages/PromotionPage.js';
+import MadeByPage from './components/pages/MadeByPage.js';
 
 function App() {
   const [isLatLng, setIsLatLng] = useState();
@@ -51,6 +52,7 @@ function App() {
                 <Route className= "MainPage" path="/Main" component={MainPage}/>
                 <Route className= "RedirectPage" path="/oauth/callback/kakao" component={RedirectionHandler}></Route>
                 <Route className= "PromotionPage" path='/promotion/:groupid' component={PromotionPage}></Route>
+                <Route className= "MadeByPage" path='/madeby' component={MadeByPage}></Route>
               </Router>}
             {isMax && <MinDisplayPage/>}
           </div>
