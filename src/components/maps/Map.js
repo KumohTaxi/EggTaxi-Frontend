@@ -105,7 +105,7 @@ const Map = () =>{
         var ImpossibleMarker = "imgs/ImpossibleMarker.png";
         var TimeOutMarker = "imgs/TimeOutMarker.png";
 
-        isListInfo.map(groupInfo =>{
+        isListInfo.forEach(groupInfo =>{
             var stringYear = groupInfo.dateTime[0]+groupInfo.dateTime[1]+groupInfo.dateTime[2]+groupInfo.dateTime[3];
             var stringMonth = groupInfo.dateTime[5]+groupInfo.dateTime[6];
             var stringDay = groupInfo.dateTime[8]+groupInfo.dateTime[9];
