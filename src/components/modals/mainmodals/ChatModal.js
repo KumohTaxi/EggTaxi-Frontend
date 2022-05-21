@@ -19,10 +19,10 @@ const ChatModal=(props)=>{
         var numList = [];
         
         for (let i = 0; i < data.length; i++){
-            if (data.memberStatus === "CAPTAIN" && !localStorage.getItem('user_code').includes(0)){
+            if (data.memberStatus === "CAPTAIN" && !numList.includes(0)){
                 numList.push(0);
             }
-            else if(!localStorage.getItem('user_code').includes(data[i].identityNum)){
+            else if(!numList.includes(data[i].identityNum)){
                 numList.push(data[i].identityNum);
             }
         };
@@ -80,7 +80,7 @@ const ChatModal=(props)=>{
         const result = [];
         for (let i = 0; i < isCommentList.length; i++){
             result.push(
-                        isCommentList[i].identityNum == localStorage.getItem("my_code")?
+                        isCommentList[i].identityNum.toString() === localStorage.getItem("my_code")?
                         <div className='MyMessageBox' key={i}>
                             <div className='MyMsgContent'>
                                 {isCommentList[i].msg}
@@ -131,7 +131,7 @@ const ChatModal=(props)=>{
                 <Modal.Title className="ChatTitle" id="contained-modal-title-vcenter">
                 Chat
                 </Modal.Title>
-                <img className='CloseButton' src='imgs/Close.png' onClick={props.onHide}/>
+                <img className='CloseButton' src='imgs/Close.png' onClick={props.onHide} alt='이미지를 불러올 수 없습니다.'/>
             </Modal.Header>
 
             <Modal.Body className='ChatMiddle'>
@@ -150,7 +150,7 @@ const ChatModal=(props)=>{
                     등록
                 </Button>
                 <Button className='myRefreshButton' variant="secondary" onClick={checkComment}>
-                    <img className='refreshImg' src='imgs/Refresh.png'/>
+                    <img className='refreshImg' src='imgs/Refresh.png' alt='이미지를 불러올 수 없습니다.'/>
                 </Button>
             </InputGroup>
         </Modal>
