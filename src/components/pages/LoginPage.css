@@ -1,28 +1,49 @@
 @media only screen and (min-width: 270px) and (max-width: 299px) {
-    .loginLogo{
-        width: 120px;
-    }
     .loginCompanyName{
-        width: 100px;
+        height: 19px;
+        margin-right: 5px;
+    }
+    .xLogo{
+        height: 10px;
+    }
+    .likelionLogo{
+        height: 13px;
+        margin-left: 5px;
+    }
+    .version, .madeby{
+        font-size: 12px;
     }
 }
 @media only screen and (min-width: 300px) and (max-width: 399px) {
-    .loginLogo{
-        width: 140px;
-    }
     .loginCompanyName{
-        width: 120px;
+        height: 20px;
+        margin-right: 6px;
+    }
+    .xLogo{
+        height: 12px;
+    }
+    .likelionLogo{
+        height: 16px;
+        margin-left: 6px;
+    }
+    .version, .madeby{
+        font-size: 13px;
     }
 }
 @media only screen and (min-width: 400px) {
-    .loginLogo{
-        width: 160px;
-    }
-    .LoginForm{
-        max-width: 400px;
-    }
     .loginCompanyName{
-        width: 140px;
+        height: 24px;
+        margin-right: 8px;
+    }
+    .xLogo{
+        height: 12px;
+    }
+    .likelionLogo{
+        height: 17px;
+        margin-left: 8px;
+    }
+    .version, .madeby{
+        font-size: 15px;
     }
 }
 
@@ -33,12 +54,47 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+}
+
+.loginHeader{
+    height: 30%;
+}
+.loginLogo{
+    width: 40%;
+    max-width: 450px;
 }
 .LoginForm{
+    height: 40%;
     width: 80%;
-    margin-top: 20vh;
-    margin-top: calc(var(--vh, 1vh) * 20);;
-    margin-bottom: 30vh;
-    margin-bottom: calc(var(--vh, 1vh) * 30);;
+    max-width: 400px;
+}
+.loginFooter{
+    height: 30%;
+    flex-direction: column;
+}
+
+.collaboLogo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.appInfo{
+    display: flex;
+    margin-top: 5%;
+    width: 80%;
+    justify-content: space-around;
+}
+.version{
+    color: rgb(171, 171, 171);
+}
+.madeby{
+    color: rgb(171, 171, 171);
+    text-decoration: underline;
+}
+
+
+.loginHeader, .LoginForm, .loginFooter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
