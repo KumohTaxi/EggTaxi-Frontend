@@ -1,13 +1,16 @@
 @media only screen and (min-width: 270px) and (max-width: 299px) {
     .loginCompanyName{
         height: 19px;
+        width: 81px;
         margin-right: 5px;
     }
     .xLogo{
         height: 10px;
+        width: 10px;
     }
     .likelionLogo{
         height: 13px;
+        width: 112px;
         margin-left: 5px;
     }
     .version, .madeby{
@@ -17,13 +20,16 @@
 @media only screen and (min-width: 300px) and (max-width: 399px) {
     .loginCompanyName{
         height: 20px;
+        width: 85px;
         margin-right: 6px;
     }
     .xLogo{
         height: 12px;
+        width: 12px;
     }
     .likelionLogo{
         height: 16px;
+        width: 137px;
         margin-left: 6px;
     }
     .version, .madeby{
@@ -33,13 +39,16 @@
 @media only screen and (min-width: 400px) {
     .loginCompanyName{
         height: 24px;
+        width: 102px;
         margin-right: 8px;
     }
     .xLogo{
-        height: 12px;
+        height: 14px;
+        width: 14px;
     }
     .likelionLogo{
         height: 17px;
+        width: 147px;
         margin-left: 8px;
     }
     .version, .madeby{
