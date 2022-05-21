@@ -109,6 +109,7 @@
 .messageBox{
     display: flex;
     margin-right: 15%;
+    margin-top: 4px;
 }
 .msgName{
     font-weight: bold;
@@ -122,7 +123,6 @@
     padding-right: 10px;
     padding-left: 10px;
     border-radius: 10px 10px 10px 10px / 10px 10px 10px 10px;
-    margin-top: 3px;
 }
 .MyMsgContent{
     background-color: #396992;
@@ -132,12 +132,12 @@
     padding-right: 10px;
     padding-left: 10px;
     border-radius: 10px 10px 10px 10px / 10px 10px 10px 10px;
-    margin-top: 3px;
 }
 .MyMessageBox{
     display: flex;
     flex-direction: row-reverse;
     margin-left: 15%;
+    margin-top: 4px;
 }
 .chatInputGroup{
     background-color: #212428;
