@@ -10,6 +10,15 @@ const CheckOffCanvas=(props)=>{
     const [creationView, setCreationView] = useState(false);
     const [isCheckAuth, setIsCheckAuth] = useState(false);
 
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+
+    window.addEventListener("resize", () => {
+        console.log("resize");
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty("--vh", `${vh}px`);
+    });
+
     function makePossible(){
         props.onHide();
         setCreationView(true);
