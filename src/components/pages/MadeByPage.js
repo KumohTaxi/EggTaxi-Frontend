@@ -34,14 +34,14 @@ const MadeByPage=()=>{
                         </div>
                         <div className='subContentInfo'>
                             <div className='madebyDuty'>
-                                Front-End Developer<br/>
+                                Front-End Develope<br/>
                                 UI & UX Design
                             </div>
                             <a href="mailto:ghw9174@gmail.com">
-                                <img className='gamil' src="https://img.shields.io/badge/Gmail-d14836?style=flat-square&logo=Gmail&logoColor=white&link=ghw9174@gmail.com"/>
+                                <img className='gamil' src="https://img.shields.io/badge/Gmail-d14836?style=flat-square&logo=Gmail&logoColor=white&link=ghw9174@gmail.com" alt='이미지를 불러올 수 없습니다.'/>
                             </a>
                             <a href="https://www.instagram.com/hy__wuuuuuuuu/">
-                                <img className='insta' src="https://img.shields.io/badge/Instagram-E4405F?style=flat-square&logo=Instagram&logoColor=white&link=https://www.instagram.com/hy__wuuuuuuuu/"/>
+                                <img className='insta' src="https://img.shields.io/badge/Instagram-E4405F?style=flat-square&logo=Instagram&logoColor=white&link=https://www.instagram.com/hy__wuuuuuuuu/" alt='이미지를 불러올 수 없습니다.'/>
                             </a>
                         </div>
                     </div>
@@ -54,14 +54,14 @@ const MadeByPage=()=>{
                         </div>
                         <div className='subContentInfo'>
                             <div className='madebyDuty'>
-                                Front-End Developer<br/>
+                                Front-End Develope<br/>
                                 Server Management
                             </div>
                             <a href="mailto:syhan7516@gmail.com">
-                                <img className='gamil' src="https://img.shields.io/badge/Gmail-d14836?style=flat-square&logo=Gmail&logoColor=white&link=syhan7516@gmail.com"/>
+                                <img className='gamil' src="https://img.shields.io/badge/Gmail-d14836?style=flat-square&logo=Gmail&logoColor=white&link=syhan7516@gmail.com" alt='이미지를 불러올 수 없습니다.'/>
                             </a>
                             <a href="https://www.instagram.com/han_sy.dg/">
-                                <img className='insta' src="https://img.shields.io/badge/Instagram-E4405F?style=flat-square&logo=Instagram&logoColor=white&link=https://www.instagram.com/han_sy.dg/"/>
+                                <img className='insta' src="https://img.shields.io/badge/Instagram-E4405F?style=flat-square&logo=Instagram&logoColor=white&link=https://www.instagram.com/han_sy.dg/" alt='이미지를 불러올 수 없습니다.'/>
                             </a>
                         </div>
                     </div>
@@ -74,14 +74,14 @@ const MadeByPage=()=>{
                         </div>
                         <div className='subContentInfo'>
                             <div className='madebyDuty'>
-                                Back-End Developer<br/>
-                                Server Management
+                                Back-End Develope<br/>
+                                Project Management
                             </div>
                             <a href="mailto:kimse9811@gmail.com">
-                                <img className='gamil' src="https://img.shields.io/badge/Gmail-d14836?style=flat-square&logo=Gmail&logoColor=white&link=kimse9811@gmail.com"/>
+                                <img className='gamil' src="https://img.shields.io/badge/Gmail-d14836?style=flat-square&logo=Gmail&logoColor=white&link=kimse9811@gmail.com" alt='이미지를 불러올 수 없습니다.'/>
                             </a>
                             <a href="https://www.instagram.com/starsil_k/">
-                                <img className='insta' src="https://img.shields.io/badge/Instagram-E4405F?style=flat-square&logo=Instagram&logoColor=white&link=https://www.instagram.com/starsil_k/"/>
+                                <img className='insta' src="https://img.shields.io/badge/Instagram-E4405F?style=flat-square&logo=Instagram&logoColor=white&link=https://www.instagram.com/starsil_k/" alt='이미지를 불러올 수 없습니다.'/>
                             </a>
                         </div>
                     </div>
@@ -102,10 +102,10 @@ const MadeByPage=()=>{
                                 Server Management
                             </div>
                             <a href="mailto:kathyleesh7@gmail.com">
-                                <img className='gamil' src="https://img.shields.io/badge/Gmail-d14836?style=flat-square&logo=Gmail&logoColor=white&link=kathyleesh7@gmail.com"/>
+                                <img className='gamil' src="https://img.shields.io/badge/Gmail-d14836?style=flat-square&logo=Gmail&logoColor=white&link=kathyleesh7@gmail.com" alt='이미지를 불러올 수 없습니다.'/>
                             </a>
                             <a href="https://www.instagram.com/seohyun_lee_20/">
-                                <img className='insta' src="https://img.shields.io/badge/Instagram-E4405F?style=flat-square&logo=Instagram&logoColor=white&link=https://www.instagram.com/seohyun_lee_20/"/>
+                                <img className='insta' src="https://img.shields.io/badge/Instagram-E4405F?style=flat-square&logo=Instagram&logoColor=white&link=https://www.instagram.com/seohyun_lee_20/" alt='이미지를 불러올 수 없습니다.'/>
                             </a>
                         </div>
                     </div>
