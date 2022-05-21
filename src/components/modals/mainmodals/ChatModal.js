@@ -15,41 +15,26 @@ const ChatModal=(props)=>{
         document.documentElement.style.setProperty("--vh", `${vh}px`);
     });
 
-    function ConfirmNum(data) {
-        var numList = [];
-        
-        for (let i = 0; i < data.length; i++){
-            if (data.memberStatus === "CAPTAIN" && !numList.includes(0)){
-                numList.push(0);
-            }
-            else if(!numList.includes(data[i].identityNum)){
-                numList.push(data[i].identityNum);
-            }
-        };
-
-        localStorage.setItem('user_code', numList);
-    };
-
-    function checkComment(){
-        axios({
-            method:'get',
-            url:`${PROXY}/group/${props.myid}/post`,
-            headers:{
-                'ContentType':'application/json'
-            },
-        })
-        .then((res) => {
-            setIsCommentList(res.data);
-            ConfirmNum(res.data);
-        })
-    };
-
     function saveMsg(){
         var text = document.getElementsByClassName('ChatInput')[0].value;
-        clearInput();
 
+        clearInput();
         enterComment(text);
     }
+
+    const EnterKeyPress = (e) =>{
+        if(e.key==='Enter'){
+            saveMsg(); 
+        }
+    }
+
+    function clearInput(){
+        var el = document.getElementsByClassName('ChatInput');
+
+        for(var i = 0; i<el.length; i++){
+            el[i].value = '';
+        };
+    };
 
     function enterComment(text){
         axios({
@@ -69,9 +54,32 @@ const ChatModal=(props)=>{
         })
     };
 
+    function checkComment(){
+        axios({
+            method:'get',
+            url:`${PROXY}/group/${props.myid}/post`,
+            headers:{
+                'ContentType':'application/json'
+            },
+        })
+        .then((res) => {
+            setIsCommentList(res.data);
+        })
+    };
+
+    useEffect(()=>{
+        checkComment();
+    },[props.show])
+
     function reloadComment(){
         const result = [];
         for (let i = 0; i < isCommentList.length; i++){
+            const order = [];
+
+            if(!order.includes(isCommentList[i].identityNum)){
+                order.push(isCommentList[i].identityNum);
+            }
+
             result.push(
                         isCommentList[i].identityNum.toString() === localStorage.getItem("my_code")?
                         <div className='MyMessageBox' key={i}>
@@ -84,7 +92,7 @@ const ChatModal=(props)=>{
                                 <Badge bg='light' className='msgName'>
                                     {isCommentList[i].memberStatus === "CAPTAIN"
                                     ?'그룹장'
-                                    :'익명'+(localStorage.getItem('user_code').indexOf(isCommentList[i].identityNum)+1)}
+                                    :'익명'+(order.indexOf(isCommentList[i].identityNum)+1)}
                                 </Badge>
                             </div>
                             <div className="vr" />
@@ -95,24 +103,6 @@ const ChatModal=(props)=>{
         };
         return result;
     };
-
-    function clearInput(){
-        var el = document.getElementsByClassName('ChatInput');
-
-        for(var i = 0; i<el.length; i++){
-            el[i].value = '';
-        };
-    };
-
-    const EnterKeyPress = (e) =>{
-        if(e.key==='Enter'){
-            saveMsg(); 
-        }
-    }
-
-    useEffect(()=>{
-        checkComment();
-    },[props.show])
 
     return(
         <Modal
