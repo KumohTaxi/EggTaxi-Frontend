@@ -39,13 +39,6 @@ const ChatModal=(props)=>{
             },
         })
         .then((res) => {
-            if(res.data[0].memberStatus === "CAPTAIN"){
-                localStorage.setItem('user_code', 0);
-            }
-            else{
-                localStorage.setItem('user_code', res.data[0].identityNum);
-            }
-
             setIsCommentList(res.data);
             ConfirmNum(res.data);
         })
