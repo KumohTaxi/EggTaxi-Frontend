@@ -21,7 +21,7 @@ const MainPage=()=>{
     }, [])
 
     return(
-        <div id='Main'>
+        <div className='Main'>
             <div className='Navbars'>
                 {<Navbars/>}
             </div>
