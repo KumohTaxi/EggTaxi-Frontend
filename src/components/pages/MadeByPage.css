@@ -1,0 +1,199 @@
+@media only screen and (min-width: 270px) and (max-width: 299px) {
+    .madebyLogo{
+        margin-top: 3px;
+        margin-bottom: 20px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .likelionkit{
+        width: 220px;
+        margin-bottom: 20px;
+    }
+    .madebycompanyname{
+        width: 60px;
+    }
+    .closeButton{
+        width: 35px;
+        padding: 10px;
+    }
+    .madebySubTitle{
+        padding: 6px;
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+    .madebySubContent{
+        padding-bottom: 16px;
+    }
+    .subContentPerson{
+        width: 25%;
+        margin-right: 10%;
+        margin-left: 5%;
+    }
+    .madebyName{
+        margin-top: 6px;
+        font-size: 11px;
+    }
+    .subContentInfo{
+        width: 50%;
+    }
+    .madebyDuty{
+        font-size: 11px;
+        margin-bottom: 6px;
+    }
+    .gamil{
+        width: 40px;
+    }
+    .insta{
+        width: 60px;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 399px) {
+    .madebyLogo{
+        margin-top: 5px;
+        margin-bottom: 40px;
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+    .likelionkit{
+        width: 270px;
+        margin-bottom: 30px;
+    }
+    .madebycompanyname{
+        width: 80px;
+    }
+    .closeButton{
+        width: 50px;
+        padding: 15px;
+    }
+    .madebySubTitle{
+        padding: 8px;
+        font-size: 22px;
+        margin-bottom: 18px;
+    }
+    .madebySubContent{
+        padding-bottom: 18px;
+    }
+    .subContentPerson{
+        width: 25%;
+        margin-right: 10%;
+        margin-left: 5%;
+    }
+    .madebyName{
+        margin-top: 8px;
+        font-size: 12px;
+    }
+    .subContentInfo{
+        width: 50%;
+    }
+    .madebyDuty{
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+    .gamil{
+        width: 50px;
+        margin-bottom: 5px;
+    }
+    .insta{
+        width: 70px;
+    }
+}
+
+@media only screen and (min-width: 400px) {
+    .madebyLogo{
+        margin-top: 10px;
+        margin-bottom: 50px;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+    .likelionkit{
+        width: 350px;
+        margin-bottom: 30px;
+    }
+    .madebycompanyname{
+        width: 90px;
+    }
+    .closeButton{
+        width: 80px;
+        padding: 30px;
+    }
+    .madebySubTitle{
+        padding: 10px;
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+    .madebySubContent{
+        padding-bottom: 20px;
+    }
+    .subContentPerson{
+        width: 25%;
+        margin-right: 10%;
+        margin-left: 5%;
+    }
+    .madebyName{
+        margin-top: 10px;
+        font-size: 15px;
+    }
+    .subContentInfo{
+        width: 50%;
+    }
+    .madebyDuty{
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    .gamil{
+        width: 60px;
+        margin-bottom: 8px;
+    }
+    .insta{
+        width: 80px;
+    }
+}
+
+.madebybox{
+    max-width: 500px;
+}
+.personImg{
+    border-radius: 50%;
+}
+.MadeBy{
+    height: 100vh;
+    height: calc(var(--vh, 1vh)*100);
+    background-color: #2A2A2A;
+    color: rgb(218, 218, 218);
+    overflow-y:auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.madebyLogo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid rgb(76, 76, 76);
+    border-bottom: 1px solid rgb(76, 76, 76);
+}
+.backButton{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.madebySubTitle{
+    font-weight: bold;
+    font-style: italic;
+    border-bottom: 5px double #396992;
+    color: #5a8cb7;
+}
+.madebySubContent{
+    display: flex;
+}
+.madebyName{
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+.subContentInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: bold;
+}
