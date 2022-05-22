@@ -32,7 +32,7 @@ const CheckOffCanvas=(props)=>{
 
     return(
         <div>
-            <Offcanvas backdrop={false} show={props.show} onHide={props.onHide} className="bottomCanvas" placement='bottom'>
+            <Offcanvas backdrop={false} show={props.show} onHide={props.onHide} className="bottomCanvas" placement='end'>
                 <Offcanvas.Body className='checkCanvasBody'>
                     <Button variant='dark' className='checkLeftButton' onClick={props.onHide}>
                         취소
