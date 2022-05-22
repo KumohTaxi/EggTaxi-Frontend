@@ -6,15 +6,6 @@ import { PROXY } from '../../../contexts/ProxyContext';
 const ChatModal=(props)=>{
     const [isCommentList, setIsCommentList] = useState([]);
 
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
-
-    window.addEventListener("resize", () => {
-        console.log("resize");
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty("--vh", `${vh}px`);
-    });
-
     function saveMsg(){
         var text = document.getElementsByClassName('ChatInput')[0].value;
 
@@ -73,8 +64,8 @@ const ChatModal=(props)=>{
 
     function reloadComment(){
         const result = [];
+        const order = [];
         for (let i = 0; i < isCommentList.length; i++){
-            const order = [];
 
             if(!order.includes(isCommentList[i].identityNum)){
                 order.push(isCommentList[i].identityNum);
