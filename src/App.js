@@ -25,13 +25,7 @@ function App() {
   useEffect(() => {
     vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
-  }, []);
-
-  const setVh = () => {
-    document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`)
-  };
-  window.addEventListener('resize', setVh);
-  setVh();
+  },[]);
 
   useEffect(()=>{
     axios({
