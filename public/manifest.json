@@ -1,8 +1,8 @@
 {
-  "name": "EggTaxi",
+  "name": "EGG-TAXI",
   "short_name": "ET",
   "start_url": "/",
-  "display": "standalone",
+  "display": "fullscreen",
   "icons": [
     {
       "src": "/icons/apple-touch-icon-57x57.png",
@@ -62,5 +62,5 @@
     }
   ],
   "theme_color": "#396992",
-  "background_color": "#212428"
+  "background_color": "#396992"
 }
