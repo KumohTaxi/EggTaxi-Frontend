@@ -23,7 +23,8 @@ const FilterOffCanvas=(props)=>{
             for (let i = 0; i < 1; i++){
                 destinationList.push(
                     <div key={i} className='falseDes'>
-                        현재 존재하는 그룹이 없습니다.
+                        {/* 현재 존재하는 그룹이 없습니다. */}
+                        서비스 준비 중 입니다.
                     </div>
                     );
             };
