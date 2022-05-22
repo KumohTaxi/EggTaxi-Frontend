@@ -29,7 +29,7 @@ const LoginPage=()=>{
                 </div>
                 <div className='appInfo'>
                     <div className='version'>
-                        v1.0.5-beta
+                        v1.0.6-beta
                     </div>
                     <div className='madeby' onClick={()=>{window.location.href = madebyHref;}}>
                         made by
