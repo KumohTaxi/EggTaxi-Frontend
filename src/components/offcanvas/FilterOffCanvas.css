@@ -4,6 +4,7 @@
     max-width: 250px;
     background-color: #212428;
     color: rgb(225, 225, 225);
+    height: calc(var(--vh, 1vh) * 100);
 }
 
 #offcanvasNavbarDropdown{
