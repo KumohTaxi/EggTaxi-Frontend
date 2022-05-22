@@ -6,7 +6,7 @@
     
     .checkLeftButton, .checkRightButton{
         font-size: 14px;
-        width: 45%;
+        width: 47%;
     }
     .bottomCanvas{
         width: 240px;
@@ -24,7 +24,7 @@
     
     .checkLeftButton, .checkRightButton{
         font-size: 16px;
-        width: 45%;
+        width: 47%;
     }
     .bottomCanvas{
         width: 260px;
@@ -37,14 +37,12 @@
 @media only screen and (min-width: 400px) {
     .checkCanvasBody{
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
     }
 
     .checkLeftButton, .checkRightButton{
         font-size: 20px;
-        width: 200px;
-        margin-left: 3px;
-        margin-right: 3px;
+        width: 47%;
     }
     .bottomCanvas{
         width: 300px;
