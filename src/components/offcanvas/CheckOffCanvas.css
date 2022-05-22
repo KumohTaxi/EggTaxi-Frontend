@@ -38,7 +38,6 @@
 
 .bottomCanvas{
     width: 100vw;
-    height: 10vh;
     height: calc(var(--vh, 1vh)*10);
     min-height: 75px;
     background-color: #212428;

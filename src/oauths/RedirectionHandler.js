@@ -5,14 +5,6 @@ import './RedirectionHandler.css';
 import { PROXY } from "../contexts/ProxyContext";
 
 const RedirectionHandler = ({ history }) => {
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
-
-    window.addEventListener("resize", () => {
-        console.log("resize");
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty("--vh", `${vh}px`);
-    });
 
     let code = new URL(window.location.href).searchParams.get("code");
 

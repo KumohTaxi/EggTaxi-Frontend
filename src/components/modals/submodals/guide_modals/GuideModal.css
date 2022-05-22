@@ -1,5 +1,4 @@
 .GuideMiddle{
-    height: 70vh;
     overflow-y:auto;
     height: calc(var(--vh, 1vh)*70);
 }

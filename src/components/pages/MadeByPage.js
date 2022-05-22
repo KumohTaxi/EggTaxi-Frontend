@@ -1,15 +1,6 @@
 import './MadeByPage.css';
 
 const MadeByPage=()=>{
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
-
-    window.addEventListener("resize", () => {
-        console.log("resize");
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty("--vh", `${vh}px`);
-    });
-
     return(
         <div className='MadeBy'>
             <div className='madebybox'>

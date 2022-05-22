@@ -4,15 +4,6 @@ import { useEffect, useState } from "react";
 import GuideModal from '../modals/submodals/guide_modals/GuideModal';
 
 const LoginPage=()=>{
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
-
-    window.addEventListener("resize", () => {
-        console.log("resize");
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty("--vh", `${vh}px`);
-    });
-
     const [isGuide, setIsGuide] = useState(true);
     const madebyHref = window.location.href + 'madeby';
 

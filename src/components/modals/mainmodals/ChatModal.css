@@ -100,7 +100,6 @@
 }
 .ChatMiddle{
     padding: 10px;
-    height: 60vh;
     height: calc(var(--vh, 1vh) * 60);
     overflow-y:auto;
     display: flex;

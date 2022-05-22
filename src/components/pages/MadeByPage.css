@@ -157,7 +157,6 @@
     border-radius: 50%;
 }
 .MadeBy{
-    height: 100vh;
     height: calc(var(--vh, 1vh)*100);
     background-color: #2A2A2A;
     color: rgb(218, 218, 218);

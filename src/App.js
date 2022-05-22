@@ -13,11 +13,25 @@ import { useMediaQuery } from 'react-responsive';
 import MinDisplayPage from './components/pages/MinDisplayPage';
 import PromotionPage from './components/pages/PromotionPage.js';
 import MadeByPage from './components/pages/MadeByPage.js';
+import GlobalStyle from './GlobalStyle.js';
 
 function App() {
   const [isLatLng, setIsLatLng] = useState();
   const [isListInfo, setIsListInfo] = useState([]);
   const [isCheckShow, setIsCheckShow] = useState(false);
+
+  let vh = 0;
+
+  useEffect(() => {
+    vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  }, []);
+
+  const setVh = () => {
+    document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`)
+  };
+  window.addEventListener('resize', setVh);
+  setVh();
 
   useEffect(()=>{
     axios({
@@ -46,6 +60,7 @@ function App() {
     <LatLngContext.Provider value={{isLatLng, setIsLatLng}}>
       <GetContext.Provider value={{isListInfo, setIsListInfo}}>
         <CheckLatLngContext.Provider value={{isCheckShow, setIsCheckShow}}>
+          <GlobalStyle/>
           <div className="App">
             {isMin && <Router>
                 <Route className= "LoginPage" path="/" component={LoginPage} exact={true}/>
