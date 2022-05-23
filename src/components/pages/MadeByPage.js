@@ -25,7 +25,7 @@ const MadeByPage=()=>{
                         </div>
                         <div className='subContentInfo'>
                             <div className='madebyDuty'>
-                                Front-End Develope<br/>
+                                Front-End Develop<br/>
                                 UI & UX Design
                             </div>
                             <a href="mailto:ghw9174@gmail.com">
@@ -45,7 +45,7 @@ const MadeByPage=()=>{
                         </div>
                         <div className='subContentInfo'>
                             <div className='madebyDuty'>
-                                Front-End Develope<br/>
+                                Front-End Develop<br/>
                                 Server Management
                             </div>
                             <a href="mailto:syhan7516@gmail.com">
@@ -65,7 +65,7 @@ const MadeByPage=()=>{
                         </div>
                         <div className='subContentInfo'>
                             <div className='madebyDuty'>
-                                Back-End Develope<br/>
+                                Back-End Develop<br/>
                                 Project Management
                             </div>
                             <a href="mailto:kimse9811@gmail.com">
