@@ -29,23 +29,6 @@ function App() {
     document.documentElement.style.setProperty("--vh", `${vh}px`);
   });
 
-
-  useEffect(()=>{
-    axios({
-      method:'post',
-      url:`${PROXY}/group`,
-      data:{
-          accessToken: localStorage.getItem('access_token'),
-      },
-      headers:{
-          'ContentType':'application/json'
-      },
-    })
-    .then((response) => {
-      setIsListInfo(response.data);
-    })
-  }, []);
-
   const isMin = useMediaQuery({
     query : "(min-width:270px)"
   });
