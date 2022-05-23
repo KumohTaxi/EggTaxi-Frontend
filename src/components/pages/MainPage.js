@@ -13,7 +13,7 @@ const MainPage=()=>{
     useEffect(()=>{
         if(localStorage.getItem("access_token") === null){
             window.location.replace('/');
-        }
+        }s
     }, [])
 
     useEffect(()=>{
