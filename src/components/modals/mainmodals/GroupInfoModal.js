@@ -7,7 +7,7 @@ import { PROXY } from '../../../contexts/ProxyContext';
 const GroupInfoModal=(props)=>{
     function joinGroup(){
         if(localStorage.getItem("mygroupid")){
-            alert("이미 참가한 방이 있습니다.")
+            alert("이미 참가한 그룹이 있습니다.")
         }
         else{
             axios({
@@ -25,7 +25,7 @@ const GroupInfoModal=(props)=>{
                 window.location.replace('/main');
             })
             .catch(() => {
-                alert("참가 할 수 없는 방입니다.");
+                alert("참가 할 수 없는 그룹입니다.");
             })
         }
     };

@@ -25,7 +25,7 @@ const RedirectionHandler = ({ history }) => {
                 history.push('/');
             }
             else if(res.data.accessToken === 'genderless' || res.data.refreshToken === 'genderless'){
-                alert("성별이 없습니다.");
+                alert("성별 선택을 하지 않으셨습니다.\n 그룹만들기를 눌러 추가 동의를 받으시거나,\n 회원 탈퇴 후 재 동의 부탁드릴게요!");
 
                 const ACCESS_TOKEN = res.data.accessToken;
                 const REFRESH_TOKEN = res.data.refreshToken;
@@ -52,6 +52,7 @@ const RedirectionHandler = ({ history }) => {
                 localStorage.setItem("refresh_token", REFRESH_TOKEN);
     
                 history.push('/main');
+                alert('맵을 터치하여 그룹을 생성해 보세요!');
             }
         })
         .catch(()=>{

@@ -59,7 +59,7 @@ const PromotionPage=()=> {
     }
     function Agree(){
         if(localStorage.getItem("mygroupid")){
-            alert("이미 참가한 방이 있습니다.");
+            alert("이미 참가한 그룹이 있습니다.");
             window.location.replace('/main');
         }
         else{
@@ -77,7 +77,7 @@ const PromotionPage=()=> {
                 window.location.replace('/main');
             })
             .catch(() => {
-                alert("참가 할 수 없는 방입니다.");
+                alert("성별이 다른 그룹이거나, 인원이 가득차 참가가 어렵습니다. 죄송합니다.");
                 window.location.replace('/');
             })
         }
