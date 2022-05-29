@@ -1,4 +1,4 @@
-import {Offcanvas, Button} from 'react-bootstrap';
+import {Offcanvas, Button, CloseButton} from 'react-bootstrap';
 import './FilterOffCanvas.css'
 
 const FilterOffCanvas=(props)=>{
@@ -36,8 +36,9 @@ const FilterOffCanvas=(props)=>{
     return(
         <div>
             <Offcanvas show={props.show} onHide={props.onHide} className="filterOffCanvas" placement='start'>
-                <Offcanvas.Header closeButton>
-                    <Offcanvas.Title id="offcanvasNavbarLabel" style={{fontWeight: "bold"}}>Search</Offcanvas.Title>                        
+                <Offcanvas.Header>
+                    <Offcanvas.Title id="offcanvasNavbarLabel" style={{fontWeight: "bold"}}>Search</Offcanvas.Title>    
+                    <CloseButton variant='white' onClick={props.onHide}/>                    
                 </Offcanvas.Header>
                 <Offcanvas.Body className='filterBodyBox'>
                     <div className='filterBody'>
