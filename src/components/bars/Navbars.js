@@ -6,25 +6,24 @@ import CheckOffCanvas from '../offcanvas/CheckOffCanvas';
 import { CheckLatLngContext } from '../../contexts/CheckLatLngContext';
 import { useContext } from 'react';
 import MyGroupModal from '../modals/mainmodals/MyGroupModal.js';
-import UserModal from '../modals/mainmodals/UserModal';
 import PreMyGroupModal from '../modals/submodals/info_modals/PreMyGroupModal';
 import axios from 'axios';
 import { PROXY } from '../../contexts/ProxyContext';
 import ChatModal from '../modals/mainmodals/ChatModal';
-import InfoGuideModal from '../modals/submodals/guide_modals/InfoGuideModal';
+import MenuOffCanvas from '../offcanvas/MenuOffCanvas';
 
 const Navbars=({location})=>{
     const [leftCanvasShow, setLeftCanvasShow] = useState(false);
     const lefthandleShow = () => setLeftCanvasShow(true);
+    const [isMenu, setIsMenu] = useState(false);
+    const MenuShow = () => setIsMenu(true);
 
     const { isCheckShow, setIsCheckShow } = useContext(CheckLatLngContext);
     const checkHandleOnHide = () => setIsCheckShow(false);
 
     const [myGroupView, setMyGroupView] = useState(false);
-    const [userView, setUserView] = useState(false);
     const [isPreView, setIsPreView] = useState(false);
     const [isChatView, setIsChatView] = useState(false);
-    const [isGuideModal, setIsGuideModal] = useState(false);
 
     const [myGroupDestination, setMyGroupDestination] = useState('');
     const [myGroupMonth, setMyGroupMonth] = useState('');
@@ -86,9 +85,9 @@ const Navbars=({location})=>{
                                                                             :setIsPreView(true);}}/>
                             <img className='NavbarsFilter' src='imgs/Search.png' alt='이미지를 불러올 수 없습니다.'
                             onClick={()=>{lefthandleShow(); checkHandleOnHide();}}/>
-                            <img className='User' src='imgs/User.png' alt='이미지를 불러올 수 없습니다.' onClick={()=>{setUserView(true); checkHandleOnHide();}}/>
-                            <img className='taxiInformation' src='imgs/information.png' alt='이미지를 불러올 수 없습니다.'
-                            onClick={()=>setIsGuideModal(true)}/>
+
+                            <img className='menuButton' src='imgs/menu_button.png'
+                            onClick={()=>{MenuShow(); checkHandleOnHide();}}/>
                         </div>
                     </div>
                 </Container>
@@ -97,6 +96,10 @@ const Navbars=({location})=>{
             <FilterOffCanvas
                 show = {leftCanvasShow}
                 onHide = {() => setLeftCanvasShow(false)}
+            />
+            <MenuOffCanvas
+                show = {isMenu}
+                onHide = {() => setIsMenu(false)}
             />
             <CheckOffCanvas
                 show = {isCheckShow}
@@ -113,10 +116,6 @@ const Navbars=({location})=>{
                 mycount={myGroupMemberCount}
                 myid = {myGroupID}
             />
-            <UserModal
-                show = {userView}
-                onHide = {() => setUserView(false)}
-            />
 
             <PreMyGroupModal
                 show = {isPreView}
@@ -127,11 +126,6 @@ const Navbars=({location})=>{
                 show = {isChatView}
                 onHide = {() => setIsChatView(false)}
                 myid = {myGroupID}
-            />
-            
-            <InfoGuideModal
-                show={isGuideModal}
-                onHide={() => setIsGuideModal(false)}
             />
         </div>
     )
