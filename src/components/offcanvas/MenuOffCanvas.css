@@ -1,0 +1,16 @@
+.menuOffCanvas{
+    width: 60vw;
+    min-width: 250px;
+    max-width: 250px;
+    background-color: #212428;
+    color: rgb(225, 225, 225);
+    height: calc(var(--vh, 1vh) * 100);
+}
+
+.menuSubject{
+    font-size: 20px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgb(79, 79, 79);
+    color: rgb(211, 211, 211);
+    padding: 10px
+}
