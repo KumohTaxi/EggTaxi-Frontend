@@ -1,0 +1,8 @@
+.AppGuideMiddle{
+    overflow-y:auto;
+    height: calc(var(--vh, 1vh)*70);
+}
+.AppGuideTitle{
+    color: white;
+    font-weight: bold;
+}
