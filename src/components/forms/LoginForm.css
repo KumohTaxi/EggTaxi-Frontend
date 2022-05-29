@@ -1,3 +1,22 @@
+@media only screen and (min-width: 270px) and (max-width: 299px) {
+    .AppDownload{
+        font-size: 10px;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 399px) {
+    .AppDownload{
+        font-size: 12px;
+    }
+}
+
+@media only screen and (min-width: 400px) {
+    .AppDownload{
+        font-size: 14px;
+    }
+}
+
+
 .buttonGroup{
     display: flex;
     flex-direction: column;
@@ -5,4 +24,13 @@
 
 img{
     width: 100%;
+}
+
+.AppDownload{
+    padding: 2px;
+    background-color: #396992;
+    border: #396992;
+    margin-top: 10px;
+    border-radius: 6px;
+    color: rgb(234, 234, 234);
 }
