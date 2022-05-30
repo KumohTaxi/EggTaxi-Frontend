@@ -28,11 +28,13 @@ const MainPage=()=>{
             },
         })
         .then((response) => {
-            if(response.data[0].errorCode === 1005){
-                alert('세션이 만료되었습니다.\n 로그인 페이지로 이동합니다.')
-            }
-            else{
-                setIsListInfo(response.data);
+            if(response.data.length > 0){
+                if(response.data[0].errorCode === 1005){
+                    alert('세션이 만료되었습니다.\n 로그인 페이지로 이동합니다.')
+                }
+                else{
+                    setIsListInfo(response.data);
+                }
             }
         })
     }, []);

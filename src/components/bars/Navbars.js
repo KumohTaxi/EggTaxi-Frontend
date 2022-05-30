@@ -39,27 +39,29 @@ const Navbars=({location})=>{
     }
 
     useEffect(()=>{
-        axios({
-            method:'get',
-            url:`${PROXY}/group/member/${localStorage.getItem('access_token')}`,
-            headers:{
-                'ContentType':'application/json'
-            },
-        })
-        .then((res) => {
-            setIsPossible(true);
-            setMyGroupDestination(res.data.destination);
-            setMyGroupMonth(res.data.dateTime[5]+res.data.dateTime[6]);
-            setMyGroupDay(res.data.dateTime[8]+res.data.dateTime[9]);
-            setMyGroupHour(res.data.dateTime[11]+res.data.dateTime[12]);
-            setMyGroupMinute(res.data.dateTime[14]+res.data.dateTime[15]);
-            setMyGroupMemeberCount(res.data.memberCount);
-            setMyGroupID(res.data.id); 
-            localStorage.setItem("mygroupid", res.data.id);
-        })
-        .catch(() => {
-            setIsPossible(false);
-        });
+        if(localStorage.getItem('createGroup') === 'true'){
+            axios({
+                method:'get',
+                url:`${PROXY}/group/member/${localStorage.getItem('access_token')}`,
+                headers:{
+                    'ContentType':'application/json'
+                },
+            })
+            .then((res) => {
+                setIsPossible(true);
+                setMyGroupDestination(res.data.destination);
+                setMyGroupMonth(res.data.dateTime[5]+res.data.dateTime[6]);
+                setMyGroupDay(res.data.dateTime[8]+res.data.dateTime[9]);
+                setMyGroupHour(res.data.dateTime[11]+res.data.dateTime[12]);
+                setMyGroupMinute(res.data.dateTime[14]+res.data.dateTime[15]);
+                setMyGroupMemeberCount(res.data.memberCount);
+                setMyGroupID(res.data.id); 
+                localStorage.setItem("mygroupid", res.data.id);
+            })
+            .catch(() => {
+                setIsPossible(false);
+            });
+        }
     },[])
 
     return(

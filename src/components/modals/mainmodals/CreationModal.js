@@ -59,6 +59,7 @@ const CreationModal=(props)=>{
         })
         .then(() => {
             alert("그룹이 생성되었습니다.\n마커가 보이지 않는다면, 새로고침을 눌러주십시오.");
+            localStorage.setItem('createGroup', true);
             window.location.replace('/main');
         })
         .catch(() => {

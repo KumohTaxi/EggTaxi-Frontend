@@ -46,16 +46,18 @@ const ChatModal=(props)=>{
     };
 
     function checkComment(){
-        axios({
-            method:'get',
-            url:`${PROXY}/group/${props.myid}/post`,
-            headers:{
-                'ContentType':'application/json'
-            },
-        })
-        .then((res) => {
-            setIsCommentList(res.data);
-        })
+        if(props.myid){
+            axios({
+                method:'get',
+                url:`${PROXY}/group/${props.myid}/post`,
+                headers:{
+                    'ContentType':'application/json'
+                },
+            })
+            .then((res) => {
+                setIsCommentList(res.data);
+            })
+        }
     };
 
     useEffect(()=>{
