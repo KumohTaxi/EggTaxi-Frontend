@@ -3,9 +3,6 @@ import './LogeOutModal.css';
 import { Link } from 'react-router-dom';
 
 const LogeOutModal=(props)=>{
-    function removeToken(){
-        localStorage.clear();
-    }
 
     return(
         <Modal
@@ -26,7 +23,7 @@ const LogeOutModal=(props)=>{
             <Modal.Footer className='LOFooter' style={{backgroundColor: "#FFFCEE"}}>
                 <Button variant="dark" className='LOButtonLeft' onClick={props.onHide}>취소</Button>
                 <Link className='LogOutLink' to='/'>
-                    <Button variant="lgiht" className='LOButtonRight' onClick={removeToken}>Log Out</Button>
+                    <Button variant="lgiht" className='LOButtonRight'>Log Out</Button>
                 </Link>
             </Modal.Footer>
         </Modal>
