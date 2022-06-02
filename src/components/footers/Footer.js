@@ -4,7 +4,7 @@ const Footer=()=>{
 
     return(
         <div id='container'>
-            Egg-Taxi &nbsp;&nbsp;&nbsp;&nbsp; v1.2.16-beta
+            Egg-Taxi &nbsp;&nbsp;&nbsp;&nbsp; v1.3.16-beta
         </div>
     )
 }
