@@ -47,6 +47,21 @@ const Map = () =>{
 
                 map.setCenter(locPosition);  
 
+                if(locPosition){
+                    const PositionMarkerImg = new kakao.maps.MarkerImage(
+                        'imgs/PositionMarker.png',
+                        new kakao.maps.Size(28, 40), new kakao.maps.Point(12, 38)
+                    );
+                    const PositionMarkerPos = new kakao.maps.LatLng(lat, lon);
+
+                    const PositionMarker = new kakao.maps.Marker({
+                        position : PositionMarkerPos,
+                        image : PositionMarkerImg
+                    });
+
+                    PositionMarker.setMap(map);
+                }
+
                 setIsLoadingShow(false)
             });
         }
