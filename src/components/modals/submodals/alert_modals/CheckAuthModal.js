@@ -2,7 +2,7 @@ import {Modal, Button} from 'react-bootstrap';
 import './CheckAuthModal.css';
 import { GENDER_AUTH_URL } from '../../../../oauths/ReAuth';
 
-const LogeOutModal=(props)=>{
+const CheckAuthModal=(props)=>{
     function moveReDirect(){
         window.location.href = GENDER_AUTH_URL;
     }
@@ -33,4 +33,4 @@ const LogeOutModal=(props)=>{
     );
 }
 
-export default LogeOutModal;
+export default CheckAuthModal;
