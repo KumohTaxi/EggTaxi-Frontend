@@ -32,7 +32,7 @@ const Navbars=({location})=>{
     const [myGroupMinute, setMyGroupMinute] = useState('');
     const [myGroupMemberCount, setMyGroupMemeberCount] = useState();
     const [myGroupID, setMyGroupID] = useState();
-    const [isPossible, setIsPossible] = useState(false);
+    // const [isPossible, setIsPossible] = useState(false);
 
     function reload(){
         (location || window.location || document.location).reload();
@@ -48,7 +48,7 @@ const Navbars=({location})=>{
                 },
             })
             .then((res) => {
-                setIsPossible(true);
+                // setIsPossible(true);
                 setMyGroupDestination(res.data.destination);
                 setMyGroupMonth(res.data.dateTime[5]+res.data.dateTime[6]);
                 setMyGroupDay(res.data.dateTime[8]+res.data.dateTime[9]);
@@ -58,9 +58,9 @@ const Navbars=({location})=>{
                 setMyGroupID(res.data.id); 
                 localStorage.setItem("mygroupid", res.data.id);
             })
-            .catch(() => {
-                setIsPossible(false);
-            });
+            // .catch(() => {
+            //     setIsPossible(false);
+            // });
         }
     },[])
 
@@ -76,13 +76,13 @@ const Navbars=({location})=>{
                         <div className='NavContent'>
                             <img className='NavbarsMyGroup' src='imgs/mygroup.png' alt='이미지를 불러올 수 없습니다.'
                                                             onClick={()=>{checkHandleOnHide();
-                                                                            isPossible
+                                                                            (localStorage.getItem('mygroupid'))
                                                                             ?setMyGroupView(true)
                                                                             :setIsPreView(true);
                                                                         }}/>
                             <img className='NavbarChat' src='imgs/Chat.png' alt='이미지를 불러올 수 없습니다.' 
                                                             onClick={()=>{checkHandleOnHide();
-                                                                            isPossible
+                                                                            (localStorage.getItem('mygroupid'))
                                                                             ?setIsChatView(true)
                                                                             :setIsPreView(true);}}/>
                             <img className='NavbarsFilter' src='imgs/Search.png' alt='이미지를 불러올 수 없습니다.'
@@ -129,6 +129,7 @@ const Navbars=({location})=>{
                 onHide = {() => setIsChatView(false)}
                 myid = {myGroupID}
             />
+            {console.log("myGroupID :",myGroupID)}
         </div>
     )
 }
