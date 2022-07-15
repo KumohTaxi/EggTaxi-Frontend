@@ -20,8 +20,9 @@ const GroupInfoModal=(props)=>{
                     'ContentType':'application/json'
                 },
             })
-            .then(() => {
-                alert("그룹에 참가했습니다.")
+            .then((res) => {
+                alert("그룹에 참가했습니다.:");
+                localStorage.setItem("mygroupid", res.data);
                 window.location.replace('/main');
             })
             .catch(() => {
