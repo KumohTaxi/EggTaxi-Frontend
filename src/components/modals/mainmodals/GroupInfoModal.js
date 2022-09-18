@@ -12,7 +12,7 @@ const GroupInfoModal=(props)=>{
         else{
             axios({
                 method:'post',
-                url:`${PROXY}/./group/${props.id}`,
+                url:`${PROXY}/group/${props.id}`,
                 data:{
                     accessToken: localStorage.getItem('access_token'),
                 },

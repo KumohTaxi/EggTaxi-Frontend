@@ -7,7 +7,7 @@ const WarningModal=(props)=>{
     function exitGroup(){
         axios({
             method:'post',
-            url:`${PROXY}/./group/${props.myid}/exit`,
+            url:`${PROXY}/group/${props.myid}/exit`,
             data:{
                 accessToken: localStorage.getItem('access_token'),
             },

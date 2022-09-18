@@ -39,7 +39,7 @@ const Navbars=({location})=>{
     }
 
     useEffect(()=>{
-        if(localStorage.getItem('mygroupid')){
+        if(localStorage.getItem('createGroup') === 'true'){
             axios({
                 method:'get',
                 url:`${PROXY}/group/member/${localStorage.getItem('access_token')}`,
