@@ -1,16 +1,16 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import MainPage from './components/pages/MainPage.js';
-import LoginPage from './components/pages/LoginPage.js';
+import MainPage from './egg-taxi/components/pages/MainPage.js';
+import LoginPage from './egg-taxi/components/pages/LoginPage.js';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import { LatLngContext } from './contexts/LatLngContexts';
+import { LatLngContext } from './egg-taxi/contexts/LatLngContexts';
 import React, { useState } from 'react';
-import { GetContext } from './contexts/GetContext';
-import RedirectionHandler from './oauths/RedirectionHandler';
-import { CheckLatLngContext } from './contexts/CheckLatLngContext';
+import { GetContext } from './egg-taxi/contexts/GetContext';
+import RedirectionHandler from './egg-taxi/oauths/RedirectionHandler';
+import { CheckLatLngContext } from './egg-taxi/contexts/CheckLatLngContext';
 import { useMediaQuery } from 'react-responsive';
-import MinDisplayPage from './components/pages/MinDisplayPage';
-import PromotionPage from './components/pages/PromotionPage.js';
-import MadeByPage from './components/pages/MadeByPage.js';
+import MinDisplayPage from './egg-taxi/components/pages/MinDisplayPage';
+import PromotionPage from './egg-taxi/components/pages/PromotionPage.js';
+import MadeByPage from './egg-taxi/components/pages/MadeByPage.js';
 import GlobalStyle from './GlobalStyle.js';
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
   });
-
+  
   const isMin = useMediaQuery({
     query : "(min-width:270px)"
   });
