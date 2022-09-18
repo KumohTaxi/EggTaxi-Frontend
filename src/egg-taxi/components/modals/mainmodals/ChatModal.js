@@ -1,11 +1,10 @@
 import {Modal, Button, InputGroup, FormControl, Badge} from 'react-bootstrap';
-import '../../../styles/components/modals/mainmodals/ChatModal.css';import axios from 'axios';
+import '../../../styles/components/modals/mainmodals/ChatModal.css';
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { PROXY } from '../../../contexts/ProxyContext';
 
-const ChatModal=(props)=>{
-    const [isCommentList, setIsCommentList] = useState([]);
-
+const ChatModal=({show, onHide, isCommentList, setIsCommentList, checkComment})=>{
     function saveMsg(){
         var text = document.getElementsByClassName('ChatInput')[0].value;
 
@@ -45,24 +44,9 @@ const ChatModal=(props)=>{
         })
     };
 
-    function checkComment(){
-        if(localStorage.getItem("mygroupid")){
-            axios({
-                method:'get',
-                url:`${PROXY}/group/${localStorage.getItem("mygroupid")}/post`,
-                headers:{
-                    'ContentType':'application/json'
-                },
-            })
-            .then((res) => {
-                setIsCommentList(res.data);
-            })
-        }
-    };
-
     useEffect(()=>{
         checkComment();
-    },[props.show])
+    },[show])
 
     function reloadComment(){
         const result = [];
@@ -99,7 +83,8 @@ const ChatModal=(props)=>{
 
     return(
         <Modal
-        {...props}
+        show 
+        onHide
         aria-labelledby="contained-modal-title-vcenter"
         centered
         >
@@ -107,7 +92,7 @@ const ChatModal=(props)=>{
                 <Modal.Title className="ChatTitle" id="contained-modal-title-vcenter">
                 Chat
                 </Modal.Title>
-                <img className='CloseButton' src='imgs/Close.png' onClick={props.onHide} alt='이미지를 불러올 수 없습니다.'/>
+                <img className='CloseButton' src='imgs/Close.png' onClick={onHide} alt='이미지를 불러올 수 없습니다.'/>
             </Modal.Header>
 
             <Modal.Body className='ChatMiddle'>
@@ -124,9 +109,6 @@ const ChatModal=(props)=>{
                 />
                 <Button className='myCommentInputButton' variant="secondary" onClick={()=>{saveMsg();}}>
                     등록
-                </Button>
-                <Button className='myRefreshButton' variant="secondary" onClick={checkComment}>
-                    <img className='refreshImg' src='imgs/Refresh.png' alt='이미지를 불러올 수 없습니다.'/>
                 </Button>
             </InputGroup>
         </Modal>

@@ -25,9 +25,6 @@
     .myCommentInputButton{
         font-size: 12px;
     }
-    .refreshImg{
-        width: 18px;
-    }
 }
 
 @media only screen and (min-width: 300px) and (max-width: 399px) {
@@ -57,9 +54,6 @@
     .myCommentInputButton{
         font-size: 15px;
     }
-    .refreshImg{
-        width: 22px;
-    }
 }
 
 @media only screen and (min-width: 400px) {
@@ -88,9 +82,6 @@
     }
     .myCommentInputButton{
         font-size: 18px;
-    }
-    .refreshImg{
-        width: 25px;
     }
 }
 
@@ -141,7 +132,7 @@
 .chatInputGroup{
     background-color: #212428;
 }
-.ChatInput, .myCommentInputButton, .myRefreshButton{
+.ChatInput, .myCommentInputButton{
     border-radius: 0 0 0 0 / 0 0 0 0;
     border: 1px solid #212428;
 }
@@ -150,7 +141,7 @@
     margin: 5px;
     border-radius: 10px 10px 10px 10px / 10px 10px 10px 10px;
 }
-.myCommentInputButton, .myRefreshButton{
+.myCommentInputButton{
     background-color: #212428;
     color: #e1e1e1;
     font-weight: bold;

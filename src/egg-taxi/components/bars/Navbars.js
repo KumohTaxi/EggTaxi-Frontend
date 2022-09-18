@@ -11,6 +11,7 @@ import axios from 'axios';
 import { PROXY } from '../../contexts/ProxyContext';
 import ChatModal from '../modals/mainmodals/ChatModal';
 import MenuOffCanvas from '../offcanvas/MenuOffCanvas';
+import useInterval from '../../hooks/useInterval';
 
 const Navbars=({location})=>{
     const [leftCanvasShow, setLeftCanvasShow] = useState(false);
@@ -33,6 +34,27 @@ const Navbars=({location})=>{
     const [myGroupMemberCount, setMyGroupMemberCount] = useState('');
     const [myGroupID, setMyGroupID] = useState('');
     // const [isPossible, setIsPossible] = useState(false);
+
+    const [isCommentList, setIsCommentList] = useState([]);
+
+    useInterval(()=>{
+        checkComment();
+    }, 3000);
+
+    function checkComment(){
+        if(localStorage.getItem("mygroupid")){
+            axios({
+                method:'get',
+                url:`${PROXY}/group/${localStorage.getItem("mygroupid")}/post`,
+                headers:{
+                    'ContentType':'application/json'
+                },
+            })
+            .then((res) => {
+                setIsCommentList(res.data);
+            })
+        }
+    };
 
     function reload(){
         (location || window.location || document.location).reload();
@@ -152,7 +174,9 @@ const Navbars=({location})=>{
             <ChatModal
                 show = {isChatView}
                 onHide = {() => setIsChatView(false)}
-                myid = {myGroupID}
+                isCommentList = {isCommentList}
+                setIsCommentList = {setIsCommentList}
+                checkComment = {checkComment}
             />
         </div>
     )
