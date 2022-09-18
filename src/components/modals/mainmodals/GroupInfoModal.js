@@ -5,6 +5,7 @@ import axios from 'axios';
 import { PROXY } from '../../../contexts/ProxyContext';
 
 const GroupInfoModal=(props)=>{
+
     function joinGroup(){
         if(localStorage.getItem("mygroupid")){
             alert("이미 참가한 그룹이 있습니다.")
@@ -90,7 +91,6 @@ const GroupInfoModal=(props)=>{
                 </Modal.Footer>
             </Modal>
         </div>
-
     );
 }
 

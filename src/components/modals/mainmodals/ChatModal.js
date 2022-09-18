@@ -34,7 +34,7 @@ const ChatModal=(props)=>{
             data:{
                 accessToken: localStorage.getItem('access_token'),
                 msg : text,
-                groupId : props.myid,
+                groupId : localStorage.getItem("mygroupid"),
             },
             headers:{
                 'ContentType':'application/json'
@@ -46,10 +46,10 @@ const ChatModal=(props)=>{
     };
 
     function checkComment(){
-        if(props.myid){
+        if(localStorage.getItem("mygroupid")){
             axios({
                 method:'get',
-                url:`${PROXY}/group/${props.myid}/post`,
+                url:`${PROXY}/group/${localStorage.getItem("mygroupid")}/post`,
                 headers:{
                     'ContentType':'application/json'
                 },

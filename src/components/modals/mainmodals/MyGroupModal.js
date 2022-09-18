@@ -4,10 +4,11 @@ import { useState } from 'react';
 import WarningModal from '../submodals/alert_modals/WarningModal';
 
 const MyGroupModal=(props)=>{
+
     const [isWarningView, setIsWarningView] = useState(false);
 
     function copyLink(){
-        const promotionLink = window.location.host + `/promotion/${props.myid}`;
+        const promotionLink = window.location.host + `/promotion/${localStorage.getItem("mygroupid")}`;
         navigator.clipboard.writeText(promotionLink)
             .then(()=>{
                 alert("링크가 복사되었습니다. sns로 그룹 참가를 권해보세요!")

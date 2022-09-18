@@ -20,7 +20,7 @@ const Navbars=({location})=>{
 
     const { isCheckShow, setIsCheckShow } = useContext(CheckLatLngContext);
     const checkHandleOnHide = () => setIsCheckShow(false);
-
+    
     const [myGroupView, setMyGroupView] = useState(false);
     const [isPreView, setIsPreView] = useState(false);
     const [isChatView, setIsChatView] = useState(false);
@@ -30,8 +30,8 @@ const Navbars=({location})=>{
     const [myGroupDay, setMyGroupDay] = useState('');
     const [myGroupHour, setMyGroupHour] = useState('');
     const [myGroupMinute, setMyGroupMinute] = useState('');
-    const [myGroupMemberCount, setMyGroupMemeberCount] = useState();
-    const [myGroupID, setMyGroupID] = useState();
+    const [myGroupMemberCount, setMyGroupMemberCount] = useState('');
+    const [myGroupID, setMyGroupID] = useState('');
     // const [isPossible, setIsPossible] = useState(false);
 
     function reload(){
@@ -54,13 +54,38 @@ const Navbars=({location})=>{
                 setMyGroupDay(res.data.dateTime[8]+res.data.dateTime[9]);
                 setMyGroupHour(res.data.dateTime[11]+res.data.dateTime[12]);
                 setMyGroupMinute(res.data.dateTime[14]+res.data.dateTime[15]);
-                setMyGroupMemeberCount(res.data.memberCount);
+                setMyGroupMemberCount(res.data.memberCount);
                 setMyGroupID(res.data.id); 
                 localStorage.setItem("mygroupid", res.data.id);
             })
             // .catch(() => {
             //     setIsPossible(false);
             // });
+            return;
+        }
+
+        // 방장 한정 범위 조건을 참가자까지 확대한 코드 !!
+        if(localStorage.getItem('mygroupid'))
+        {
+            axios({
+                mehtod:'get',
+                url:`${PROXY}/group/member/${localStorage.getItem('access_token')}`,
+                headers:{
+                    'ContentType':'application/json'
+                },
+            })
+            .then((res) => {
+                // setIsPossible(true);
+                setMyGroupDestination(res.data.destination);
+                setMyGroupMonth(res.data.dateTime[5]+res.data.dateTime[6]);
+                setMyGroupDay(res.data.dateTime[8]+res.data.dateTime[9]);
+                setMyGroupHour(res.data.dateTime[11]+res.data.dateTime[12]);
+                setMyGroupMinute(res.data.dateTime[14]+res.data.dateTime[15]);
+                setMyGroupMemberCount(res.data.memberCount);
+                setMyGroupID(res.data.id); 
+                localStorage.setItem("mygroupid", res.data.id);
+            })
+            return;
         }
     },[])
 
@@ -123,13 +148,12 @@ const Navbars=({location})=>{
                 show = {isPreView}
                 onHide = {() => setIsPreView(false)}
             />
-
+            
             <ChatModal
                 show = {isChatView}
                 onHide = {() => setIsChatView(false)}
                 myid = {myGroupID}
             />
-            {console.log("myGroupID :",myGroupID)}
         </div>
     )
 }
