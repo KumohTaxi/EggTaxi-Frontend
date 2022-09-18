@@ -1,5 +1,5 @@
 import {Modal, Button, InputGroup, FormControl, Badge} from 'react-bootstrap';
-import './ChatModal.css';import axios from 'axios';
+import '../../../styles/components/modals/mainmodals/ChatModal.css';import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { PROXY } from '../../../contexts/ProxyContext';
 

@@ -1,5 +1,5 @@
 import {Modal, CloseButton, Form} from 'react-bootstrap';
-import './GuideModal.css';
+import '../../../../styles/components/modals/submodals/guide_modals/GuideModal.css';
 import { useEffect, useState } from 'react';
 
 const GuideModal=(props)=>{

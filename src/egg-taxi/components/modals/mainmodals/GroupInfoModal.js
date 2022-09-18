@@ -1,5 +1,5 @@
 import {Modal, Button, Badge} from 'react-bootstrap';
-import './GroupInfoModal.css';
+import '../../../styles/components/modals/mainmodals/GroupInfoModal.css';
 import React from 'react';
 import axios from 'axios';
 import { PROXY } from '../../../contexts/ProxyContext';

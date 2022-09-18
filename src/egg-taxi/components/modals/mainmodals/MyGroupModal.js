@@ -1,5 +1,5 @@
 import {Modal, Button, Badge} from 'react-bootstrap';
-import './MyGroupModal.css';
+import '../../../styles/components/modals/mainmodals/MyGroupModal.css';
 import { useState } from 'react';
 import WarningModal from '../submodals/alert_modals/WarningModal';
 

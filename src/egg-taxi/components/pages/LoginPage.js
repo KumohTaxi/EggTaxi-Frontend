@@ -1,4 +1,4 @@
-import './LoginPage.css';
+import '../../styles/components/pages/LoginPage.css';
 import LoginForm from "../forms/LoginForm";
 import { useEffect, useState } from "react";
 import GuideModal from '../modals/submodals/guide_modals/GuideModal';

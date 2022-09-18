@@ -1,5 +1,5 @@
 import {Modal, Button, Badge} from 'react-bootstrap';
-import './UserModal.css';
+import '../../../styles/components/modals/mainmodals/UserModal.css';
 import React, { useEffect, useState } from 'react'
 import LogeOutModal from '../submodals/alert_modals/LogeOutModal';
 import { PROXY } from '../../../contexts/ProxyContext';

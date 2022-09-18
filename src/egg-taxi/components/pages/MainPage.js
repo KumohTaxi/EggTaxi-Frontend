@@ -1,7 +1,7 @@
 import Navbars from "../bars/Navbars";
 import Map from "../maps/Map";
 import Footer from "../footers/Footer";
-import './MainPage.css';
+import '../../styles/components/pages/MainPage.css';
 import { useEffect, useContext } from "react";
 import axios from "axios";
 import { PROXY } from "../../contexts/ProxyContext";

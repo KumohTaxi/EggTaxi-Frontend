@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import {Spinner} from 'react-bootstrap';
-import './RedirectionHandler.css';
+import '../styles/oauths/RedirectionHandler.css';
 import { PROXY } from "../contexts/ProxyContext";
 
 const RedirectionHandler = ({ history }) => {

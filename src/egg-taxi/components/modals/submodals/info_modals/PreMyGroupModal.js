@@ -1,5 +1,5 @@
 import {Modal, Button} from 'react-bootstrap';
-import './PreMyGroupModal.css';
+import '../../../../styles/components/modals/submodals/info_modals/PreMyGroupModal.css';
 
 const PreMyGroupModal=(props)=>{
     return(

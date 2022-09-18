@@ -1,4 +1,4 @@
-import './LoginForm.css';
+import '../../styles/components/forms/LoginForm.css';
 import { KAKAO_AUTH_URL } from '../../oauths/OAuth';
 import {Button} from 'react-bootstrap';
 import AppGuideModal from '../modals/submodals/guide_modals/AppGuideModal';

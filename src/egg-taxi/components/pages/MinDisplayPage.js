@@ -1,4 +1,4 @@
-import './MinDisplayPage.css';
+import '../../styles/components/pages/MinDisplayPage.css';
 
 const MinDisplayPage=()=> {
     return(

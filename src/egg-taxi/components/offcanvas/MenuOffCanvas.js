@@ -1,5 +1,5 @@
 import {Offcanvas,CloseButton} from 'react-bootstrap';
-import './MenuOffCanvas.css'
+import '../../styles/components/offcanvas/MenuOffCanvas.css'
 import UserModal from '../modals/mainmodals/UserModal';
 import { useState } from 'react';
 import InfoGuideModal from '../modals/submodals/guide_modals/InfoGuideModal';

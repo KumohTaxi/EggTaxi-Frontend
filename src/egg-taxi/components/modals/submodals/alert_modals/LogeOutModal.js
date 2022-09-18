@@ -1,5 +1,5 @@
 import {Modal, Button} from 'react-bootstrap';
-import './LogeOutModal.css';
+import '../../../../styles/components/modals/submodals/alert_modals/LogeOutModal.css';
 import { Link } from 'react-router-dom';
 
 const LogeOutModal=(props)=>{

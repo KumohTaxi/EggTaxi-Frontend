@@ -1,5 +1,5 @@
 import {Modal, CloseButton} from 'react-bootstrap';
-import './AppGuideModal.css';
+import '../../../../styles/components/modals/submodals/guide_modals/AppGuideModal.css';
 
 const AppGuideModal=(props)=>{
     return(

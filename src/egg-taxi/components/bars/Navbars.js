@@ -1,5 +1,5 @@
 import {Navbar, Container} from 'react-bootstrap';
-import './Navbars.css';
+import '../../styles/components/bars/Navbars.css';
 import React, {useEffect, useState} from 'react'
 import FilterOffCanvas from '../offcanvas/FilterOffCanvas';
 import CheckOffCanvas from '../offcanvas/CheckOffCanvas';

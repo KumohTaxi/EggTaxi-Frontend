@@ -1,4 +1,4 @@
-import './MadeByPage.css';
+import '../../styles/components/pages/MadeByPage.css';
 
 const MadeByPage=()=>{
     return(

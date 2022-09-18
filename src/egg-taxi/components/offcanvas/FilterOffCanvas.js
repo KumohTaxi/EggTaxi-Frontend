@@ -1,5 +1,5 @@
 import {Offcanvas, Button, CloseButton} from 'react-bootstrap';
-import './FilterOffCanvas.css'
+import '../../styles/components/offcanvas/FilterOffCanvas.css'
 
 const FilterOffCanvas=(props)=>{
     function loadDestination(){

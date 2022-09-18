@@ -1,5 +1,5 @@
 import {Modal, Spinner, Button} from 'react-bootstrap';
-import './LoadingModal.css';
+import '../../../../styles/components/modals/submodals/alert_modals/LoadingModal.css';
 
 const LoadingModal=(props)=>{
     return(

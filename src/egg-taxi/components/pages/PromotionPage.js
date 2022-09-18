@@ -1,4 +1,4 @@
-import './PromotionPage.css';
+import '../../styles/components/pages/PromotionPage.css';
 import { useEffect, useState } from 'react';
 import { PROXY } from '../../contexts/ProxyContext';
 import axios from 'axios';

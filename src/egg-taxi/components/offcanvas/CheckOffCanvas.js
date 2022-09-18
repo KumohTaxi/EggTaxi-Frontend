@@ -1,5 +1,5 @@
 import {Offcanvas, Button} from 'react-bootstrap';
-import './CheckOffCanvas.css'
+import '../../styles/components/offcanvas/CheckOffCanvas.css'
 import React, { useContext, useState } from 'react'
 import { LatLngContext } from '../../contexts/LatLngContexts';
 import CreationModal from '../modals/mainmodals/CreationModal';

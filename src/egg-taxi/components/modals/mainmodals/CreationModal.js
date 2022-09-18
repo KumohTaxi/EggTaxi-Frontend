@@ -1,5 +1,5 @@
 import {Modal, Button, Form, Badge} from 'react-bootstrap';
-import './CreationModal.css';
+import '../../../styles/components/modals/mainmodals/CreationModal.css';
 import React, { useContext, useState } from 'react';
 import { LatLngContext } from '../../../contexts/LatLngContexts';
 import axios from 'axios';
