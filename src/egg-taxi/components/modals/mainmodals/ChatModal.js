@@ -83,8 +83,8 @@ const ChatModal=({show, onHide, isCommentList, setIsCommentList, checkComment})=
 
     return(
         <Modal
-        show 
-        onHide
+        show = {show}
+        onHide = {onHide}
         aria-labelledby="contained-modal-title-vcenter"
         centered
         >
