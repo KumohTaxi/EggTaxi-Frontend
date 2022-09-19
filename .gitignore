@@ -23,9 +23,9 @@ yarn-debug.log*
 yarn-error.log*
 
 #kakao
-/src/oauths/OAuth.js
+/src/egg-taxi/oauths/OAuth.js
 /public/index.html
-/src/oauths/ReAuth.js
+/src/egg-taxi/oauths/ReAuth.js
 
 #proxy
-/src/contexts/ProxyContext.js
+/src/egg-taxi/contexts/ProxyContext.js
