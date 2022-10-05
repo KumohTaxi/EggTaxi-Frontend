@@ -12,6 +12,8 @@ import MinDisplayPage from './egg-taxi/components/pages/MinDisplayPage';
 import PromotionPage from './egg-taxi/components/pages/PromotionPage.js';
 import MadeByPage from './egg-taxi/components/pages/MadeByPage.js';
 import GlobalStyle from './GlobalStyle.js';
+import BSDMapPage from './bsd/components/pages/BSDMapPage.js';
+import RegistrationForm from './bsd/components/forms/RegistrationForm.js';
 
 function App() {
   const [isLatLng, setIsLatLng] = useState();
@@ -46,6 +48,8 @@ function App() {
                 <Route className= "RedirectPage" path="/oauth/callback/kakao" component={RedirectionHandler}></Route>
                 <Route className= "PromotionPage" path='/promotion/:groupid' component={PromotionPage}></Route>
                 <Route className= "MadeByPage" path='/madeby' component={MadeByPage}></Route>
+                <Route className= "BSDMapPage" path='/bsd/map' component={BSDMapPage}></Route>
+                <Route className= "BSDRegistrationPage" path='/bsd/Registration' component={RegistrationForm}></Route>
               </Router>}
             {isMax && <MinDisplayPage/>}
           </div>
