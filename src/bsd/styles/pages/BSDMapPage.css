@@ -1,0 +1,11 @@
+.bsdMain{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.main_header{
+    height: 60px;
+}
+.main_map{
+    flex-grow: 1;
+}
