@@ -1,0 +1,84 @@
+.BSDChatRoomPage{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.bsd_chatroom_header{
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background-color:rgba(57, 105, 146, 0.1);
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bsd_chatroom_body{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow-y: hidden;
+}
+.bsd_chatroom_body_div{
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    display: flex;
+    flex-direction: column-reverse;
+    padding-top: 50px;
+}
+.bsd_chatroom_body > div::-webkit-scrollbar{
+    display: none;
+}
+.bsd_chatroom_body > div > div{
+    display: flex;
+    margin: 5px 10px;
+}
+.bsd_chat_me{
+    justify-content: flex-end;
+}
+.bsd_chat_content{
+    font-size: 18px;
+    border-radius: 12px;
+    padding: 3px 12px;
+    max-width: 230px;
+    word-wrap: break-word;
+}
+.bsd_chat_date{
+    font-size: 15px;
+    display: flex;
+    align-items: flex-end;
+}
+.bsd_chat_me > .bsd_chat_content{
+    background-color: #396992;
+    color: white;
+    margin-left: 5px;
+}
+.bsd_chat_oppon > .bsd_chat_content{
+    background-color: #efefef;
+    margin-right: 5px;
+}
+.bsd_chatroom_inputbar{
+    height: 50px;
+    background-color: #396992;
+    display: flex;
+    align-items: center;
+}
+.bsd_chatroom_inputbar > input{
+    flex-grow: 1;
+    margin: 5px 13px 5px 13px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    height: 35px;
+}
+.bsd_chatroom_inputbar > button{
+    width: 30px;
+    background-color: transparent;
+}
+.bsd_chatroom_inputbar > button > img{
+    width: 20px;
+    padding-right: 3px;
+}
