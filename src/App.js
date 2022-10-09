@@ -17,6 +17,7 @@ import RegistrationForm from './bsd/components/forms/RegistrationForm.js';
 import IndexPage from './IndexPage.js';
 import BSDMainPage from './bsd/components/pages/BSDMainPage.js';
 import BSDChatingPage from './bsd/components/pages/BSDChatingPage.js';
+import BSDChatRoomPage from './bsd/components/pages/BSDChatRoomPage.js';
 
 function App() {
   const [isLatLng, setIsLatLng] = useState();
@@ -56,6 +57,7 @@ function App() {
                 <Route className= "BSDRegistrationPage" path='/bsd/Registration/:state' element={<RegistrationForm />}></Route>
                 <Route className= "BSDMain" path='/bsd/main' element={<BSDMainPage />}></Route>
                 <Route className= "BSDChating" path='/bsd/chating' element={<BSDChatingPage/>}></Route>
+                <Route className= "BSDChating" path='/bsd/chat/:id' element={<BSDChatRoomPage/>}></Route>
               </Routes>}
             {isMax && <MinDisplayPage/>}
           </div>
