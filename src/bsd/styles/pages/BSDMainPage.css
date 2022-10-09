@@ -1,0 +1,119 @@
+.BSDMainPage{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.main_header{
+    height: 80px;
+    font-size: 25px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px 0 20px;
+}
+.main_header > img{
+    width: 20px;
+}
+.main_body{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main_body > div{
+    position: relative;
+    top: -50px;
+}
+.main_body > div > div{
+    border-radius: 8px;
+    margin: 8px;
+}
+.main_body > div > div:nth-child(1){
+    display: flex;
+    justify-content: space-between;
+    background-color: #5A8CB7;
+    height: 100px;
+    width: 300px;
+}
+.main_body > div > div:nth-child(1) > div{
+    font-size: 25px;
+    color: white;
+    font-weight: 700;
+    margin: 10px 15px 0 0;
+}
+.main_body > div > div:nth-child(1) > img{
+    width: 90px;
+    height: 90px;
+    left: -5px;
+    top: 15px;
+    position: relative;
+}
+.main_body > div > div:nth-child(2){
+    display: flex;
+    justify-content: space-between;
+    height: 150px;
+    width: 300px;
+}
+.main_body > div > div:nth-child(2) > div > div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    margin: 10px 8px 0 0;
+
+}
+.main_body > div > div:nth-child(2) > div:nth-child(1){
+    display: flex;
+    background-color: #396992;
+    border-radius: 8px;
+    margin-right: 4px;
+    width: 146px;
+}
+.main_body > div > div:nth-child(2) > div:nth-child(2){
+    display: flex;
+    background-color: #EEC949;
+    border-radius: 8px;
+    margin-left: 4px;
+    width: 146px;
+}
+.main_body > div > div:nth-child(2) > div:nth-child(1) > img{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    left: -10px;
+    top: 70px;
+    width: 80px;
+    height: 95px;
+}
+.main_body > div > div:nth-child(2) > div:nth-child(2) > img{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    left: -20px;
+    top: 75px;
+    width: 80px;
+    height: 88px;
+}
+.main_body > div > div:nth-child(3){
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFE076;
+    height: 60px;
+    width: 300px;
+}
+.main_body > div > div:nth-child(3) > div{
+    font-size: 25px;
+    color: white;
+    font-weight: 700;
+    margin-right: 20px;
+}
+.main_body > div > div:nth-child(3) > img{
+    width: 60px;
+    position: relative;
+    top: 8px;
+    left: -3px;
+}

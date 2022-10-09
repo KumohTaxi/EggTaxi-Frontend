@@ -22,7 +22,7 @@ const LogeOutModal=(props)=>{
 
             <Modal.Footer className='LOFooter' style={{backgroundColor: "#FFFCEE"}}>
                 <Button variant="dark" className='LOButtonLeft' onClick={props.onHide}>취소</Button>
-                <Link className='LogOutLink' to='/'>
+                <Link className='LogOutLink' to='/taxi-login'>
                     <Button variant="lgiht" className='LOButtonRight'>Log Out</Button>
                 </Link>
             </Modal.Footer>

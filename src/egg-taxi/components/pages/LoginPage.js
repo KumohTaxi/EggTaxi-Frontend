@@ -28,9 +28,6 @@ const LoginPage=()=>{
                     <img className='likelionLogo' src='imgs/likelion.png' alt='이미지를 불러오지 못했습니다.'/>
                 </div>
                 <div className='appInfo'>
-                    <div className='version'>
-                    v1.4.20-beta
-                    </div>
                     <div className='madeby' onClick={()=>{window.location.href = madebyHref;}}>
                         made by
                     </div>
