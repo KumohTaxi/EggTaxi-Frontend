@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react';
 import '../../styles/forms/RegistrationForm.css';
+import { useParams } from 'react-router-dom';
 
 const RegistrationForm=({})=>{
-    // 테스트 변수
-    let state = 'find'
+    const {state} = useParams();
     const selectFile = useRef();
     const todayDate = new Date();
 
@@ -23,7 +23,6 @@ const RegistrationForm=({})=>{
         latlng: [-1, -1],
         text: ''
     })
-    console.log(isData);
 
     const [isFindTitle, setIsFindTitle] = useState({
         0: ['습득물 이미지', false],

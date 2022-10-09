@@ -21,7 +21,7 @@ const WithdrawalModal=(props)=>{
             })
             .then(() => {
                 localStorage.clear();
-                window.location.replace('/');
+                window.location.replace('/taxi-login');
             })
             .catch(() => {
                 alert("탈퇴에 실패하였습니다.");

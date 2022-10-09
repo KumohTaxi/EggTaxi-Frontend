@@ -22,7 +22,7 @@ const RedirectionHandler = ({ history }) => {
         .then((res)=>{
             if(res.data.accessToken === null || res.data.refreshToken === null){
                 alert("로그인에 실패하였습니다.");
-                history.push('/');
+                history.push('/taxi-login');
             }
             else if(res.data.accessToken === 'genderless' || res.data.refreshToken === 'genderless'){
                 alert("성별 선택을 하지 않으셨습니다.\n 그룹만들기를 눌러 추가 동의를 받으시거나,\n 회원 탈퇴 후 재 동의 부탁드릴게요!");
@@ -57,7 +57,7 @@ const RedirectionHandler = ({ history }) => {
         })
         .catch(()=>{
             alert("로그인에 실패하였습니다.");
-            history.push('/');
+            history.push('/taxi-login');
         })
     }, []);
 
