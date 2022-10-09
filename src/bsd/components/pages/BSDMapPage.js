@@ -7,7 +7,7 @@ import { React, useState } from 'react';
 
 const BSDMapPage=()=>{
 
-    const [onMap, setOnMap] = useState(false);
+    const [onMap, setOnMap] = useState(true);
     const [isFind, setIsFind] = useState(true);
 
     return(
