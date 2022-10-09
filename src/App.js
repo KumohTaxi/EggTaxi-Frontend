@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MainPage from './egg-taxi/components/pages/MainPage.js';
 import LoginPage from './egg-taxi/components/pages/LoginPage.js';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { LatLngContext } from './egg-taxi/contexts/LatLngContexts';
 import React, { useState } from 'react';
 import { GetContext } from './egg-taxi/contexts/GetContext';
@@ -14,6 +14,9 @@ import MadeByPage from './egg-taxi/components/pages/MadeByPage.js';
 import GlobalStyle from './GlobalStyle.js';
 import BSDMapPage from './bsd/components/pages/BSDMapPage.js';
 import RegistrationForm from './bsd/components/forms/RegistrationForm.js';
+import IndexPage from './IndexPage.js';
+import BSDMainPage from './bsd/components/pages/BSDMainPage.js';
+import BSDChatingPage from './bsd/components/pages/BSDChatingPage.js';
 
 function App() {
   const [isLatLng, setIsLatLng] = useState();
@@ -42,15 +45,18 @@ function App() {
         <CheckLatLngContext.Provider value={{isCheckShow, setIsCheckShow}}>
           <GlobalStyle/>
           <div className="App">
-            {isMin && <Router>
-                <Route className= "LoginPage" path="/" component={LoginPage} exact={true}/>
-                <Route className= "MainPage" path="/Main" component={MainPage}/>
-                <Route className= "RedirectPage" path="/oauth/callback/kakao" component={RedirectionHandler}></Route>
-                <Route className= "PromotionPage" path='/promotion/:groupid' component={PromotionPage}></Route>
-                <Route className= "MadeByPage" path='/madeby' component={MadeByPage}></Route>
-                <Route className= "BSDMapPage" path='/bsd/map' component={BSDMapPage}></Route>
-                <Route className= "BSDRegistrationPage" path='/bsd/Registration' component={RegistrationForm}></Route>
-              </Router>}
+            {isMin && <Routes>
+                <Route className= "LoginPage" path="/" element={<IndexPage />} exact={true}/>
+                <Route className= "LoginPage" path="/taxi-login" element={<LoginPage />}/>
+                <Route className= "MainPage" path="/Main" element={<MainPage />}/>
+                <Route className= "RedirectPage" path="/oauth/callback/kakao" element={<RedirectionHandler />}></Route>
+                <Route className= "PromotionPage" path='/promotion/:groupid' element={<PromotionPage />}></Route>
+                <Route className= "MadeByPage" path='/madeby' element={<MadeByPage />}></Route>
+                <Route className= "BSDMapPage" path='/bsd/map' element={<BSDMapPage />}></Route>
+                <Route className= "BSDRegistrationPage" path='/bsd/Registration/:state' element={<RegistrationForm />}></Route>
+                <Route className= "BSDMain" path='/bsd/main' element={<BSDMainPage />}></Route>
+                <Route className= "BSDChating" path='/bsd/chating' element={<BSDChatingPage/>}></Route>
+              </Routes>}
             {isMax && <MinDisplayPage/>}
           </div>
         </CheckLatLngContext.Provider>
