@@ -4,7 +4,7 @@ const Footer=()=>{
 
     return(
         <div id='container'>
-            Egg-Taxi &nbsp;&nbsp;&nbsp;&nbsp; v1.4.20-beta
+            Egg-Taxi &nbsp;&nbsp;&nbsp;&nbsp; 계란을세우다
         </div>
     )
 }
