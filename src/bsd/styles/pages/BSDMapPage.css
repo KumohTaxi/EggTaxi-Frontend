@@ -1,11 +1,17 @@
-.bsdMain{
+.bsdMap{
     height: 100vh;
     display: flex;
     flex-direction: column;
 }
-.main_header{
+.map_header{
     height: 60px;
 }
-.main_map{
+.map_map{
     flex-grow: 1;
+}
+
+.show_list{
+    flex-grow: 1;
+    border-top: 2px solid #396992;
+    overflow-y: scroll;
 }

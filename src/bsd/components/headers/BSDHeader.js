@@ -1,17 +1,23 @@
 import React, { useState } from 'react'
 import '../../styles/headers/BSDHeader.css';
 
-const BSDHeader=()=>{
-    const [isFind, setIsFind] = useState(true);
+const BSDHeader=({onMap,setOnMap,isFind,setIsFind})=>{
 
     const changeBtn = () => {
         setIsFind(!isFind);
     }
 
+    const changeMove = () => {
+        setOnMap(!onMap);
+    }
+
     return(
         <div className='BSDHeader'>
-            <button>
-                <img src='/icons/bsd_list_btn.png' alt='list'/>
+            <button onClick={()=>{changeMove();}}>
+                {onMap ? 
+                (<img src='/icons/bsd_list_btn.png' alt='list'/>):
+                (<img src='/icons/bsd_map_btn.png' alt='list'/>)
+            }
             </button>
             <button onClick={()=>{changeBtn();}}>
                 <div className={isFind?'header_clicked_btn':'header_unclicked_btn'}>
