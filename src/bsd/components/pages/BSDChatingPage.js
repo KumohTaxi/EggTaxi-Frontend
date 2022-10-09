@@ -1,6 +1,9 @@
 import '../../styles/pages/BSDChatingPage.css'
+import { useNavigate } from 'react-router-dom'
 
 const BSDChatingPage = () => {
+    const navi = useNavigate();
+
     const chatData = [
         {
             chatid: 1,
@@ -62,6 +65,15 @@ const BSDChatingPage = () => {
         }
     ]
 
+    const openChatRoom = (id) => {
+        const checkDevice = navigator.userAgent;
+        let isMobile = false;
+        if(checkDevice.indexOf("iPhone") > -1 || checkDevice.indexOf("Android") > -1) isMobile = true;
+
+        if(isMobile) navi(`/bsd/chat/${id}`);
+        else window.open(`/bsd/chat/${id}`, `_blank`, `height=600, width=350, menubar=0, resizable=0 left=200 top=100`, `false`);
+    }
+
     const chatList = () => {
         let chatlist = [];
         let sortChat = [];
@@ -87,7 +99,7 @@ const BSDChatingPage = () => {
 
         for (let i = 0; i < sortChat.length; i++) {
             chatlist.push(
-                <div key={i} className="chatRoom">
+                <div key={i} className="chatRoom" onClick={()=>openChatRoom(sortChat[i].chatid)}>
                     <div>
                         {sortChat[i].opponent}님
                     </div>
