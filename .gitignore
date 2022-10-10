@@ -31,3 +31,6 @@ yarn-error.log*
 /src/egg-taxi/contexts/ProxyContext.js
 
 .env.development
+
+# env
+.env.development
