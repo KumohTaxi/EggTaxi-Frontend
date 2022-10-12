@@ -24,10 +24,22 @@ button:nth-child(2) > div{
     padding: 4px 15px;
     border-radius: 5px;
 }
-.header_clicked_btn{
+.header_clicked_find_btn, .header_clicked_lost_btn{
     color: white;
     background-color: #396992;
+    transition: all .2s linear;
 }
-.header_unclicked_btn{
+.header_unclicked_find_btn, .header_unclicked_lost_btn{
     color: rgb(207, 207, 207);
+    background-color: transparent;
+}
+.bsd_filter_canvas{
+    position: relative;
+    background-color: white;
+    transition: all 0.3s linear;
+    z-index: 999;
+    overflow: hidden;
+}
+.bsd_filter_canvas_open{
+    border-bottom: 2px solid #396992;
 }

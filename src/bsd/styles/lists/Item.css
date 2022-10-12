@@ -16,13 +16,14 @@
 .item-image {
     width : 60px;
     height: 60px;
+    background-color: rgb(237, 237, 237);
 }
 
 .item-name {
     margin: auto 4.5px auto 4.5px;
     flex-grow:1;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 15px;
     overflow:hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -41,14 +42,14 @@
     margin-bottom: 1px;
     text-align: right;
     width: 130px;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: bold;
 }
 
 .item-sub-location {
     margin-top: 1px;
     text-align: right;
-    font-size: 16px;
+    font-size: 12px;
     width: 130px;
     font-weight: bold;
     overflow:hidden;
