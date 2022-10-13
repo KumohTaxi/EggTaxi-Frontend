@@ -1,0 +1,20 @@
+.LoadingMap{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.LoadingMap > div{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+}   
+.LoadingMap > div > div:nth-child(1){
+    font-size: 20px;
+    font-weight: 600;
+}
+.LoadingMap > div > div:nth-child(5){
+    font-size: 15px;
+    color: gray;
+}

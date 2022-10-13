@@ -5,6 +5,7 @@ import SearchList from '../lists/SearchList';
 
 import { React, useEffect, useState } from 'react';
 import axios from 'axios';
+import LoadingMap from '../guide/LoadingMap';
 
 const BSDMapPage = () => {
     const [onMap, setOnMap] = useState(true);
@@ -105,7 +106,7 @@ const BSDMapPage = () => {
                 <BSDHeader onMap={onMap} setOnMap={setOnMap} isFind={isFind} setIsFind={setIsFind} setShowCondition={setShowCondition} />
             </div>
 
-            {onMap ? (<div className="map_map"><GoogleMap isFind={isFind} isUseData={isUseData} /></div>)
+            {onMap ? (<div className="map_map"><LoadingMap isFind={isFind} isUseData={isUseData} /></div>)
                 : (<div className="show_list"><SearchList isFind={isFind} isUseData={isUseData} /></div>)}
         </div>
     );

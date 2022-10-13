@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import DetailCanvas from '../offcanvases/DetailCanvas';
 import { MarkerClusterer } from "@googlemaps/markerclusterer";
+import LoadingMap from '../guide/LoadingMap';
 
 const GoogleMap = ({ isFind, isUseData }) => {
   const [detail, setDetail] = useState(false);
   const [datailData, setDetailData] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const google = window.google
@@ -38,8 +40,8 @@ const GoogleMap = ({ isFind, isUseData }) => {
       isUseData.map((x, i) => {
         setTimeout(() => {
           conversionAddress(x.address, i);
-          if (i === len - 1) console.log('end');
           console.log(itemMarkers);
+          if (i === len - 1) setLoading(false);
         }, 600 * i);
         // const markerOptions = {
         //   map: map,
@@ -57,6 +59,10 @@ const GoogleMap = ({ isFind, isUseData }) => {
       // new MarkerClusterer({ itemMarkers, map });
     }
   }, [isUseData, isFind]);
+
+  useEffect(() => {
+    if (!loading) console.log('end');
+  }, [loading])
 
   return (
     <>
