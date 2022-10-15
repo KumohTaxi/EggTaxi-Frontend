@@ -39,6 +39,8 @@ const BSDChatRoomPage=()=>{
     // 채팅 제출 함수
     const submitContent = async (event) => {
 
+        if(chat.length === 0) { return }
+
         event.preventDefault();
 
         // 문서에 내용 추가
