@@ -1,0 +1,20 @@
+#bsd_detail_top{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: #376791;
+}
+#bsd_detail_body{
+    flex-grow: 1;
+    overflow-y: scroll;
+}
+#bsd_detail_bottom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#bsd_detail_bottom > button {
+    width: 200px;
+}
