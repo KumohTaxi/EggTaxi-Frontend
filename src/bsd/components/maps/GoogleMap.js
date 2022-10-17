@@ -5,8 +5,12 @@ import LoadingMap from '../guide/LoadingMap';
 
 const GoogleMap = ({ isFind, isUseData }) => {
   const [detail, setDetail] = useState(false);
-  const [datailData, setDetailData] = useState({});
+  const [detailData, setDetailData] = useState({});
   const [loading, setLoading] = useState(true);
+
+  useEffect(()=>{
+    setLoading(true);
+  },[isFind, isUseData])
 
   useEffect(() => {
     const google = window.google
@@ -15,54 +19,88 @@ const GoogleMap = ({ isFind, isUseData }) => {
       zoom: 15,
     });
     let itemMarkers = [];
+    let latList = [];
 
-    const conversionAddress = async (address, i) => {
+    const checkLatLng = (latlng) => {
+      let tempLat = latlng.lat;
+      let tempLng = latlng.lng;
+
+      if(latList.length > 0){
+        latList.map(x => {
+          if(x.lat === tempLat && x.lng === tempLng){
+            let ranLat, ranLng;
+            while(1){
+              ranLat = tempLat + ((Math.floor(Math.random() * 9)+2) / 100000);
+              ranLng = tempLng + ((Math.floor(Math.random() * 9)+2) / 100000);
+              
+              let end = true;
+              latList.map(x => {
+                if(x.lat === ranLat && x.lng === ranLng) end = false;
+                return x;
+              })
+              if(end) break;
+            }
+            tempLat = ranLat;
+            tempLng = ranLng;
+          }
+          return x;
+        })
+      }
+
+      latList.push({lat: tempLat, lng: tempLng});
+      return ({lat: tempLat, lng: tempLng});
+    }
+
+    const setMarkerClusterer = (map) => {
+      new MarkerClusterer({ markers: itemMarkers, map: map });
+    }
+
+    const conversionAddress = async (x, i, map) => {
       const geocoder = new google.maps.Geocoder();
-      let tempAddress = address;
+      let tempAddress = x.address;
+
       const latlng = await geocoder.geocode({ 'address': tempAddress })
         .then((res) => {
           if (res.results.length > 1) {
             let tempAry = tempAddress.split(' ');
             tempAry.pop();
             tempAddress = tempAry.join(' ');
-            conversionAddress(tempAddress, i);
+            conversionAddress(tempAddress, i, map);
           }
           else {
             return { lat: res.results[0].geometry.location.lat(), lng: res.results[0].geometry.location.lng() }
           }
         })
         .catch((err) => console.log(err.message));
-      if (latlng) itemMarkers.push(latlng);
+      if (latlng){
+        let checkPosi = checkLatLng(latlng);
+        const markerOptions = {
+          map: map,
+          position: checkPosi
+        }
+        let marker = new google.maps.Marker(markerOptions);
+        marker.addListener('click', () => {
+          setDetailData(x);
+          setDetail(true);
+        });
+        itemMarkers.push(marker);
+      }
     }
 
     if (isUseData.length > 0) {
       let len = isUseData.length;
       isUseData.map((x, i) => {
         setTimeout(() => {
-          conversionAddress(x.address, i);
-          console.log(itemMarkers);
-          if (i === len - 1) setLoading(false);
+          conversionAddress(x, i, map);
+          if (i === len - 1){
+            setLoading(false);
+            setMarkerClusterer(map);
+          } 
         }, 600 * i);
-        // const markerOptions = {
-        //   map: map,
-        //   position: { lat: markerposi.lat, lng: markerposi.lng },
-        //   icon: {
-        //     scaledSize: new google.maps.Size(28, 40)
-        //   }
-        // }
-        // let marker = new google.maps.Marker(markerOptions);
-        // marker.addListener('click', () => {
-        //   setDetailData(x);
-        //   setDetail(true);
-        // });
+        return x;
       })
-      // new MarkerClusterer({ itemMarkers, map });
     }
-  }, [isUseData, isFind]);
-
-  useEffect(() => {
-    if (!loading) console.log('end');
-  }, [loading])
+  }, [isUseData]);
 
   return (
     <>
@@ -71,11 +109,12 @@ const GoogleMap = ({ isFind, isUseData }) => {
         borderTop: "2px solid #396992"
       }}>
       </div>
+      {loading&&<LoadingMap/>}
 
       <DetailCanvas
         show={detail}
         onHide={() => setDetail(false)}
-        itemInfo={datailData}
+        itemInfo={detailData}
       />
     </>
   );
