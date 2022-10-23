@@ -9,7 +9,7 @@ import { collection, addDoc, onSnapshot } from 'firebase/firestore';
 
 const BSDChatRoomPage=()=>{
     // useParams를 통해 그룹 ID를 통해 채팅방 식별
-    const {GroupId} = useParams();
+    const {id} = useParams();
 
     // 채팅 입력을 위한 useState
     const [chat,setChat] = useState('');
@@ -27,7 +27,7 @@ const BSDChatRoomPage=()=>{
 
     // 실시간으로 DB 조회
     useEffect(()=>{
-        onSnapshot(collection(dbService, 'GroupId2'), (snapshot) => {
+        onSnapshot(collection(dbService, `GroupId${id}`), (snapshot) => {
             const chatArray = snapshot.docs.map((doc)=>({
                 id : doc.id,
                 ...doc.data(),
@@ -45,7 +45,7 @@ const BSDChatRoomPage=()=>{
         // 문서에 내용 추가
         const dateTime = new Date();
 
-        await addDoc(collection(dbService, `GroupId2`),
+        await addDoc(collection(dbService, `GroupId${id}`),
         {   
             UserToken : '메추리알',
             contents : chat,
@@ -105,7 +105,7 @@ const BSDChatRoomPage=()=>{
     return(
         <div className='BSDChatRoomPage'>
             <div className='bsd_chatroom_header'>
-                님
+                채팅
             </div>
             <div className='bsd_chatroom_body'>
                 <div className='bsd_chatroom_body_div'>
