@@ -5,7 +5,6 @@ import SearchList from '../lists/SearchList';
 
 import { React, useEffect, useState } from 'react';
 import axios from 'axios';
-import LoadingMap from '../guide/LoadingMap';
 
 const BSDMapPage = () => {
     const [onMap, setOnMap] = useState(true);
@@ -51,9 +50,7 @@ const BSDMapPage = () => {
 
         const status = isFind ? 'ACQUIRE' : 'LOST';
 
-        axios.get(`${process.env.REACT_APP_PROXY}/item?location=구미시&status=${status}`, {
-            headers: {}
-        })
+        axios.get(`${process.env.REACT_APP_PROXY}/item?location=구미시&status=${status}`)
             .then((res) => {
                 setIsItems(res.data);
             })
@@ -106,7 +103,7 @@ const BSDMapPage = () => {
                 <BSDHeader onMap={onMap} setOnMap={setOnMap} isFind={isFind} setIsFind={setIsFind} setShowCondition={setShowCondition} />
             </div>
 
-            {onMap ? (<div className="map_map"><LoadingMap isFind={isFind} isUseData={isUseData} /></div>)
+            {onMap ? (<div className="map_map"><GoogleMap isFind={isFind} isUseData={isUseData} /></div>)
                 : (<div className="show_list"><SearchList isFind={isFind} isUseData={isUseData} /></div>)}
         </div>
     );
