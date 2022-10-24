@@ -17,9 +17,9 @@ const BSDChatingPage = () => {
     const [ myGroup, setMyGroup ] = useState([]);
     // 임시로 채팅 담을 곳
     const [temp, setTemp] = useState('');
-
+    
     useEffect(()=>{
-        // 해당 유저의 채팅 그룹 조회
+        // 해당 유저의 채팅 그룹 조회 임의 데이터
         setMyGroup([1,2,3]);
     },[]);
 
@@ -27,7 +27,7 @@ const BSDChatingPage = () => {
     useEffect(()=>{
 
         for (let group of myGroup) 
-        {
+        {   
             let transGroup = String(group);
 
             onSnapshot(collection(dbService,`GroupId${transGroup}`), (snapshot) => {
@@ -99,13 +99,19 @@ const BSDChatingPage = () => {
 
         // 저장한 정보를 시간을 기준으로 최신순으로 정렬
         sortChat.sort((a, b) => {
-            let aTemp = a.recentDate.split(':').map(Number);
-            let bTemp = b.recentDate.split(':').map(Number);
+            const aDay = String(a.recentDate.split('T')[0]).split('-').join('');
+            const aHour = String(a.recentDate.split('T')[1]).split(':')[0];
+            const aMin = String(a.recentDate.split('T')[1]).split(':')[1];
+            const aSec = String(a.recentDate.split('T')[1]).split(':')[2].split('.')[0];
+            const aTemp = Number(aDay + aHour + aMin + aSec);
             
-            // 시간이 다르면 시간으로 내림차순
-            if(aTemp[0] !== bTemp[0]) return bTemp[0] - aTemp[0];
-            // 시간이 같으면 분으로 내림차순
-            else return bTemp[1] - aTemp[1];
+            const bDay = String(b.recentDate.split('T')[0]).split('-').join('');
+            const bHour = String(b.recentDate.split('T')[1]).split(':')[0];
+            const bMin = String(b.recentDate.split('T')[1]).split(':')[1];
+            const bSec = String(b.recentDate.split('T')[1]).split(':')[2].split('.')[0];
+            const bTemp = Number(bDay + bHour + bMin + bSec);
+
+            return bTemp - aTemp;
         })
 
         // 정렬된 배열을 순회하며 반환할 배열에 저장
