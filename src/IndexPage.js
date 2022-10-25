@@ -8,7 +8,8 @@ function IndexPage() {
     navigate(`/taxi-login`);
   }
   const gotoBSD = () => {
-    navigate(`/bsd/main`);
+    alert('서비스 준비 중 입니다.');
+    // navigate(`/bsd/main`);
   }
 
   return (
