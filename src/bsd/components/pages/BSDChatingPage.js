@@ -120,7 +120,7 @@ const BSDChatingPage = () => {
             chatlist.push(
                 <div key={i} className="chatRoom" onClick={()=>openChatRoom(sortChat[i].chatGroup)}>
                     <div>
-                        님
+                        {sortChat[i].chatGroup}
                     </div>
                     <div>
                         <div>
@@ -140,7 +140,7 @@ const BSDChatingPage = () => {
     return (
         <div className='BSDChatingPage'>
             <div className='bsd_chat_header'>
-                채팅 정보
+                채팅
             </div>
 
             <div className='bsd_chat_body'>
