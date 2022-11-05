@@ -70,6 +70,13 @@ const BSDChatingPage = () => {
             // 채팅방 썸네일을 위해 채팅 기록을 저장
             let tempChat = chatData[myGroup[i]];
 
+            // 채팅 데이터 확인
+            if(!tempChat)
+            {
+                if(myGroup.length === 0) { return "채팅이 없습니다!" }
+                else { return; }
+            }
+
             // 채팅방 최근 채팅을 출력하기 위헤 정렬
             tempChat.sort((a,b)=>{
                 const aDay = String(a.date.split('T')[0]).split('-').join('');
@@ -85,7 +92,7 @@ const BSDChatingPage = () => {
                 const bDate = Number(bDay + bHour + bMin + bSec);
     
                 return aDate - bDate;
-            })
+            });
 
             // 각 채팅방 최근 채팅을 저장
             sortChat.push(
@@ -116,7 +123,7 @@ const BSDChatingPage = () => {
 
         // 정렬된 배열을 순회하며 반환할 배열에 저장
         for (let i = 0; i < sortChat.length; i++) {
-            console.log(sortChat[i]);
+            
             chatlist.push(
                 <div key={i} className="chatRoom" onClick={()=>openChatRoom(sortChat[i].chatGroup)}>
                     <div>
@@ -140,7 +147,7 @@ const BSDChatingPage = () => {
     return (
         <div className='BSDChatingPage'>
             <div className='bsd_chat_header'>
-                채팅
+                채팅 목록
             </div>
 
             <div className='bsd_chat_body'>
