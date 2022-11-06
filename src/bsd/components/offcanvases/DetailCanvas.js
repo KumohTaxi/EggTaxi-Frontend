@@ -33,7 +33,7 @@ const DetailCanvas = ({ show, onHide, itemInfo }) => {
     }
 
     return (
-        <Offcanvas show={show} onHide={onHide} placement='bottom' style={{ borderRadius: "20px 20px 0 0", height: "90%" }}>
+        <Offcanvas show={show} onHide={onHide} placement='bottom' style={{ borderRadius: "20px 20px 0 0", height: "90%", maxWidth: "500px"}}>
             <Offcanvas.Body style={{
                 width: "100%", height: "100%",
                 display: 'flex', flexDirection: 'column'
@@ -43,7 +43,7 @@ const DetailCanvas = ({ show, onHide, itemInfo }) => {
                 </div>
                 <div id="bsd_detail_body">
                     <div>
-                        {/* <img /> */}
+                        <img src={showDetail.imgSrc} alt='img'/>
                         <div>
                             <div>
                                 {showDetail.name}
@@ -55,18 +55,21 @@ const DetailCanvas = ({ show, onHide, itemInfo }) => {
                     </div>
                     <div>
                         <div>
-                            {showDetail.registrant}
+                            <div>등록자</div>
+                            <div>{showDetail.registrant}</div>
                         </div>
                         <div>
-                            {showDetail.address}
+                            <div>주소</div>
+                            <div>{showDetail.address}</div>
                         </div>
                         <div>
-                            {showDetail.comment}
+                            <div>comment</div>
+                            <div>{showDetail.comment}</div>
                         </div>
                     </div>
-                    <div id="bsd_detail_bottom">
-                        {showDetailBottom()}
-                    </div>
+                </div>
+                <div id="bsd_detail_bottom">
+                    {showDetailBottom()}
                 </div>
             </Offcanvas.Body>
         </Offcanvas>
