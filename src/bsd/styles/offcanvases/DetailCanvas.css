@@ -1,12 +1,14 @@
 #bsd_detail_top{
-    margin-bottom: 10px;
     display: flex;
     justify-content: center;
     font-size: 15px;
     font-weight: 700;
     color: #376791;
+    height: 60px;
+    background-color: red;
 }
 #bsd_detail_body{
+    height: 100%;
     flex-grow: 1;
     overflow-y: scroll;
 }
@@ -14,6 +16,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 80px;
+    background-color: red;
 }
 #bsd_detail_bottom > button {
     width: 200px;
