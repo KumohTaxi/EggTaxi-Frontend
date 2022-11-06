@@ -73,10 +73,9 @@ const RedirectionHandler = () => {
                     navigate(`/main`);
                     alert('맵을 터치하여 그룹을 생성해 보세요!');
                 }
-
             }
         })
-        .catch(()=>{
+        .catch((err)=>{
             alert("로그인에 실패하였습니다.");
             localStorage.getItem('login_page') === 'bsd'?navigate(`/bsd/main`):navigate(`/taxi-login`);
             localStorage.removeItem('login_page');
