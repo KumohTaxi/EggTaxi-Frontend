@@ -21,6 +21,13 @@
     justify-content: center;
     align-items: center;
 }
+.bsd_main_box{
+    box-shadow: 0px 0px 10px 1px rgb(214, 214, 214);
+    transition: all 0.2s linear;
+}
+.bsd_main_box:hover{
+    transform: scale(1.02);
+}
 .main_body > div{
     position: relative;
     top: -50px;
