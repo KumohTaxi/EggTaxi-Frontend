@@ -52,7 +52,7 @@ const DetailCanvas = ({ show, onHide, itemInfo, isFind }) => {
             if(window.confirm(`입력하신 답이 "${answer}"이 맞나요?\n\n해당 답변은 수정이 어렵습니다.\n신중하게 답해주세요.`)){
                 axios.post(`${process.env.REACT_APP_PROXY}/room`,{
                     accessToken: localStorage.getItem('access_token'),
-                    atcId: itemInfo.atcId,
+                    itemId: itemInfo.itemId,
                     answer: answer
                 })
                     .then((res) => {
