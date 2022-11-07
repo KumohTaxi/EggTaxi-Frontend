@@ -20,6 +20,17 @@ const GoogleMap = ({ isFind, isUseData }) => {
     });
     let itemMarkers = [];
     let latList = [];
+    let markerCircles = [];
+
+    const deleteCircle = () => {
+      markerCircles.forEach(circle=>{
+        circle.setMap(null);
+      });
+    }
+
+    map.addListener('click', ()=>{
+      deleteCircle();
+    })
 
     const checkLatLng = (latlng) => {
       let tempLat = latlng.lat;
@@ -55,11 +66,27 @@ const GoogleMap = ({ isFind, isUseData }) => {
       new MarkerClusterer({ markers: itemMarkers, map: map });
     }
 
+    const createCircle = (radius, latlng) => {
+      const CENTER = latlng;
+      const circle = new google.maps.Circle({
+        strokeColor: "#FF0000",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: "#FF0000",
+        fillOpacity: 0.35,
+        map,
+        center: CENTER,
+        radius: radius,
+      });
+      markerCircles.push(circle);
+    }
+
     const conversionAddress = async (x, i, map) => {
       const geocoder = new google.maps.Geocoder();
       let tempAddress = x.address;
 
-      const latlng = await geocoder.geocode({ 'address': tempAddress })
+      const latlng = x.latlng.lat !== null ? {...x.latlng} 
+        :await geocoder.geocode({ 'address': tempAddress })
         .then((res) => {
           if (res.results.length > 1) {
             let tempAry = tempAddress.split(' ');
@@ -82,6 +109,8 @@ const GoogleMap = ({ isFind, isUseData }) => {
         marker.addListener('click', () => {
           setDetailData(x);
           setDetail(true);
+          deleteCircle();
+          if(x.radius) createCircle(x.radius, latlng);
         });
         itemMarkers.push(marker);
       }
@@ -96,7 +125,7 @@ const GoogleMap = ({ isFind, isUseData }) => {
             setLoading(false);
             setMarkerClusterer(map);
           } 
-        }, 600 * i);
+        }, 100 * i);
         return x;
       })
     }
