@@ -45,7 +45,8 @@ const BSDMapPage = () => {
                         radius: x.radius,
                         latlng: {lat: x.lat, lng: x.lng},
                         status: x.status,
-                        foundOrder: x.foundOrder
+                        foundOrder: x.foundOrder,
+                        itemId : x.itemId
                     };
                     tempList.push(temp);
                     return x;
