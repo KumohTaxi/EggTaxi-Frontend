@@ -102,10 +102,19 @@ const BSDChatRoomPage=()=>{
         }
     }
 
+    const recoveryProcess = () => {
+        if(window.confirm('해당 내역을 회수처리 하시겠습니까?\n\n※ 회수처리 하더라도 잘못된 회수를 방지하기 위해 한달간 기록이 유지됩니다.')){
+
+        }
+    }
+
     return(
         <div className='BSDChatRoomPage'>
             <div className='bsd_chatroom_header'>
                 채팅
+                <button onClick={()=>recoveryProcess()}>
+                    <div></div><div></div><div></div>
+                </button>
             </div>
             <div className='bsd_chatroom_body'>
                 <div className='bsd_chatroom_body_div'>

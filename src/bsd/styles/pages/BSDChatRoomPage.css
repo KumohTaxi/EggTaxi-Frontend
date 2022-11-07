@@ -14,6 +14,22 @@
     justify-content: center;
     align-items: center;
 }
+.bsd_chatroom_header > button {
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 5px;
+}
+.bsd_chatroom_header > button > div{
+    background-color: #396992;
+    width: 6px;
+    height: 6px;
+    margin: 1.8px;
+    border-radius: 4px;
+}
 .bsd_chatroom_body{
     flex-grow: 1;
     display: flex;

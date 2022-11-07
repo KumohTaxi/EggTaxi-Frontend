@@ -19,9 +19,10 @@ const RegistrationForm=()=>{
         date: {
             year: todayDate.getFullYear(),
             month: todayDate.getMonth() + 1,
-            day: todayDate.getDate(),
+            day: todayDate.getDate() < 10?'0' + todayDate.getDate():todayDate.getDate(),
         },
         address: ' ',
+        radius: ' ',
         latlng: '',
         text: ' '
     });
@@ -42,7 +43,7 @@ const RegistrationForm=()=>{
                 })
             }
         }
-    },[showMapCanvas, isData])
+    },[showMapCanvas])
 
     const [isFindTitle] = useState({
         0: ['습득물 이름', true],
@@ -50,7 +51,8 @@ const RegistrationForm=()=>{
         2: ['카테고리', true],
         3: ['습득 일시', true],
         4: ['습득 장소', true],
-        5: ['습득물에 대한 질문', true]
+        5: ['습득 반경', false],
+        6: ['습득물에 대한 질문', true]
     })
     const [isLostTitle] = useState({
         0: ['분실물 이름', true],
@@ -58,7 +60,8 @@ const RegistrationForm=()=>{
         2: ['카테고리', true],
         3: ['분실 일시', true],
         4: ['분실 장소', true],
-        5: ['전하는 말', false],
+        5: ['분실 반경', false],
+        6: ['전하는 말', false],
     })
 
     const handleImageUpload = (e) => {
@@ -104,7 +107,7 @@ const RegistrationForm=()=>{
     }
 
     const setDate = (e, state) => {
-        setIsData({...isData, date: {...isData.date, [state]: e.target.value}})
+        setIsData({...isData, date: {...isData.date, [state]: e.target.value < 10?'0'+e.target.value:e.target.value}})
     }
 
     const showAddress = () =>{
@@ -124,15 +127,18 @@ const RegistrationForm=()=>{
             lostDate: [isData.date.year, isData.date.month, isData.date.day].join('-'),
             lat: isData.latlng.lat,
             lng: isData.latlng.lng,
-            comment: isData.text
+            comment: isData.text,
+            radius: isData.radius,
+            accessToken: localStorage.getItem('access_token')
         }
+        console.log(jsonData);
 
         let form_data = new FormData();
         form_data.append("img", images[0]);
         form_data.append("itemReqDto", new Blob([JSON.stringify(jsonData)],{
             type: 'application/json'
         }));
-
+        console.log(form_data);
         axios.post(`${process.env.REACT_APP_PROXY}/item`, form_data,
         {
             headers: {
@@ -144,6 +150,7 @@ const RegistrationForm=()=>{
             navi(`/bsd/main`);
         })
         .catch((err)=>{
+            console.log(isData);
             alert('등록에 실패하였습니다. 다시 시도하여 주세요.');
         })
     }
@@ -166,7 +173,7 @@ const RegistrationForm=()=>{
                         <div>
                             {isData['imageSrc'] !== ''
                             ?<><img src={isData['imageSrc']} alt='이미지'/><button onClick={()=>{removeImage()}}>X</button></>
-                            :<img alt='이미지'/>}
+                            :<img src='/icons/bsd_null.png' alt='이미지'/>}
 
                             {isData['imageFile'] !== ''
                             ?<div>{isData['imageFile'][0].name}</div>
@@ -219,6 +226,20 @@ const RegistrationForm=()=>{
                 </div>
                 <div>
                     {checkSubTitle(5)}
+                    <div className='form_radius_content'>
+                        <div>
+                            위치가 모호하다면 반경을 정해보세요.
+                        </div>
+                        <select onChange={(e)=>setIsData({...isData, radius: e.target.value})}>
+                            <option value=""> ---- 선택 ---- </option>
+                            <option value="50">50m</option>
+                            <option value="100">100m</option>
+                            <option value="150">150m</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    {checkSubTitle(6)}
                     <div className='form_text_content'>
                         <textarea placeholder={state==='find'
                         ?'허위 분실자를 판단하기 위해, 분실물에 대한 질문을 작성해주세요.\nex) 스크레치의 위치는 어디에 있나요?'

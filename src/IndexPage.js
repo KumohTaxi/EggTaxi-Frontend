@@ -18,10 +18,10 @@ function IndexPage() {
       </div>
       <div className='index_body'>
         <div>
-          <div onClick={()=>gotoTaxi()}><div>EGG</div><div>TAXI</div></div>
+          <div className='bsd_main_box' onClick={()=>gotoTaxi()}><div>EGG</div><div>TAXI</div></div>
           <div/>
           <div/>
-          <div onClick={()=>gotoBSD()}>분습당</div>
+          <div className='bsd_main_box' onClick={()=>gotoBSD()}>분습당</div>
         </div>
       </div>
       <div className='index_footer'>

@@ -120,13 +120,20 @@
     display: flex;
     justify-content: flex-end;
 }
-.form_category_content > input{
-    width: 40%;
-    border: none;
-    border-bottom: 1px solid #396992;
-    outline: none;
-}
 .form_category_content > select{
+    outline: none;
+    width: 150px;
+    height: 35px;
+    border-radius: 8px;
+    border: 1px solid #396992;
+}
+.form_radius_content{
+    color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.form_radius_content > select{
     outline: none;
     width: 150px;
     height: 35px;
@@ -152,7 +159,6 @@
     font-size: 15px;
 }
 .form_location_content{
-    font-size: 14px;
     color: gray;
 }
 .form_text_content > textarea{
