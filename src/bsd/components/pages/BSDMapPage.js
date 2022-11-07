@@ -29,6 +29,7 @@ const BSDMapPage = () => {
     useEffect(() => {
         const setIsItems = (isItems) => {
             let tempList = [];
+            console.log(isItems);
             if (isItems.length > 0) {
                 isItems.map(x => {
                     const tempCategory = x.category.split(' ')[0];
@@ -38,7 +39,13 @@ const BSDMapPage = () => {
                         imgSrc: x.img,
                         address: x.location,
                         date: x.lostDate,
-                        name: x.name
+                        name: x.name,
+                        comment: x.comment,
+                        id: x.identityNum,
+                        radius: x.radius,
+                        latlng: {lat: x.lat, lng: x.lng},
+                        status: x.status,
+                        foundOrder: x.foundOrder
                     };
                     tempList.push(temp);
                     return x;
@@ -50,9 +57,17 @@ const BSDMapPage = () => {
 
         const status = isFind ? 'ACQUIRE' : 'LOST';
 
+        const addressFilter = (data) => {
+            const tempData = data.filter(x=>{
+                const xList = x.location.split(' ')
+                if(xList.includes('양포동') || xList.includes('거의동') || xList.includes('옥계동')) return x;
+            })
+            setIsItems(tempData);
+        }
+
         axios.get(`${process.env.REACT_APP_PROXY}/item?location=구미시&status=${status}`)
             .then((res) => {
-                setIsItems(res.data);
+                addressFilter(res.data);
             })
             .catch((err) => {
                 alert('데이터를 불러오지 못했습니다. 새로고침을 해보세요.');

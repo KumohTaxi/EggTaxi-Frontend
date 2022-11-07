@@ -21,6 +21,7 @@ const SearchList = ({ isFind, isUseData }) => {
                 show={detail}
                 onHide={() => setDetail(false)}
                 itemInfo={detailData}
+                isFind = {isFind}
             />
         </>
     )
